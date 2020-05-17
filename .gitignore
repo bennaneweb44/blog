@@ -16,4 +16,4 @@ sites/*/private
 sites/simpletest
 
 # Ignore sites/default
-/web/sites/default/
+sites/default/ 
