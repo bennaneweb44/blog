@@ -17,3 +17,4 @@ sites/simpletest
 
 # Ignore sites/default
 sites/default/ 
+/example.gitignore
