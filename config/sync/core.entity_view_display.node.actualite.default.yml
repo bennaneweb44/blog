@@ -1,0 +1,20 @@
+uuid: bf7801f3-fcb5-4c0a-b5e7-8cbf36685628
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.actualite
+  module:
+    - user
+id: node.actualite.default
+targetEntityType: node
+bundle: actualite
+mode: default
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
