@@ -1,0 +1,14 @@
+uuid: ec4e318a-d661-406b-b274-ce42e4b28d4a
+name: BBW
+mail: blog@bennaneweb.fr
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: fr
+default_langcode: fr
+_core:
+  default_config_hash: yTxtFqBHnEWxQswuWvkjE8mKw2t8oKuCL1q8KnfHuGE
