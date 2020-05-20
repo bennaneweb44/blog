@@ -1,0 +1,13 @@
+uuid: d7047408-e236-4075-b248-d3e54ae5e9d9
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: LhdsoZPL_pFas2fjaAWue4zvrQ_tEVofLYtcNec-JGM
+id: node_save_action
+label: 'Enregistrer un contenu'
+type: node
+plugin: 'entity:save_action:node'
+configuration: {  }

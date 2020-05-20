@@ -1,0 +1,22 @@
+uuid: a56a8e39-6509-4ac1-87d4-316f18b396ea
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - restaurant_zymphonies_theme
+_core:
+  default_config_hash: w97TydNqzgMBpW7469-EipvQ8rl2LEQBP6zftU1PC7I
+id: restaurant_zymphonies_theme_powered
+theme: restaurant_zymphonies_theme
+region: auto_hidden_block
+weight: -10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

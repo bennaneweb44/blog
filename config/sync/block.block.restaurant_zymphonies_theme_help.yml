@@ -1,0 +1,22 @@
+uuid: 0bcb54a5-6d37-46a0-8b0f-701be6653dae
+langcode: fr
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - restaurant_zymphonies_theme
+_core:
+  default_config_hash: DzMFvTarIQskts1FOuXWldIWmMp1W5CPwrmb8bqJDIs
+id: restaurant_zymphonies_theme_help
+theme: restaurant_zymphonies_theme
+region: highlighted
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }
