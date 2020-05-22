@@ -1,0 +1,8 @@
+uuid: b7fc6555-827e-432c-b695-234d37537b01
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Type d''actualité'
+vid: type_d_actualite
+description: 'Classe les actualités par zone géographique'
+weight: 0

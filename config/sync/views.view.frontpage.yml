@@ -58,9 +58,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
           empty: true
-          title: 'Bienvenue sur [site:name]'
+          title: 'Blog by BennaneWeb'
+          label: ''
           plugin_id: title
       exposed_form:
         type: basic

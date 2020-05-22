@@ -1,0 +1,11 @@
+uuid: dd6241e6-156d-4f19-85b0-df541685ae94
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.type_d_actualite
+id: taxonomy_term.type_d_actualite
+target_entity_type_id: taxonomy_term
+target_bundle: type_d_actualite
+default_langcode: site_default
+language_alterable: false
