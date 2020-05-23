@@ -3,14 +3,127 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - field.field.node.actualite.field_chapeau
+    - field.field.node.actualite.field_contenu
+    - field.field.node.actualite.field_date_actualite
+    - field.field.node.actualite.field_image_contenu
+    - field.field.node.actualite.field_image_miniature
+    - field.field.node.actualite.field_image_slider
+    - field.field.node.actualite.field_liens_utiles
+    - field.field.node.actualite.field_lieu_actualite
+    - field.field.node.actualite.field_source
+    - field.field.node.actualite.field_type
+    - field.field.node.actualite.field_video_youtube
     - node.type.actualite
   module:
+    - datetime
+    - entity_reference_revisions
+    - image
+    - text
     - user
+    - youtube
 id: node.actualite.default
 targetEntityType: node
 bundle: actualite
 mode: default
 content:
+  field_chapeau:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_contenu:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_date_actualite:
+    weight: 108
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_image_contenu:
+    weight: 106
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_miniature:
+    weight: 104
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_slider:
+    weight: 105
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_liens_utiles:
+    weight: 111
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_lieu_actualite:
+    weight: 109
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_source:
+    weight: 110
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_type:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_video_youtube:
+    weight: 107
+    label: above
+    settings:
+      youtube_size: 450x315
+      youtube_width: ''
+      youtube_height: ''
+      youtube_autoplay: false
+      youtube_mute: false
+      youtube_loop: false
+      youtube_controls: false
+      youtube_autohide: false
+      youtube_iv_load_policy: false
+    third_party_settings: {  }
+    type: youtube_video
+    region: content
   links:
     weight: 100
     settings: {  }

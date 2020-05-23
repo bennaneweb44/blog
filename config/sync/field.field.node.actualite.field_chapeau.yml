@@ -1,0 +1,21 @@
+uuid: 764311dd-e42d-4df3-b7bb-23cd95bb8b34
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chapeau
+    - node.type.actualite
+  module:
+    - text
+id: node.actualite.field_chapeau
+field_name: field_chapeau
+entity_type: node
+bundle: actualite
+label: Chapeau
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

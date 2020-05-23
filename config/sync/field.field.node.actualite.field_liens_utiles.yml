@@ -1,0 +1,21 @@
+uuid: 8bd55b98-eb90-4dbc-9dbb-e5240d3e45aa
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_liens_utiles
+    - node.type.actualite
+  module:
+    - text
+id: node.actualite.field_liens_utiles
+field_name: field_liens_utiles
+entity_type: node
+bundle: actualite
+label: 'Liens utiles'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

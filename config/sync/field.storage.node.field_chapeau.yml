@@ -1,0 +1,19 @@
+uuid: 25e33ee9-594b-42fd-b3de-32d86cbdd76e
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_chapeau
+field_name: field_chapeau
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

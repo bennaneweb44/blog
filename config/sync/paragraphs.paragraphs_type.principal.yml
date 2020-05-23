@@ -1,0 +1,10 @@
+uuid: 86c47adb-85d4-4a60-ab69-dfb577bcf14e
+langcode: fr
+status: true
+dependencies: {  }
+id: principal
+label: Principal
+icon_uuid: null
+icon_default: null
+description: 'Le type de paragraphe principal, minimum un paragraphe.'
+behavior_plugins: {  }

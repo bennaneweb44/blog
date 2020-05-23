@@ -1,0 +1,30 @@
+uuid: 4f3de15d-cdcc-47e5-9922-f14fd5c846f3
+langcode: fr
+status: true
+dependencies:
+  module:
+    - file
+    - image
+    - node
+id: node.field_image_miniature
+field_name: field_image_miniature
+entity_type: node
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: 13c0fa3d-187b-4120-863c-f787d3b4009a
+    alt: ''
+    title: ''
+    width: 6016
+    height: 4016
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

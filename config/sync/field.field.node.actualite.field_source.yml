@@ -1,0 +1,24 @@
+uuid: 3b5afc9b-99ef-4963-81d6-b2d9daf2be61
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.actualite
+  module:
+    - text
+id: node.actualite.field_source
+field_name: field_source
+entity_type: node
+bundle: actualite
+label: Source
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: BBW
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text

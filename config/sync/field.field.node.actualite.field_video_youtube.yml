@@ -1,0 +1,21 @@
+uuid: fc0daa95-57ee-4ad0-a083-381baeac45af
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_youtube
+    - node.type.actualite
+  module:
+    - youtube
+id: node.actualite.field_video_youtube
+field_name: field_video_youtube
+entity_type: node
+bundle: actualite
+label: 'Vidéo Youtube'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: youtube

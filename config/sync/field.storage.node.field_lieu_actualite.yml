@@ -1,0 +1,20 @@
+uuid: ff6765da-b56a-45f7-95c8-9745ff968f82
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_lieu_actualite
+field_name: field_lieu_actualite
+entity_type: node
+type: text
+settings:
+  max_length: 255
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

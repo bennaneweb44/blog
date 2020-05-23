@@ -4,6 +4,17 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.actualite.field_chapeau
+    - field.field.node.actualite.field_contenu
+    - field.field.node.actualite.field_date_actualite
+    - field.field.node.actualite.field_image_contenu
+    - field.field.node.actualite.field_image_miniature
+    - field.field.node.actualite.field_image_slider
+    - field.field.node.actualite.field_liens_utiles
+    - field.field.node.actualite.field_lieu_actualite
+    - field.field.node.actualite.field_source
+    - field.field.node.actualite.field_type
+    - field.field.node.actualite.field_video_youtube
     - node.type.actualite
   module:
     - user
@@ -18,4 +29,15 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_chapeau: true
+  field_contenu: true
+  field_date_actualite: true
+  field_image_contenu: true
+  field_image_miniature: true
+  field_image_slider: true
+  field_liens_utiles: true
+  field_lieu_actualite: true
+  field_source: true
+  field_type: true
+  field_video_youtube: true
   langcode: true

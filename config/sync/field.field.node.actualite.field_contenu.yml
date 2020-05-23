@@ -1,0 +1,31 @@
+uuid: 84364dab-1c99-426c-8f2f-ad99087c5b76
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contenu
+    - node.type.actualite
+    - paragraphs.paragraphs_type.principal
+  module:
+    - entity_reference_revisions
+id: node.actualite.field_contenu
+field_name: field_contenu
+entity_type: node
+bundle: actualite
+label: Contenu
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      principal: principal
+    target_bundles_drag_drop:
+      principal:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions
