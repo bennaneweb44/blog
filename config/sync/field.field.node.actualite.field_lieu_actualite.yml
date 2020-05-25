@@ -1,0 +1,19 @@
+uuid: 11c36ee9-ee52-449c-b9cd-34f4ebc8ac27
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lieu_actualite
+    - node.type.actualite
+id: node.actualite.field_lieu_actualite
+field_name: field_lieu_actualite
+entity_type: node
+bundle: actualite
+label: 'Lieu actualité'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
