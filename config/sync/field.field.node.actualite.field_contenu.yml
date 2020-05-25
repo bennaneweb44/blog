@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_contenu
     - node.type.actualite
-    - paragraphs.paragraphs_type.principal
   module:
     - entity_reference_revisions
 id: node.actualite.field_contenu
@@ -22,10 +21,9 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles:
-      principal: principal
+    target_bundles: null
     target_bundles_drag_drop:
       principal:
-        enabled: true
         weight: 2
+        enabled: false
 field_type: entity_reference_revisions
