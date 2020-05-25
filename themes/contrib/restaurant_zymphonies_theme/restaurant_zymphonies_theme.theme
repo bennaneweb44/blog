@@ -92,8 +92,7 @@ function restaurant_zymphonies_theme_preprocess_page(&$variables) {
   //To get the current url
   $current_url  = \Drupal::request()->getRequestUri();
   $current_path = explode("/", $current_url);
-  $variables['current_path'] = $current_path[2];
-  
+  $variables['current_path'] = isset($current_path[2]) ? $current_path[2] : '/';
   // Slider
   // Asign Variable for Slider
   if ($variables['is_front']) {
@@ -220,7 +219,7 @@ function restaurant_zymphonies_theme_form_system_theme_settings_alter(&$form, \D
     '#default_value' => theme_get_setting('show_credit_link'),
     '#description'   => t("Highly recomend to display credit in footer"),
   );
-  //Slide show config 
+  //Slide show config
   $form['restaurant_zymphonies_theme_settings']['slideshow'] = array(
     '#type' => 'details',
     '#title' => t('Front Page Slideshow'),
@@ -265,7 +264,7 @@ function restaurant_zymphonies_theme_form_system_theme_settings_alter(&$form, \D
       '#type' => 'textarea',
       '#title' => t('Slide '.$i.' Description'),
       '#default_value' => theme_get_setting('slide_description_' . $i,'restaurant_zymphonies_theme'),
-    );    
+    );
     $form['restaurant_zymphonies_theme_settings']['slideshow']['slide' . $i]['slide_url_' . $i] = array(
       '#type' => 'textfield',
       '#title' => t('Slide '.$i.' URL'),

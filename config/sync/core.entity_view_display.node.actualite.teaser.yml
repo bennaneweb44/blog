@@ -10,9 +10,6 @@ dependencies:
     - field.field.node.actualite.field_image_contenu
     - field.field.node.actualite.field_image_miniature
     - field.field.node.actualite.field_image_slider
-    - field.field.node.actualite.field_liens_utiles
-    - field.field.node.actualite.field_lieu_actualite
-    - field.field.node.actualite.field_source
     - field.field.node.actualite.field_type
     - field.field.node.actualite.field_video_youtube
     - node.type.actualite
@@ -35,9 +32,6 @@ hidden:
   field_image_contenu: true
   field_image_miniature: true
   field_image_slider: true
-  field_liens_utiles: true
-  field_lieu_actualite: true
-  field_source: true
   field_type: true
   field_video_youtube: true
   langcode: true
