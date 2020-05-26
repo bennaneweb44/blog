@@ -1,0 +1,36 @@
+uuid: e7059909-85b4-4021-bb05-0f1061578f2d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.principal.field_image_wysiwyg
+    - field.field.paragraph.principal.field_texte_wysiwyg
+    - image.style.medium
+    - paragraphs.paragraphs_type.principal
+  module:
+    - image
+    - text
+id: paragraph.principal.default
+targetEntityType: paragraph
+bundle: principal
+mode: default
+content:
+  field_image_wysiwyg:
+    weight: 0
+    settings:
+      preview_image_style: medium
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_texte_wysiwyg:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
