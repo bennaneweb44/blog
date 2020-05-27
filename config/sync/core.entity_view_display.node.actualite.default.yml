@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.actualite.field_liens_utiles
     - field.field.node.actualite.field_lieu_actualite
     - field.field.node.actualite.field_source
-    - field.field.node.actualite.field_titre_actualite
     - field.field.node.actualite.field_type
     - field.field.node.actualite.field_video_youtube
     - node.type.actualite
@@ -98,14 +97,6 @@ content:
     region: content
   field_source:
     weight: 10
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_titre_actualite:
-    weight: 0
     label: above
     settings:
       link_to_entity: false

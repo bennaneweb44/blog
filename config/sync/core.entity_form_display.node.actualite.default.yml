@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.actualite.field_liens_utiles
     - field.field.node.actualite.field_lieu_actualite
     - field.field.node.actualite.field_source
-    - field.field.node.actualite.field_titre_actualite
     - field.field.node.actualite.field_type
     - field.field.node.actualite.field_video_youtube
     - image.style.thumbnail
@@ -31,12 +30,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   field_chapeau:
-    weight: 1
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -45,7 +44,7 @@ content:
     region: content
   field_contenu:
     type: entity_reference_paragraphs
-    weight: 2
+    weight: 3
     settings:
       title: Paragraphe
       title_plural: Paragraphs
@@ -56,13 +55,13 @@ content:
     third_party_settings: {  }
     region: content
   field_date_actualite:
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   field_image_contenu:
-    weight: 6
+    weight: 7
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -70,14 +69,6 @@ content:
     type: image_image
     region: content
   field_image_miniature:
-    weight: 4
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    type: image_image
-    region: content
-  field_image_slider:
     weight: 5
     settings:
       progress_indicator: throbber
@@ -85,8 +76,16 @@ content:
     third_party_settings: {  }
     type: image_image
     region: content
+  field_image_slider:
+    weight: 6
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_liens_utiles:
-    weight: 11
+    weight: 12
     settings:
       size: 60
       placeholder: ''
@@ -94,14 +93,6 @@ content:
     type: string_textfield
     region: content
   field_lieu_actualite:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_source:
     weight: 10
     settings:
       size: 60
@@ -109,8 +100,8 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_titre_actualite:
-    weight: 0
+  field_source:
+    weight: 11
     settings:
       size: 60
       placeholder: ''
@@ -118,13 +109,13 @@ content:
     type: string_textfield
     region: content
   field_type:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_video_youtube:
-    weight: 7
+    weight: 8
     settings:
       placeholder_url: ''
     third_party_settings: {  }
@@ -132,14 +123,14 @@ content:
     region: content
   langcode:
     type: language_select
-    weight: 15
+    weight: 16
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   path:
     type: path
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -147,26 +138,34 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 17
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 13
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 17
+    weight: 18
     region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 256
+      placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 14
     settings:
       match_operator: CONTAINS
       size: 60
@@ -174,5 +173,4 @@ content:
       match_limit: 10
     region: content
     third_party_settings: {  }
-hidden:
-  title: true
+hidden: {  }
