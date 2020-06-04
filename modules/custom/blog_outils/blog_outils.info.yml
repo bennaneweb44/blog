@@ -1,0 +1,5 @@
+name: BLOG Outils
+type: module
+description: Module spécifique pour les classes des outils internes au blog.
+package: Custom
+core: 8.x

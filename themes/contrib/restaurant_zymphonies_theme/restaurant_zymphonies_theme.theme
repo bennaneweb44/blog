@@ -5,15 +5,9 @@
  * Contains theme override functions and preprocess functions
  */
 
-use Drupal\Core\Template\RenderWrapper;
-use Drupal\Core\Template\Attribute;
-use Drupal\search\Form\SearchBlockForm;
-use Drupal\Component\Utility\SafeMarkup;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\system\Form\ThemeSettingsForm;
 use Drupal\file\Entity\File;
-use Drupal\Core\Url;
-use Drupal\file\Plugin\Core\Entity\FileInterface;
+use Drupal\node\Entity\Node;
+use Drupal\blog_outils\Libraries\Outils;
 
 /**
  * Implements hook_preprocess_page() for block templates.
@@ -128,22 +122,57 @@ function restaurant_zymphonies_theme_preprocess_menu(&$variables, $hook) {
  */
 function restaurant_zymphonies_theme_get_slider_content() {
   $slider_content = array();
-  for ($i = 1; $i <= theme_get_setting('no_of_slides'); $i++) {
-    $fid = theme_get_setting('slide_image_path'.$i,'restaurant_zymphonies_theme');
-    if (!empty($fid)) {
-      $file = file_load($fid[0]);
-      $uri = $file->getFileUri();
-      $path = file_create_url($uri);
+
+  $nids = Drupal::entityQuery('node')
+          ->condition('type','actualite')
+          ->range(null, 3)
+          ->sort('field_date_actualite',  'DESC')
+          ->execute();
+
+  $nodes =  Node::loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+
+    /************************************************ Image de fond ***************************************************/
+    $path_definition = $node->get('field_image_slider')->getValue();
+
+    if (!$path_definition) {
+      $path_definition = $node->get('field_image_contenu')->getValue();
+
+      if (!$path_definition) {
+        $path_definition = $node->get('field_image_miniature')->getValue();
+      }
     }
-    else {
-      $path = base_path() . drupal_get_path('theme', 'restaurant_zymphonies_theme') . theme_get_setting('slide_image_path_' . $i, 'restaurant_zymphonies_theme');
+
+    $fid = $path_definition[0]['target_id'];
+    $file = File::load($fid);
+
+    $path = '';
+    if ($file instanceof File) {
+      $path = $file->url();
     }
-    $slider_content[$i] = '<li>
-      <img src="' . $path . '" alt="Slider Banner" />
+
+    /**************************************************** Titre *******************************************************/
+    $title = $node->getTitle();
+
+    /*************************************************** Chapeau ******************************************************/
+    $chapeau_definition = $node->get('field_chapeau')->getValue();
+    $chapeau = '';
+    if ($chapeau_definition) {
+      $chapeau = $chapeau_definition[0]['value'];
+
+      // 300 characters max
+      $chapeau = Outils::tronque(htmlspecialchars_decode($chapeau), 630);
+    }
+
+    /***************************************************** Lien *******************************************************/
+    $lien = '';
+    $slider_content[] = '<li>
+      <img src="' . $path . '" alt="Bannière du slider" />
       <div class="slider-caption">
-        <h2 class="slider-title">' . theme_get_setting('slide_title_' . $i, 'restaurant_zymphonies_theme').'</h2>
-        <div class="clearfix"><p class="slider-description">' . theme_get_setting('slide_description_' . $i, 'restaurant_zymphonies_theme').'</p></div>
-        <a href=' . theme_get_setting('slide_url_' . $i, 'restaurant_zymphonies_theme') . ' class="more-link">Read more</a>
+        <h2 class="slider-title">' . $title .'</h2>
+        <div class="clearfix"><p class="slider-description">' . $chapeau . '</p></div>
+        <a href="'.$lien.'" class="more-link">Lire la suite</a>
       </div>
     </li>';
   }
