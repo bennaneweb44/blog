@@ -1,15 +1,15 @@
-uuid: 11c36ee9-ee52-449c-b9cd-34f4ebc8ac27
+uuid: d0e2859b-3b0f-41b7-a64b-ec6cd1db7231
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_lieu_actualite
+    - field.storage.node.field_ville_actualite
     - node.type.actualite
-id: node.actualite.field_lieu_actualite
-field_name: field_lieu_actualite
+id: node.actualite.field_ville_actualite
+field_name: field_ville_actualite
 entity_type: node
 bundle: actualite
-label: 'Lieu actualité'
+label: 'Ville actualité'
 description: ''
 required: false
 translatable: false

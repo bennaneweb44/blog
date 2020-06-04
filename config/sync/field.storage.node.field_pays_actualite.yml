@@ -1,11 +1,11 @@
-uuid: b36602ea-00e5-4c98-a8f5-2d4ffd171ce7
+uuid: d0a2078b-ee9b-4e23-89a4-0a216bc6d494
 langcode: fr
 status: true
 dependencies:
   module:
     - node
-id: node.field_lieu_actualite
-field_name: field_lieu_actualite
+id: node.field_pays_actualite
+field_name: field_pays_actualite
 entity_type: node
 type: string
 settings:
@@ -14,7 +14,7 @@ settings:
   case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

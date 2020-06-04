@@ -1,19 +1,19 @@
-uuid: ea15b03b-8eba-4b30-a4fe-84e6f248c979
+uuid: 5b81c50e-9599-46af-bb09-928eaad3bd0c
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_chapeau
+    - field.storage.node.field_pays_actualite
     - node.type.actualite
-id: node.actualite.field_chapeau
-field_name: field_chapeau
+id: node.actualite.field_pays_actualite
+field_name: field_pays_actualite
 entity_type: node
 bundle: actualite
-label: Chapeau
+label: 'Pays actualité'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string_long
+field_type: string

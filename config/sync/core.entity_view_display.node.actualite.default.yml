@@ -10,16 +10,16 @@ dependencies:
     - field.field.node.actualite.field_image_miniature
     - field.field.node.actualite.field_image_slider
     - field.field.node.actualite.field_liens_utiles
-    - field.field.node.actualite.field_lieu_actualite
+    - field.field.node.actualite.field_pays_actualite
     - field.field.node.actualite.field_source
     - field.field.node.actualite.field_type
     - field.field.node.actualite.field_video_youtube
+    - field.field.node.actualite.field_ville_actualite
     - node.type.actualite
   module:
     - datetime
     - entity_reference_revisions
     - image
-    - text
     - user
     - youtube
 id: node.actualite.default
@@ -28,15 +28,15 @@ bundle: actualite
 mode: default
 content:
   field_chapeau:
-    weight: 1
+    weight: 0
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   field_contenu:
     type: entity_reference_revisions_entity_view
-    weight: 2
+    weight: 1
     label: above
     settings:
       view_mode: default
@@ -44,7 +44,7 @@ content:
     third_party_settings: {  }
     region: content
   field_date_actualite:
-    weight: 8
+    weight: 7
     label: above
     settings:
       format_type: medium
@@ -53,24 +53,6 @@ content:
     type: datetime_default
     region: content
   field_image_contenu:
-    weight: 6
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_image_miniature:
-    weight: 4
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_image_slider:
     weight: 5
     label: above
     settings:
@@ -79,23 +61,25 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+  field_image_miniature:
+    weight: 3
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_image_slider:
+    weight: 4
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
   field_liens_utiles:
-    weight: 11
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_lieu_actualite:
-    weight: 9
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
-  field_source:
     weight: 10
     label: above
     settings:
@@ -103,8 +87,24 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_pays_actualite:
+    weight: 12
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_source:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_type:
-    weight: 3
+    weight: 2
     label: above
     settings:
       link: true
@@ -112,7 +112,7 @@ content:
     type: entity_reference_label
     region: content
   field_video_youtube:
-    weight: 7
+    weight: 6
     label: above
     settings:
       youtube_size: 450x315
@@ -126,6 +126,14 @@ content:
       youtube_iv_load_policy: false
     third_party_settings: {  }
     type: youtube_video
+    region: content
+  field_ville_actualite:
+    weight: 11
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   langcode: true
