@@ -131,9 +131,17 @@ function restaurant_zymphonies_theme_get_slider_content() {
 
   $nodes =  Node::loadMultiple($nids);
 
+  $nb_slides = 1;
+
   foreach ($nodes as $node) {
 
+    /************************************************ Publiés seulement ***************************************************/
+    if (!$node->isPublished()) {
+      continue;
+    }
+
     /************************************************ Image de fond ***************************************************/
+
     $path_definition = $node->get('field_image_slider')->getValue();
 
     if (!$path_definition) {
@@ -153,9 +161,11 @@ function restaurant_zymphonies_theme_get_slider_content() {
     }
 
     /**************************************************** Titre *******************************************************/
+
     $title = $node->getTitle();
 
     /*************************************************** Chapeau ******************************************************/
+
     $chapeau_definition = $node->get('field_chapeau')->getValue();
     $chapeau = '';
     if ($chapeau_definition) {
@@ -166,7 +176,11 @@ function restaurant_zymphonies_theme_get_slider_content() {
     }
 
     /***************************************************** Lien *******************************************************/
-    $lien = '';
+
+    $lien = 'node/' . $node->id();
+
+    /*************************************************** Contenu ******************************************************/
+
     $slider_content[] = '<li>
       <img src="' . $path . '" alt="Bannière du slider" />
       <div class="slider-caption">
@@ -175,6 +189,13 @@ function restaurant_zymphonies_theme_get_slider_content() {
         <a href="'.$lien.'" class="more-link">Lire la suite</a>
       </div>
     </li>';
+
+    // Nb max of slides
+    if ($nb_slides == 5) {
+      break;
+    }
+
+    $nb_slides++;
   }
   return $slider_content;
 }
