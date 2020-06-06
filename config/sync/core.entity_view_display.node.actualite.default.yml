@@ -19,7 +19,6 @@ dependencies:
   module:
     - datetime
     - entity_reference_revisions
-    - image
     - user
     - youtube
 id: node.actualite.default
@@ -29,7 +28,7 @@ mode: default
 content:
   field_chapeau:
     weight: 0
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
@@ -37,50 +36,23 @@ content:
   field_contenu:
     type: entity_reference_revisions_entity_view
     weight: 1
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
   field_date_actualite:
-    weight: 7
-    label: above
+    weight: 4
+    label: hidden
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
     region: content
-  field_image_contenu:
-    weight: 5
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_image_miniature:
-    weight: 3
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  field_image_slider:
-    weight: 4
-    label: above
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
   field_liens_utiles:
-    weight: 10
+    weight: 6
     label: above
     settings:
       link_to_entity: false
@@ -88,16 +60,16 @@ content:
     type: string
     region: content
   field_pays_actualite:
-    weight: 12
-    label: above
+    weight: 8
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
   field_source:
-    weight: 9
-    label: above
+    weight: 5
+    label: inline
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -105,15 +77,15 @@ content:
     region: content
   field_type:
     weight: 2
-    label: above
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_video_youtube:
-    weight: 6
-    label: above
+    weight: 3
+    label: hidden
     settings:
       youtube_size: 450x315
       youtube_width: ''
@@ -128,13 +100,16 @@ content:
     type: youtube_video
     region: content
   field_ville_actualite:
-    weight: 11
-    label: above
+    weight: 7
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
 hidden:
+  field_image_contenu: true
+  field_image_miniature: true
+  field_image_slider: true
   langcode: true
   links: true

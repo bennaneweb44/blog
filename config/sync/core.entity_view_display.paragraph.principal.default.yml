@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.principal.field_image_wysiwyg
     - field.field.paragraph.principal.field_texte_wysiwyg
+    - image.style.large
     - paragraphs.paragraphs_type.principal
   module:
     - image
@@ -16,16 +17,16 @@ mode: default
 content:
   field_image_wysiwyg:
     weight: 0
-    label: above
+    label: hidden
     settings:
-      image_style: ''
+      image_style: large
       image_link: ''
     third_party_settings: {  }
     type: image
     region: content
   field_texte_wysiwyg:
     weight: 1
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
