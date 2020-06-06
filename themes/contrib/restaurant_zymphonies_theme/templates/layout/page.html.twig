@@ -85,7 +85,7 @@
             {{ page.search }}
           </div>
         {% endif %}
-      
+
         {% if page.contact_email %}
           <div class="col-md-4">
             {{ page.contact_email }}
@@ -163,7 +163,7 @@
 {% if is_front and page.homepagemessage %}
 <div class="home-message">
   <div class="container">
-    <div class="wow- bounceInDown">    
+    <div class="wow- bounceInDown">
         {{ page.homepagemessage }}
     </div>
   </div>
@@ -181,28 +181,28 @@
       {% if (is_front) and (page.topwidget_first or page.topwidget_second or page.topwidget_third) %}
         <div class="row- clearfix topwidget">
 
-          <!-- Start: Top widget first -->          
+          <!-- Start: Top widget first -->
           {% if page.topwidget_first %}
             <div class = {{ topwidget_class }}>{{ page.topwidget_first }}</div>
-          {% endif %}          
-          <!-- End: Top widget first --> 
+          {% endif %}
+          <!-- End: Top widget first -->
 
-          <!-- Start: Top widget second -->          
+          <!-- Start: Top widget second -->
           {% if page.topwidget_second %}
             <div class = {{ topwidget_class }}>{{ page.topwidget_second }}</div>
-          {% endif %}          
-          <!-- End: Top widget second --> 
-          
-          <!-- Start: Top widget third -->         
+          {% endif %}
+          <!-- End: Top widget second -->
+
+          <!-- Start: Top widget third -->
           {% if page.topwidget_third %}
             <div class = {{ topwidget_class }}>{{ page.topwidget_third }}</div>
-          {% endif %}          
+          {% endif %}
           <!-- End: Top widget third -->
 
-          <!-- Start: Top widget forth -->         
+          <!-- Start: Top widget forth -->
           {% if page.topwidget_forth %}
             <div class = {{ topwidget_class }}>{{ page.topwidget_forth }}</div>
-          {% endif %}          
+          {% endif %}
           <!-- End: Top widget forth -->
 
         </div>
@@ -218,10 +218,10 @@
 <!-- Start: Main content -->
 <div class="parallax-widget- one">
   <div class="parallax-region- wow- bounceInDown">
-    
+
     <!--Start: Highlighted -->
 
-    {% if page.highlighted %}
+    {% if page.highlighted is defined and 1 == 2 %}
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -233,23 +233,6 @@
 
     <!--End: Highlighted -->
 
-    <!--Start: Title -->
-
-    {%  if page.page_title and not is_front %}
-      <div id="page-title">
-        <div id="page-title-inner">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                {{ page.page_title }}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-
-    <!--End: Title -->
 
     <div class="container">
       <div class="parallax-region">
@@ -263,6 +246,31 @@
         {% endif %}
 
         <!--End: Breadcrumb -->
+
+      </div>
+    </div>
+
+
+    <!--Start: Title -->
+
+    {%  if page.page_title and not is_front %}
+      <div id="page-title">
+        <div id="page-title-inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-align-center">
+                 {{ page.page_title }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <!--End: Title -->
+
+    <div class="container">
+      <div class="parallax-region">
 
         <div class="row layout">
 
@@ -282,9 +290,9 @@
 
             <div class="content_layout">
 
-              <div class={{contentlayout}}> 
+              <div class={{contentlayout}}>
 
-                {{page.content}} 
+                {{page.content}}
 
               </div>
 
@@ -301,14 +309,16 @@
             <div class="sidebar">
               <div class={{sidebarsecond}}> {{page.sidebar_second}} </div>
             </div>
-            
+
           {% endif %}
 
           <!--End: Sidebar -->
 
         </div>
+
       </div>
     </div>
+
   </div>
 </div>
 
@@ -338,17 +348,17 @@
 <!-- Start: Bottom widgets -->
 
 {% if is_front and (page.bottom_first or page.bottom_second or page.bottom_third or page.bottom_forth) %}
-  <div class="bottom-widget" id="products">    
+  <div class="bottom-widget" id="products">
     <div class="container">
       <div class="parallax-region wow- bounceInDown">
         <div class="row">
 
-          <!-- Start: Bottom First -->          
+          <!-- Start: Bottom First -->
           {% if page.bottom_first %}
             <div class = {{ bottom_class }}>
               {{ page.bottom_first }}
             </div>
-          {% endif %}          
+          {% endif %}
           <!-- End: Bottom First -->
 
           <!-- Start: Bottom Second -->
@@ -356,15 +366,15 @@
             <div class = {{ bottom_class }}>
               {{ page.bottom_second }}
             </div>
-          {% endif %}          
+          {% endif %}
           <!-- End: Bottom Second -->
 
-          <!-- Start: Bottom third -->          
+          <!-- Start: Bottom third -->
           {% if page.bottom_third %}
             <div class = {{ bottom_class }}>
               {{ page.bottom_third }}
             </div>
-          {% endif %}          
+          {% endif %}
           <!-- End: Bottom Third -->
 
           <!-- Start: Bottom Forth -->
@@ -389,7 +399,7 @@
 {% if  is_front and (page.footer_first or page.footer_second or page.footer_third) %}
   <div class="footerwidget" id="">
     <div class="container">
-      <div class="parallax-region wow- bounceInUp">  
+      <div class="parallax-region wow- bounceInUp">
         <div class="row">
 
           <!-- Start: Footer First -->
@@ -457,11 +467,11 @@
       <!-- Start: Copyright -->
       <div class="col-sm-8">
         <div class="user-menu">
-          <p>Copyright © {{ "now"|date("Y") }}. All rights reserved.</p>
+          <p>Copyright © {{ "now"|date("Y") }}. Tous drois réservés.</p>
           {% if page.user_menu %}
             {{ page.user_menu }}
           {% endif %}
-        </div>        
+        </div>
       </div>
       <!-- End: Copyright -->
 
@@ -470,9 +480,13 @@
         <div class="col-sm-4">
           <p class="credit-link">Designed By <a href="http://www.zymphonies.com" target="_blank">Zymphonies</a></p>
         </div>
+      {% else %}
+        <div class="col-sm-4">
+          <p class="credit-link">Designed By <a href="https://www.bennaneweb.fr" target="_blank">Bennane Web</a></p>
+        </div>
       {% endif %}
       <!-- End: Credit link -->
-      
+
     </div>
   </div>
 </div>

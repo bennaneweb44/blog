@@ -32,9 +32,9 @@ regions:
   topwidget_forth: 'Top forth widget'
 
   #Global Region
-  highlighted: 'Highlighted' 
-  page_title: 'Page title'
+  highlighted: 'Highlighted'
   breadcrumb: 'Breadcrumb'
+  page_title: 'Page title'
   content: 'Content'
   sidebar_first: 'Left sidebar'
   sidebar_second: 'Right sidebar'

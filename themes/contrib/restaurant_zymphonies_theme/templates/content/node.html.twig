@@ -85,7 +85,7 @@
   {{ title_suffix }}
 
   {% if display_submitted %}
-    <footer class="comment-submitted">
+    <footer class="comment-submitted" style="margin: 1em 0">
       <div{{ author_attributes.addClass('node__submitted') }}>
         {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         {{ metadata }}
@@ -93,7 +93,7 @@
     </footer>
   {% endif %}
 
-  <div{{ content_attributes.addClass('node__content') }}>
+  <div{{ content_attributes.addClass('node__content') }} style="margin-bottom: 9em">
     {{ content }}
   </div>
 
