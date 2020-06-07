@@ -7,6 +7,7 @@
 
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
+use Drupal\taxonomy\Entity\Term;
 use Drupal\blog_outils\Libraries\Outils;
 
 /**
@@ -326,11 +327,58 @@ function restaurant_zymphonies_theme_form_system_theme_settings_alter(&$form, \D
 /**
  * Implements hook_preprocess_breadcrumb().
  */
-function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables){
-  if(($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']){
+function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
+
+  $node = Drupal::routeMatch()->getParameter('node');
+
+  if ($node &&
+      $node instanceof Node &&
+      $variables['breadcrumb'] ) {
+
+    $type = $node->getType();
+    if ($type == 'actualite') {
+
+      // actualites
+      $variables['breadcrumb'][] = array(
+        'text' => 'Actualités',
+        'url' => '/actualites'
+      );
+
+      // Reference to type of actuality (régionale, nationale ou internationale)
+      $field = $node->get('field_type');
+      $value = $field->getValue();
+
+      if (is_array($value) && $value[0] ) {
+        $target_id = $value[0]['target_id'];
+        $term = Term::load($target_id);
+
+        // transform
+        $url = '';
+        switch ($term->getName()) {
+          case 'Régionale' :
+            $url = '/actualites/regionales';
+            break;
+          case 'Nationale' :
+            $url = '/actualites/nationales';
+            break;
+          case 'Internationale' :
+            $url = '/actualites/internationales';
+            break;
+          default :
+            break;
+        }
+
+        // add into breadcrumb
+        $variables['breadcrumb'][] = array(
+          'text' => $term->getName() . 's',
+          'url' => $url
+        );
+      }
+    }
+
     $variables['breadcrumb'][] = array(
-     'text' => $node->getTitle(),
-     'url' => $node->URL()
-   );
+       'text' => $node->getTitle(),
+       'url' => $node->URL()
+    );
   }
 }
