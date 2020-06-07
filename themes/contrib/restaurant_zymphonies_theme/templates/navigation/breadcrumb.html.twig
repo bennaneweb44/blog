@@ -10,7 +10,8 @@
 {% if breadcrumb %}
   <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
     <h2 id="system-breadcrumb" class="visually-hidden">{{ 'Breadcrumb'|t }}</h2>
-    <ol>
+    <ul>
+    {% set nb_items = 1 %}
     {% for item in breadcrumb %}
       <li>
         {% if item.url %}
@@ -18,8 +19,15 @@
         {% else %}
           {{ item.text }}
         {% endif %}
+
+        {% if nb_items < breadcrumb|length %}
+          {{ ' / ' }}
+        {% endif %}
+
+        {% set nb_items = nb_items + 1 %}
+
       </li>
     {% endfor %}
-    </ol>
+    </ul>
   </nav>
 {% endif %}
