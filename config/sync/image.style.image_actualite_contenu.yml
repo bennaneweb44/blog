@@ -1,0 +1,14 @@
+uuid: 6a277d52-8d7a-44ee-9b43-fcbd01417d58
+langcode: fr
+status: true
+dependencies: {  }
+name: image_actualite_contenu
+label: 'Image actualité contenu'
+effects:
+  b8c7c6e2-986c-4879-9bf8-4adb42cf4d50:
+    uuid: b8c7c6e2-986c-4879-9bf8-4adb42cf4d50
+    id: image_resize
+    weight: 1
+    data:
+      width: 550
+      height: 400

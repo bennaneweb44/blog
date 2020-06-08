@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.principal.field_image_wysiwyg
     - field.field.paragraph.principal.field_texte_wysiwyg
-    - image.style.large
+    - image.style.image_actualite_contenu
     - paragraphs.paragraphs_type.principal
   module:
     - image
@@ -19,7 +19,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: large
+      image_style: image_actualite_contenu
       image_link: ''
     third_party_settings: {  }
     type: image
