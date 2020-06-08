@@ -1,0 +1,16 @@
+
+<div{{ attributes }}>
+    <div style="margin-top: 1.2em">
+      <strong>Liens utiles :</strong>
+    </div>
+
+
+    <ul style="margin-left: 1.5em;">
+      {% for item in items %}
+        <li>
+          <div{{ item.attributes }}>{{ item.content }}</div>
+        </li>
+      {% endfor %}
+    </ul>
+
+</div>

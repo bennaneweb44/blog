@@ -1,0 +1,20 @@
+
+<div{{ attributes }}>
+
+  {% if items | length > 1 %}
+    Sources :
+    <ul style="margin-left: 1.5em">
+      {% for item in items %}
+        <li>
+          <div{{ item.attributes }}>{{ item.content }}</div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% elseif items | length == 1 %}
+    <strong>Source :</strong>
+    {% for item in items %}
+      <div{{ item.attributes }} style="margin-left: 1.5em">{{ item.content }}</div>
+    {% endfor %}
+  {% endif %}
+
+</div>
