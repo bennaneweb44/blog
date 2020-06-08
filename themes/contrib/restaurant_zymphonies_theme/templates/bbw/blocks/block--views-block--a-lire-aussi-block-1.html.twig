@@ -1,0 +1,42 @@
+<div{{ attributes }} style="margin-bottom: 6em">
+
+    <hr class="style-eight">
+
+    {{ title_prefix }}
+    {% if label %}
+        <strong>{{ label }} :</strong>
+    {% endif %}
+    {{ title_suffix }}
+
+    {% block content %}
+        {{ content }}
+    {% endblock %}
+
+</div>
+
+
+<style>
+
+  /* Glyph, by Harry Roberts */
+  hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #3c3c3c; /*#d32931;*/
+    color: #3c3c3c; /*#d32931;*/
+    text-align: center;
+    margin: 2em 28em;
+  }
+
+  hr.style-eight:after {
+    content: "B";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.3em;
+    font-family: 'Algerian', serif;
+    padding: 0 0.25em;
+    background: white;
+  }
+
+</style>

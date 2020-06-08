@@ -11,7 +11,7 @@ _core:
 id: restaurant_zymphonies_theme_content
 theme: restaurant_zymphonies_theme
 region: content
-weight: 1
+weight: -5
 provider: null
 plugin: system_main_block
 settings:

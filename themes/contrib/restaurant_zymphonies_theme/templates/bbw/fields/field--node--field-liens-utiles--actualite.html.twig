@@ -8,7 +8,11 @@
     <ul style="margin-left: 1.5em;">
       {% for item in items %}
         <li>
-          <div{{ item.attributes }}>{{ item.content }}</div>
+          <div{{ item.attributes }}>
+            <a href="{{ item.content }}" target="_blank">
+              {{ item.content }}
+            </a>
+          </div>
         </li>
       {% endfor %}
     </ul>
