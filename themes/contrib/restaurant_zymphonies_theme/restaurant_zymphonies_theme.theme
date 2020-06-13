@@ -9,6 +9,7 @@ use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\blog_outils\Libraries\Outils;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_preprocess_page() for block templates.
@@ -380,5 +381,21 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
        'text' => $node->getTitle(),
        'url' => $node->URL()
     );
+  }
+}
+
+/**
+ * Implements theme_preprocess_views_view_unformatted()
+ *
+ * @param [type] $variables
+ * @return void
+ */
+function restaurant_zymphonies_theme_preprocess_views_view_unformatted__a_lire_aussi(&$variables) {
+
+  $view = $variables['view'];
+  $rows = $variables['rows'];
+
+  if ($view instanceof ViewExecutable && count($rows) ) {
+    $variables['view_title'] = $view->getTitle();
   }
 }

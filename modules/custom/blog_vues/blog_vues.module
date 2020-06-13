@@ -1,0 +1,26 @@
+<?php
+
+use \Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_views_pre_render
+ *
+ * @param \Drupal\views\ViewExecutable $view
+ * @return void
+ */
+function blog_vues_views_pre_render(\Drupal\views\ViewExecutable $view) {
+    if ($view->id() == 'a_lire_aussi' && $view->current_display == 'block_1') {
+
+        $node = \Drupal::routeMatch()->getParameter('node');
+        if ($node instanceof NodeInterface) {
+            $nid = $node->id();
+
+            foreach ($view->result as $key => $value) {
+
+                if ($value->nid == $nid) {
+                    unset ($view->result[$key]);
+                }
+            }
+        }
+    }
+}

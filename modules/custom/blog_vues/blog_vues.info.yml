@@ -1,0 +1,5 @@
+name: BLOG Vues
+type: module
+description: Module spécifique pour générer les vues selon leurs identifiant.
+package: Custom
+core: 8.x

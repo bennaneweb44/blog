@@ -54,7 +54,6 @@
     /********************************* GLOBAL **************************************/
     * {
       font-size: 14px !important;
-      font-family: Trebuchet MS, Arial, Helvetica, sans-serif !important;
     }
 
     .social-media {
@@ -106,6 +105,21 @@
       border: none;
     }
 
+    /***************************** Imge A lire aussi  ******************************/
+    .image-style-large {
+      max-height: 200px;
+      border: 1px solid #000;
+    }
+
+    .div-a-lire-aussi {
+      margin-top: 1em;
+    }
+
+    /******************************* Image contenu *********************************/
+    .image-style-image-actualite-contenu {
+      border: 1px solid #000;
+    }
+
     /*******************************************************************************/
 
     /*
@@ -137,7 +151,9 @@
     */
 
     @media (min-width: 768px) and (max-width: 1024px) {
-
+      .region.region-content {
+        padding-bottom: 1em;
+      }
     }
 
     /*
@@ -164,7 +180,13 @@
     */
 
     @media (min-width: 320px) and (max-width: 480px) {
-
+      .image-style-large {
+        max-height: 240px;
+        border: 1px solid #000;
+      }
+      .region.region-content {
+        padding-bottom: 3em;
+      }
     }
   </style>
 
