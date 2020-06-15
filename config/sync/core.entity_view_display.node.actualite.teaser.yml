@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.actualite.field_chapeau
+    - field.field.node.actualite.field_commentaires
     - field.field.node.actualite.field_contenu
     - field.field.node.actualite.field_date_actualite
     - field.field.node.actualite.field_image_contenu
@@ -31,6 +32,7 @@ content:
     region: content
 hidden:
   field_chapeau: true
+  field_commentaires: true
   field_contenu: true
   field_date_actualite: true
   field_image_contenu: true

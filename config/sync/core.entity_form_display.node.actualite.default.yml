@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.actualite.field_chapeau
+    - field.field.node.actualite.field_commentaires
     - field.field.node.actualite.field_contenu
     - field.field.node.actualite.field_date_actualite
     - field.field.node.actualite.field_image_contenu
@@ -18,6 +19,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.actualite
   module:
+    - comment
     - datetime
     - image
     - paragraphs
@@ -41,6 +43,12 @@ content:
       placeholder: 'Texte placé au-dessus du corps de l''article, et en dessous du titre du slider'
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_commentaires:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
     region: content
   field_contenu:
     type: entity_reference_paragraphs
