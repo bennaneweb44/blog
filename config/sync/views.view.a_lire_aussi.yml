@@ -75,15 +75,15 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: ''
-            make_link: false
+            text: "{{ field_image_miniature }}\r\n"
+            make_link: true
             path: ''
             absolute: false
             external: false
             replace_spaces: false
             path_case: none
             trim_whitespace: false
-            alt: ''
+            alt: 'Voir le contenu'
             rel: ''
             link_class: ''
             prefix: ''
@@ -107,7 +107,7 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -138,8 +138,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ title }}'
             make_link: false
             path: ''
             absolute: false
