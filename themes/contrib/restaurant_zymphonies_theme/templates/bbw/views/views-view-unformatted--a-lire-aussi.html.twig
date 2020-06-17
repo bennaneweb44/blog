@@ -18,7 +18,7 @@
  */
 #}
 {% if view_title is defined and view_title != '' %}
-  <p style="padding-left: 1em; margin-top: -3em">
+  <p style="padding-left: 1em; margin-top: -2em;">
     <strong>{{ view_title }}</strong>
   </p>
 {% endif %}
@@ -29,7 +29,7 @@
       default_row_class ? 'views-row',
     ]
   %}
-  <div{{ row.attributes.addClass(row_classes) }}>
+  <div{{ row.attributes.addClass(row_classes) }} class="mb-3">
     {{ row.content }}
   </div>
 {% endfor %}

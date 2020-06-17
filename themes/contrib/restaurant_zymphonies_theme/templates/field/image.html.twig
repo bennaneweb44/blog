@@ -11,8 +11,52 @@
  */
 #}
 {%
-set classes = [
-  style_name ? 'image-style-' ~ style_name|clean_class,
-]
+  set classes = [
+    style_name ? 'image-style-' ~ style_name|clean_class,
+  ]
 %}
-<img{{ attributes.addClass(classes) }} />
+
+{# Zoom valable que pour les vues de type 'a-lire-aussi' #}
+{% if 'image-style-large' in classes %}
+  <div id="forumGroup" class="col-xs-12 col-sm-6 col-md-4 col-xl-4">
+    <div class="zoomedImage">
+      <img{{ attributes.addClass(classes) }} title="Accéder à l'actualité" />
+    </div>
+  </div>
+{% else %}
+  <img{{ attributes.addClass(classes) }} class="col-xs-12" />
+{% endif %}
+
+<style>
+  #forumGroup {
+    overflow: hidden;
+    margin-bottom: 7px !important;
+    border: 1px solid #000000;
+    box-shadow: 3px 3px 5px #999;
+    margin: 0;
+    display: block;
+    width: 100%;
+    height: 15em;
+    padding: 0;
+    float: left;
+    position: relative;
+    text-align: center;
+  }
+
+  .zoomedImage {
+    max-width: 100%;
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* IE 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+  }
+
+  .zoomedImage:hover {
+    -webkit-transform: scale(1.25); /* Safari and Chrome */
+    -moz-transform: scale(1.25); /* Firefox */
+    -ms-transform: scale(1.25); /* IE 9 */
+    -o-transform: scale(1.25); /* Opera */
+    transform: scale(1.25);
+  }
+</style>
