@@ -64,10 +64,6 @@
       margin-top: -5px;
     }
 
-    .flex-viewport {
-      max-height: 61em;
-    }
-
     .site-branding__slogan {
       margin-top: 1px;
       margin-left: 5px;
@@ -75,8 +71,12 @@
       color: rgb(253, 139, 130);
     }
 
-    /******************************** Copyright ************************************/
+    /********************************* Slider *************************************/
+    .flex-direction-nav > li > a {
+      margin: -20px 20px -25px 10px;
+    }
 
+    /******************************** Copyright ************************************/
     .copyright {
       position: fixed;
       left: 0;
@@ -159,6 +159,10 @@
       width: 20em;
     }
 
+    .comment-wrap .author-comments {
+      width: 100%;
+    }
+
     /*******************************************************************************/
 
     /*
@@ -166,7 +170,9 @@
       ## Screen = 1281px to higher resolution desktops
     */
     @media (min-width: 1281px) {
-
+      .flex-viewport {
+        max-height: 56em;
+      }
     }
 
     /*
@@ -210,9 +216,7 @@
     */
 
     @media (min-width: 481px) and (max-width: 767px) {
-      .comment-wrap .author-comments {
-          width: 100% !important;
-      }
+
     }
 
     /*
@@ -220,27 +224,50 @@
       Screen = B/w 320px to 479px
     */
 
-    @media (min-width: 320px) and (max-width: 480px) {
+    @media (min-width: 320px) and (max-width: 767px) {
+
+      /******************* Slider ***********************/
+      .flexslider .slider-caption {
+        display: block;
+        text-align: center;
+        width: 76%;
+        top: 25%;
+        left: 36.5%;
+      }
+      .flex-direction-nav {
+        display: block !important;
+      }
+      .flex-direction-nav > li > a {
+        margin: -20px 0 -25px -10px;
+      }
+      .slider-description {
+        display: none !important;
+      }
+
+      /******************* Image ***********************/
       .image-style-large {
         max-height: 240px;
         border: 1px solid #000;
       }
+
+      /******************* Region ***********************/
       .region.region-content {
         padding-bottom: 3em;
       }
     }
 
-
-    /**************************************************************************/
-    /******************* SPECIAL REDIFINITION DU CORE *************************/
-    /**************************************************************************/
-    /*@media (min-width: 767px) {*/
-      .comment-wrap .author-comments {
-        width: 100%;
-      }
-    /*}*/
-
-
   </style>
+
+  <script>
+
+    // Mobile => Supprimer le chapeau, et changer le texte du bouton
+    if(window.matchMedia("(max-width: 767px)").matches) {
+      (function($) {
+
+        $('div.slider-caption a.more-link').empty();
+        $('div.slider-caption a.more-link').html('Lire l\'actualité');
+      })(jQuery);
+    }
+  </script>
 
 </html>

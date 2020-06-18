@@ -131,14 +131,14 @@ function restaurant_zymphonies_theme_get_slider_content() {
           ->sort('field_date_actualite',  'DESC')
           ->execute();
 
-  $nodes =  Node::loadMultiple($nids);
+  $nodes = Node::loadMultiple($nids);
 
   $nb_slides = 1;
 
   foreach ($nodes as $node) {
 
     /************************************************ Publiés seulement ***************************************************/
-    if (!$node->isPublished()) {
+    if (!$node->isPublished() || !$node->isPromoted()) {
       continue;
     }
 
