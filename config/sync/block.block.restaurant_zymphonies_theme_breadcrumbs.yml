@@ -11,7 +11,7 @@ _core:
 id: restaurant_zymphonies_theme_breadcrumbs
 theme: restaurant_zymphonies_theme
 region: breadcrumb
-weight: -100
+weight: -7
 provider: null
 plugin: system_breadcrumb_block
 settings:

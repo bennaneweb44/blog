@@ -9,7 +9,7 @@ _core:
 id: restaurant_zymphonies_theme_page_title
 theme: restaurant_zymphonies_theme
 region: page_title
-weight: 0
+weight: -7
 provider: null
 plugin: page_title_block
 settings:
