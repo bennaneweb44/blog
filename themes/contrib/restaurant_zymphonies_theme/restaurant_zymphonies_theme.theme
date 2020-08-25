@@ -355,15 +355,26 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
 
         // transform
         $url = '';
+        $pluriel = $term->getName();
+
         switch ($term->getName()) {
           case 'Régionale' :
             $url = '/actualites/regionales';
+            $pluriel .= 's';
             break;
           case 'Nationale' :
             $url = '/actualites/nationales';
+            $pluriel .= 's';
             break;
           case 'Internationale' :
             $url = '/actualites/internationales';
+            $pluriel .= 's';
+            break;
+          case 'Football' :
+            $url = '/actualites/sportives/football';
+            break;
+          case 'Autres' :
+            $url = '/actualites/sportives/autres';
             break;
           default :
             break;
@@ -371,7 +382,7 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
 
         // add into breadcrumb
         $variables['breadcrumb'][] = array(
-          'text' => $term->getName() . 's',
+          'text' => $pluriel,
           'url' => $url
         );
       }
