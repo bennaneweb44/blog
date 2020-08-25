@@ -80,6 +80,11 @@
       margin: -20px 20px -25px 10px;
     }
 
+    /***************************** Slider : image *********************************/
+    .flexslider .slides img {
+      height: 56em !important;
+    }
+
     /******************************** Copyright ************************************/
     .copyright {
       position: fixed;
@@ -204,13 +209,15 @@
       ##Screen = B/w 1025px to 1280px
     */
 
-    @media (min-width: 1025px) and (max-width: 1280px) {
-      .flex-viewport {
-        max-height: 35em;
-      }
+    @media (min-width: 1024px) and (max-width: 1280px) {
 
       * {
         font-size: 12px !important;
+      }
+
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 62em !important;
       }
     }
 
@@ -219,9 +226,15 @@
       Screen = B/w 768px to 1024px
     */
 
-    @media (min-width: 768px) and (max-width: 1024px) {
+    @media (min-width: 768px) and (max-width: 1023px) {
+
       .region.region-content {
         padding-bottom: 1em;
+      }
+
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 48em !important;
       }
     }
 
@@ -241,6 +254,10 @@
 
     @media (min-width: 481px) and (max-width: 767px) {
 
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 22em !important;
+      }
     }
 
     /*
@@ -266,6 +283,11 @@
       }
       .slider-description {
         display: none !important;
+      }
+
+      /***************************** Slider : image *********************************/
+      .flexslider .slides img {
+        height: 22em !important;
       }
 
       /******************* Image ***********************/
