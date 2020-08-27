@@ -3,6 +3,7 @@ langcode: fr
 status: true
 dependencies:
   module:
+    - node
     - system
   theme:
     - restaurant_zymphonies_theme
@@ -19,4 +20,12 @@ settings:
   label: Breadcrumbs
   provider: system
   label_display: '0'
-visibility: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      actualite: actualite
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
