@@ -15,9 +15,10 @@
       <li>
         {% if item.url %}
           <a href="{{ item.url }}">{{ item.text }}</a>
+          <span class="breadcrumb-divider">/</span>
         {% else %}
           {{ item.text }}
-        {% endif %} <span class="breadcrumb-divider">/</span>
+        {% endif %}
       </li>
     {% endfor %}
     </ul>

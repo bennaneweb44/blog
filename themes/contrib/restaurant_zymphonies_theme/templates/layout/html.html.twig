@@ -106,11 +106,15 @@
     /***************************** Titre actualité *********************************/
     h1 > span {
       font-size: 1.5em !important;
+      line-height: 1em;
+    }
+
+    h1 {
+      font-size: 1.5em !important;
     }
 
     #page-title {
-      margin-top: 1em;
-      margin-bottom: 0.5em;
+      margin-bottom: 4em;
     }
 
     /******************************** Article H2 ***********************************/
@@ -159,10 +163,6 @@
       margin-bottom: 2em;
     }
 
-    img.col-xs-12 {
-
-    }
-
     /******************************** Commentaires *********************************/
     .author-comments {
       background-color: #ddd;
@@ -190,26 +190,51 @@
       display: none;
     }
 
-    .block.block-system.block-system-main-block {
-      margin-bottom: 80px;
+    /* Block of content */
+    .dynamicHeight {
+      padding-bottom: 8em;
     }
 
-    /*******************************************************************************/
+    /* titre des actualités */
+    .views-field.views-field-title {
+      text-align: center;
+      font-weight: bold;
+    }
 
-    /*
+    .c-date-actu {
+      position: absolute;
+      top: 1px; /*1px*/
+      left: 16px; /*16px*/
+      padding: 2px 4px;
+      background-color: #000;
+      color: rgb(253, 139, 130);
+      font-weight: bold;
+      z-index: 9;
+    }
+
+    strong {
+      font-size: 16px !important;
+    }
+
+    /********************************************************************************
       ## Device = Desktops
       ## Screen = 1281px to higher resolution desktops
-    */
+    ********************************************************************************/
     @media (min-width: 1281px) {
       .flex-viewport {
         max-height: 56em;
       }
+
+      /** Pagination **/
+      .pagination {
+        padding-bottom: 10em !important;
+      }
     }
 
-    /*
+    /********************************************************************************
       ##Device = Laptops, Desktops
       ##Screen = B/w 1025px to 1280px
-    */
+    *********************************************************************************/
 
     @media (min-width: 1024px) and (max-width: 1280px) {
 
@@ -217,59 +242,67 @@
         font-size: 12px !important;
       }
 
-      /***************************** Slider : image *********************************/
       .flexslider .slides img {
         height: 35.5em !important;
       }
+
+      /** Pagination **/
+      .pagination {
+        padding-bottom: 10em !important;
+      }
     }
 
-    /*
+    /*********************************************************************************
       Device = Tablets, Ipads (portrait)
       Screen = B/w 768px to 1024px
-    */
+    *********************************************************************************/
 
     @media (min-width: 768px) and (max-width: 1023px) {
 
-      .region.region-content {
-        padding-bottom: 1em;
-      }
-
-      /***************************** Slider : image *********************************/
       .flexslider .slides img {
         height: 48em !important;
       }
-    }
 
-    /*
-      Device = Tablets, Ipads (landscape)
-      Screen = B/w 768px to 1024px
-    */
-
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-
-    }
-
-    /*
-      Device = Low Resolution Tablets, Mobiles (Landscape)
-      Screen = B/w 481px to 767px
-    */
-
-    @media (min-width: 481px) and (max-width: 767px) {
-
-      /***************************** Slider : image *********************************/
-      .flexslider .slides img {
-        height: 22em !important;
+      .pagination {
+        margin-bottom: 10em;
       }
     }
 
-    /*
+    /*********************************************************************************
+      Device = Tablets, Ipads (landscape)
+      Screen = B/w 768px to 1024px
+    *********************************************************************************/
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+      .pagination {
+        margin-bottom: 10em;
+      }
+    }
+
+    /*********************************************************************************
+      Device = Low Resolution Tablets, Mobiles (Landscape)
+      Screen = B/w 481px to 767px
+    **********************************************************************************/
+
+    @media (min-width: 481px) and (max-width: 767px) {
+
+      .flexslider .slides img {
+        height: 22em !important;
+      }
+
+      .pagination {
+        margin-bottom: 10em;
+      }
+    }
+
+    /********************************************************************************
       Device = Most of the Smartphones Mobiles (Portrait)
       Screen = B/w 320px to 479px
-    */
+    ********************************************************************************/
 
     @media (min-width: 320px) and (max-width: 767px) {
 
-      /******************* Slider ***********************/
       .flexslider .slider-caption {
         display: block;
         text-align: center;
@@ -287,20 +320,17 @@
         display: none !important;
       }
 
-      /***************************** Slider : image *********************************/
       .flexslider .slides img {
         height: 22em !important;
       }
 
-      /******************* Image ***********************/
       .image-style-large {
         max-height: 240px;
         border: 1px solid #000;
       }
 
-      /******************* Region ***********************/
-      .region.region-content {
-        padding-bottom: 3em;
+      .pagination {
+        margin-bottom: 10em;
       }
     }
 

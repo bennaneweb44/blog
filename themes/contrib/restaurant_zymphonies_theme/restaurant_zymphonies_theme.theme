@@ -5,11 +5,13 @@
  * Contains theme override functions and preprocess functions
  */
 
+use Drupal\block_content\BlockContentInterface;
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\blog_outils\Libraries\Outils;
 use Drupal\views\ViewExecutable;
+use Drupal\responsive_image\Entity\ResponsiveImageStyle;
 
 /**
  * Implements hook_preprocess_page() for block templates.
@@ -332,9 +334,7 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
 
   $node = Drupal::routeMatch()->getParameter('node');
 
-  if ($node &&
-      $node instanceof Node &&
-      $variables['breadcrumb'] ) {
+  if ($node && $node instanceof Node && $variables['breadcrumb'] ) {
 
     $type = $node->getType();
     if ($type == 'actualite') {
