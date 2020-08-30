@@ -1,0 +1,38 @@
+uuid: f55ae0b9-dd63-467c-a0f1-a7a11d7aaa70
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_d_actualite
+    - field.storage.block_content.field_miniature
+  module:
+    - image
+id: block_content.types_d_actualite.field_miniature
+field_name: field_miniature
+entity_type: block_content
+bundle: types_d_actualite
+label: Miniature
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: 5Mo
+  max_resolution: 960x640
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

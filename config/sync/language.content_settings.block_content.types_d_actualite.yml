@@ -1,0 +1,11 @@
+uuid: 8ad9a9d4-da88-40ed-8abd-8c13e1432728
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_d_actualite
+id: block_content.types_d_actualite
+target_entity_type_id: block_content
+target_bundle: types_d_actualite
+default_langcode: site_default
+language_alterable: false

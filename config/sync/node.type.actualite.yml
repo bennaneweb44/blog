@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Actualité
 type: actualite
-description: 'De type Locale, Nationale ou Internationale'
+description: 'De type Régionale, Nationale, Internationale ou Sportive (Football et autres)'
 help: ''
 new_revision: true
 preview_mode: 1

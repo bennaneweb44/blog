@@ -1,0 +1,8 @@
+uuid: 79cfb564-80d1-4a48-a002-5e608654f118
+langcode: fr
+status: true
+dependencies: {  }
+id: types_d_actualite
+label: 'Type d''actualité'
+revision: 0
+description: 'Bloc affichant tous les types d''actualité sous forme d''images significatives '

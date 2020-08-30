@@ -1,0 +1,30 @@
+uuid: bfa9ca29-df98-47a8-ac63-6e36e4aa9983
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.actualites
+  module:
+    - system
+    - views
+  theme:
+    - restaurant_zymphonies_theme
+id: views_block_actualites_generales_block_1
+theme: restaurant_zymphonies_theme
+region: content
+weight: -4
+provider: null
+plugin: 'views_block:actualites-block_1'
+settings:
+  id: 'views_block:actualites-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /actualites
+    negate: false
+    context_mapping: {  }

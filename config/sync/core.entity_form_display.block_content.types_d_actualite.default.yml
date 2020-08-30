@@ -1,0 +1,52 @@
+uuid: 7b2e03df-a4b8-4509-bcca-95b64ea05d28
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_d_actualite
+    - field.field.block_content.types_d_actualite.field_label
+    - field.field.block_content.types_d_actualite.field_lien
+    - field.field.block_content.types_d_actualite.field_miniature
+    - image.style.large
+  module:
+    - image
+    - text
+id: block_content.types_d_actualite.default
+targetEntityType: block_content
+bundle: types_d_actualite
+mode: default
+content:
+  field_label:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_lien:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_miniature:
+    weight: 1
+    settings:
+      preview_image_style: large
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  info:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

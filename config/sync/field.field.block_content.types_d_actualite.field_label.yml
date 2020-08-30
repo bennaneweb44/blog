@@ -1,0 +1,21 @@
+uuid: f10fe5d3-34bd-4c00-9156-2cf66fb696d9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_d_actualite
+    - field.storage.block_content.field_label
+  module:
+    - text
+id: block_content.types_d_actualite.field_label
+field_name: field_label
+entity_type: block_content
+bundle: types_d_actualite
+label: Label
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

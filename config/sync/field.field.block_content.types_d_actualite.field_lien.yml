@@ -1,0 +1,19 @@
+uuid: 99d3fe5c-2330-4a94-90e6-ad4a29280e1a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_d_actualite
+    - field.storage.block_content.field_lien
+id: block_content.types_d_actualite.field_lien
+field_name: field_lien
+entity_type: block_content
+bundle: types_d_actualite
+label: Lien
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
