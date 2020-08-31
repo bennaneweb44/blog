@@ -33,7 +33,7 @@ _core:
 langcode: fr
 logo:
   use_default: 0
-  path: 'public://logo_bbw_v1_2.png'
+  path: 'public://logo_bbw_v1_3.png'
 favicon:
   use_default: 0
   path: 'public://favicon_bbw_0.png'

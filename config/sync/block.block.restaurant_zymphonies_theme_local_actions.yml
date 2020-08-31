@@ -9,7 +9,7 @@ _core:
 id: restaurant_zymphonies_theme_local_actions
 theme: restaurant_zymphonies_theme
 region: auto_hidden_block
-weight: 20
+weight: -5
 provider: null
 plugin: local_actions_block
 settings:

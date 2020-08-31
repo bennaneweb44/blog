@@ -13,7 +13,7 @@ _core:
 id: restaurant_zymphonies_theme_main_menu
 theme: restaurant_zymphonies_theme
 region: primary_menu
-weight: 10
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:

@@ -61,7 +61,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-md-3 col-sm-6 d-flex p-2'
+          row_class: 'col-md-3 col-sm-6 d-flex p-2 dynamicHeight'
           default_row_class: true
       row:
         type: fields
@@ -205,7 +205,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ title }}'
+            text: "<div class=\"titreActu\">\r\n    {{ title }}\r\n</div>"
             make_link: false
             path: ''
             absolute: false
