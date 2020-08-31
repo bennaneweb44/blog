@@ -1,4 +1,4 @@
-uuid: 8ead6738-dce3-4173-8418-83c746ed3876
+uuid: 36429c04-30a9-4fb9-8c7e-3241ab304452
 langcode: fr
 status: true
 dependencies:
@@ -9,15 +9,15 @@ dependencies:
     - node.type.actualite
     - taxonomy.vocabulary.type_d_actualite
   content:
-    - 'taxonomy_term:type_d_actualite:cbbcac34-d9bf-4b0e-8bc3-903f2ed8cbfe'
+    - 'taxonomy_term:type_d_actualite:c342da69-dfc7-44eb-a34b-b9c643664444'
   module:
     - datetime
     - image
     - node
     - taxonomy
     - user
-id: actualites_regionales
-label: 'Actualités régionales'
+id: actualites_nationales
+label: 'Actualités nationales'
 module: views
 description: 'Liste les actualités régionales classées par date (desc)'
 tag: ''
@@ -318,7 +318,7 @@ display:
           admin_label: ''
           operator: and
           value:
-            1: 1
+            2: 2
           group: 1
           exposed: false
           expose:
@@ -371,7 +371,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'Actualités régionales'
+      title: 'Actualités nationales'
       header: {  }
       footer: {  }
       empty:
@@ -411,7 +411,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: actualites/regionales
+      path: actualites/nationales
     cache_metadata:
       max-age: -1
       contexts:
