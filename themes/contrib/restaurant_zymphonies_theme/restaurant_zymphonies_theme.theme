@@ -117,6 +117,21 @@ function restaurant_zymphonies_theme_preprocess_menu(&$variables, $hook) {
       $variables['items'][$key]['attributes']['class'] = 'active';
       }
     }
+  } elseif ($hook == 'menu__account') {
+    $items = $variables['items'];
+    foreach ($items as $key => $item) {
+      // Add bootstrap icons for links
+      if ($item['title'] == 'Mon compte') {
+        $variables['items'][$key]['attributes']['class'] = 'fa fa-user';
+        $variables['items'][$key]['title'] = 'Profil';
+      } elseif ($item['title'] == 'Se connecter') {
+        $variables['items'][$key]['attributes']['class'] = 'fa fa-sign-in';
+        $variables['items'][$key]['title'] = 'Connexion';
+      } elseif ($item['title'] == 'Se déconnecter') {
+        $variables['items'][$key]['attributes']['class'] = 'fa fa-sign-out';
+        $variables['items'][$key]['title'] = 'Quitter';
+      }
+    }
   }
 }
 

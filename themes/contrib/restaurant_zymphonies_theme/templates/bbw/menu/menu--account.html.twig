@@ -1,0 +1,52 @@
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+
+    {% if menu_level == 0 %}
+      <ul{{ attributes }}>
+    {% else %}
+      <ul>
+    {% endif %}
+
+    {% for item in items %}
+      <li{{ item.attributes }}>
+        {{ link(item.title, item.url) }}
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+<style>
+  nav#block-restaurant-zymphonies-theme-account-menu > ul ,
+  nav#block-restaurant-zymphonies-theme-account-menu > ul > a {
+    color: #d32931;
+    text-transform: uppercase;
+  }
+  nav#block-restaurant-zymphonies-theme-account-menu > ul > li > a {
+    font-family: "Oswald",sans-serif;
+  }
+
+  nav#block-restaurant-zymphonies-theme-account-menu > ul > li {
+    display: block !important;
+    margin-top: 0.16em;
+    margin-bottom: 0.32em;
+    list-style-type: none;
+    font-weight: bold;
+  }
+  .fa {
+    color: #d32931 !important;
+    font-size: 1.2em !important;
+  }
+</style>

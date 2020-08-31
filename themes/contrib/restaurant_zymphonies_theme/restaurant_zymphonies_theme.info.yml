@@ -18,7 +18,6 @@ regions:
 
   #Header
   header: 'Header'
-  contact_email: 'Contact email'
   user_menu: 'user menu'
   primary_menu: 'Primary menu'
   search: 'Search'
