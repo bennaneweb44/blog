@@ -11,7 +11,7 @@ _core:
 id: restaurant_zymphonies_theme_messages
 theme: restaurant_zymphonies_theme
 region: content
-weight: -6
+weight: -7
 provider: null
 plugin: system_messages_block
 settings:
