@@ -1,6 +1,29 @@
 
 {% for item in items %}
-  <div{{ attributes }} style="float: left; margin-right: 15px">
+  <div{{ attributes }} class="marginPhoto">
     {{ item.content }}
   </div>
 {% endfor %}
+
+<style>
+  .marginPhoto {
+    float: left;
+    margin-right: 15px;
+  }
+
+  /********************************************************************************
+    Device = Most of the Smartphones Mobiles (Portrait)
+    Screen = B/w 320px to 479px
+  ********************************************************************************/
+
+  @media (min-width: 320px) and (max-width: 767px) {
+
+    .marginPhoto {
+      margin-right: 5px !important;
+    }
+
+    .marginPhoto > img {
+      height: 300px !important;
+    }
+  }
+</style>

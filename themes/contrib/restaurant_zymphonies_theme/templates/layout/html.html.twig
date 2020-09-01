@@ -85,23 +85,6 @@
       height: 55em !important;
     }
 
-    /******************************** Copyright ************************************/
-    .copyright {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      padding: 7px 0 0 0;
-      border-top: 1px solid #d32931;
-      width: 100%;
-      color: whitesmoke;
-      text-align: center;
-    }
-
-    .menu_account_items {
-      position: absolute;
-      right: 0;
-    }
-
     ul.menu > li.menu-item > a,
     p.credit-link > a {
       color: #d32931 !important;
@@ -116,7 +99,8 @@
     /***************************** Titre actualité *********************************/
     h1 > span {
       font-size: 1.5em !important;
-      line-height: 1em;
+      line-height: 1.2em;
+      padding-bottom: 0.5em;
     }
 
     h1 {
@@ -128,6 +112,9 @@
     }
 
     /******************************** Article H2 ***********************************/
+    article {
+      margin-top: 1.5em;
+    }
     article > h2 {
       text-align: center;
     }
@@ -290,10 +277,6 @@
       .pagination {
         margin-bottom: 10em;
       }
-
-      .menu_account_items {
-        left: 5em !important;
-      }
     }
 
     /*********************************************************************************
@@ -305,10 +288,6 @@
 
       .pagination {
         margin-bottom: 10em;
-      }
-
-      .menu_account_items {
-        left: 10em !important;
       }
     }
 
@@ -329,10 +308,6 @@
 
       .titreActu {
         height: inherit;
-      }
-
-      .menu_account_items {
-        left: 0 !important;
       }
     }
 
@@ -378,11 +353,13 @@
       }
 
       nav#block-restaurant-zymphonies-theme-account-menu {
-        text-align: left !important;
+        position: absolute;
+        left: -15px;
+        text-align: left;
       }
 
-      .menu_account_items {
-        left: 0 !important;
+      article {
+        margin-top: -2em;
       }
     }
 

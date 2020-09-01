@@ -497,3 +497,71 @@
     </div>
   </div>
 </div>
+
+<style>
+
+  /******************************** Copyright ************************************/
+  .copyright {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 7px 0 0 0;
+    border-top: 1px solid #d32931;
+    width: 100%;
+    color: whitesmoke;
+    text-align: center;
+  }
+
+  .menu_account_items {
+    position: absolute;
+    right: 0;
+  }
+
+  /*********************************************************************************
+    Device = Tablets, Ipads (portrait)
+    Screen = B/w 768px to 1024px
+  *********************************************************************************/
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+    .menu_account_items {
+      left: 5em !important;
+    }
+  }
+
+  /*********************************************************************************
+    Device = Tablets, Ipads (landscape)
+    Screen = B/w 768px to 1024px
+  *********************************************************************************/
+
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    .menu_account_items {
+      left: 10em !important;
+    }
+  }
+
+  /*********************************************************************************
+    Device = Low Resolution Tablets, Mobiles (Landscape)
+    Screen = B/w 481px to 767px
+  **********************************************************************************/
+
+  @media (min-width: 481px) and (max-width: 767px) {
+
+    .menu_account_items {
+      left: 0 !important;
+    }
+  }
+
+  /********************************************************************************
+    Device = Most of the Smartphones Mobiles (Portrait)
+    Screen = B/w 320px to 479px
+  ********************************************************************************/
+
+  @media (min-width: 320px) and (max-width: 767px) {
+
+    .menu_account_items {
+      left: 0 !important;
+    }
+  }
+</style>
