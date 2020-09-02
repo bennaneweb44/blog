@@ -1,0 +1,95 @@
+blog_meteo.hello:
+  path: '/hello'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::hello'
+    _title: 'Route Hello'
+  requirements:
+    #_permission: 'access content'
+    _custom_access: '\Drupal\blog_meteo\Controller\BlogMeteoController::access'
+
+blog_meteo.helloSymfony:
+  path: '/hello-symfony'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::helloSymfony'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.helloBis:
+  path: '/hello-bis/{salutation}/{action}'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::helloBis'
+  requirements:
+    _permission: 'access content'
+    salutation: '[a-z]+'
+    action: '[0-9]{1,4}'
+
+blog_meteo.square:
+  path: '/square/{width}/{color}'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::square'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.form:
+  path: '/services/meteo'
+  defaults:
+    _form: '\Drupal\blog_meteo\Form\BlogMeteoForm'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.form2:
+  path: '/form2'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::generateForm'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.config_form:
+  path: '/admin/config/square-config'
+  defaults:
+    _form: '\Drupal\blog_meteo\Form\BlogMeteoConfigForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+blog_meteo.blocks_config_form:
+  path: '/admin/config/blocks-config'
+  defaults:
+    _form: '\Drupal\blog_meteo\Form\BlogMeteoBlocksConfigForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+blog_meteo.node_test:
+  path: '/node-test'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::nodeTest'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.test_js:
+  path: '/test-js'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\AjaxController::testJs'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.test_jquery:
+  path: '/test-jquery'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\AjaxController::testJquery'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.ajax_form:
+  path: '/ajax-form'
+  defaults:
+    _form: '\Drupal\blog_meteo\Form\AjaxForm'
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.ajax_example_form:
+  path: '/admin/ajax-example'
+  defaults:
+    _form: 'Drupal\blog_meteo\Form\AjaxExampleForm'
+    _title: 'Ajax Example'
+  requirements:
+    _permission: 'access administration pages'

@@ -1,0 +1,14 @@
+super-lib:
+  version: 1.x
+  css:
+    theme:
+      css/blog-meteo.css: {}
+
+blog-meteo:
+  version: 1.x
+  js:
+    js/blog-meteo.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal # general Drupal JS lib
+    - core/jquery.once
