@@ -17,6 +17,7 @@ sites/simpletest
 
 # Ignore sites/default
 sites/default/ 
+sites/settings.local.php
 /example.gitignore
 
 # local database
