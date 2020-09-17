@@ -9,7 +9,7 @@ features:
 facebook_url: 'https://www.facebook.com/zymphonies'
 twitter_url: 'https://twitter.com/zymphonies'
 google_plus_url: ''
-linkedin_url: 'https://www.linkedin.com/in/aziz-bennane-dev-web-full-stack'
+linkedin_url: 'http://www.linkedin.com/company/zymphonies'
 pinterest_url: ''
 rss_url: ''
 show_social_icon: 1
@@ -33,7 +33,7 @@ _core:
 langcode: fr
 logo:
   use_default: 0
-  path: 'public://logo_bbw_v1_3.png'
+  path: 'public://logo_bbw_v11_1.png'
 favicon:
   use_default: 0
   path: 'public://favicon_bbw_0.png'
