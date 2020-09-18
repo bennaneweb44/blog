@@ -98,7 +98,7 @@ class BlogMeteoService {
 
     // 5 days : "/forecast" instead of "/weather"
     // http://api.openweathermap.org/data/2.5/weather?q=belligne,fr&APPID=e1e512127f2c75c0c7926078a8b8a3b6
-    $api = $curl->get('http://api.openweathermap.org/data/2.5/weather?q=' . $city . ',' . $country . '&APPID=' . $this->key);
+    $api = $curl->get('https://api.openweathermap.org/data/2.5/weather?q=' . $city . ',' . $country . '&APPID=' . $this->key);
     
     // Erreur de l'API "OpenWeatherMap"
     if (!($api instanceof Curl)) {
@@ -122,7 +122,7 @@ class BlogMeteoService {
         $icon = $weather[0]['icon'];
 
         // Icon for twig
-        $icon_twig = 'http://openweathermap.org/img/wn/'.$icon.'@4x.png';
+        $icon_twig = 'https://openweathermap.org/img/wn/'.$icon.'@4x.png';
         
         $return->icon = $icon_twig;
         $return->city = $city;
