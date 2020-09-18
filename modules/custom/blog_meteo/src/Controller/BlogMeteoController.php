@@ -23,55 +23,35 @@ class BlogMeteoController extends ControllerBase {
 
   public function hello() {
 
-      //$salutation = 'Ciao';
+    $meteo =  \Drupal::service('blog_meteo.BlogMeteoService')->getWeatherByCity('Nantes', 'fr');
+    
+    /*
+    
+    +"erreur": false
+    +"message": "OK"
+    +"icon": "http://openweathermap.org/img/wn/01d@4x.png"
+    +"city": "Nantes"
+    +"date": "Aujourd'hui"
+    +"descriptif": "ciel clair"
+    +"temperature": 29.55
 
-      // Instanciation directe du service
-      //$demoService = new DemoService();
-      //$salutation = $demoService->getSalutation();
+    */
 
-      // Utilisation de l'objet contenant le service injecté
-      //$salutation = $this->blogMeteoService->getSalutation();
+    return [
+        '#theme' => 'meteo_theme',
+        '#city' => $meteo->city,
+        '#icon' => $meteo->icon,
+        "#message" => $meteo->message,
+        '#descriptif' => $meteo->descriptif,
+        '#temperature' => $meteo->temperature,
+        '#vent' => $meteo->vent,
 
-      // Consommation du service par le service container de Drupal
-      // https://www.drupal.org/docs/8/api/services-and-dependency-injection/services-and-dependency-injection-in-drupal-8
-      // $salutation =
-      // '<p class="greet">' . \Drupal::service('demo.demoService')->getSalutation() . '</p>';
-
-      $salutation =  \Drupal::service('blog_meteo.BlogMeteoService')->getWeatherByCity('Nantes', 'fr');
-      $students = ['Student 1','Student 2','Student 3'];
-
-      // tableau associatif fourni au moteur de rendu
-      // https://www.drupal.org/docs/drupal-apis/render-api/render-arrays
-      // return [
-      //     '#markup' => $salutation,
-      //     '#attached' => [
-      //         'library' => [
-      //             'demo/super-lib',
-      //         ]
-      //     ]
-      // ];
-
-      return [
-          '#theme' => 'container',
-          '#attributes' => ['class' => ['greet', 'test']],
-          '#children' => [
-              '#markup' => $salutation
-          ],
-          '#attached' => ['library' => ['blog_meteo/super-lib']]
-      ];
-
-      // utilisation d'un thème du core de Drupal
-      // return [
-      //     '#theme' => 'item_list',
-      //     '#items' => $students
-      // ];
-
-      // utilisation d'un thème personnalisé (défini dans le hook_theme du fichier demo.module)
-      // return [
-      //     '#theme' => 'demo_theme_hook',
-      //     '#variable1' => 'Texte en provenance du controlleur',
-      //     '#students' => $students
-      // ];
+        '#attached' => [
+            'library' => [
+                'blog_meteo/super-lib',
+            ],
+        ],
+    ];
   }
 
   public function helloSymfony() {

@@ -1,3 +1,43 @@
-<p>Test twig template!</p>
-
-<p>test_var: {{ test_var }}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">            
+            <div class="weather">             
+                <div class="bg-warning text-center villeTitre">
+                    <span>Sainte-luce-sur-loire</span>   
+                </div>                
+                <div class="current">
+                    <div class="info">
+                        <div>&nbsp;</div>              
+                        <div class="city">{{ descriptif }}</div>          
+                        <div class="temp">{{ temperature }}&deg; <small>C</small></div>
+                        <div class="wind">{{ vent }} km/h</div>
+                        <div>&nbsp;</div>
+                    </div>
+                    <div class="icon">
+                        <span class="wi-day-sunny">
+                            <img src="{{ icon }}" height="110" />
+                        </span>
+                    </div>
+                </div>
+                <div class="future">
+                    <div class="day bg-warning moment-actif">
+                        <h3>Actuelle</h3>
+                        <p><span class="wi-day-cloudy"></span></p>
+                    </div>
+                    <div class="day bg-warning">
+                        <h3>Matin</h3>
+                        <p><span class="wi-day-cloudy"></span></p>
+                    </div>
+                    <div class="day bg-warning">
+                        <h3>Après-midi</h3>
+                        <p><span class="wi-showers"></span></p>
+                    </div>
+                    <div class="day bg-warning">
+                        <h3>Soir</h3>
+                        <p><span class="wi-rain"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

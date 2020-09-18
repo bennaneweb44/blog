@@ -1,0 +1,91 @@
+.weather
+{
+    display: flex;
+    flex-flow: column wrap;
+    box-shadow: 0px 1px 10px 0px #000; /*cfcfcf*/
+    overflow: hidden;
+    background-color: burlywood;
+}
+
+@media (min-width: 1281px), (min-width: 1025px) and (max-width: 1280px) {
+    .col-md-4.col-md-offset-4 {
+        margin-left: 32.8% !important;
+    }
+}    
+
+.villeTitre {
+    font-size: 26px;        
+    font-weight: bold;
+}
+
+.wi-day-sunny {
+    margin-right: -12px;
+}
+
+.weather .current
+{
+    display: flex;
+    flex-flow: row wrap;
+    background-image: url("/Content/images/shared/misc/london-view.png");
+    background-repeat: repeat-x;
+    color: white;
+    padding: 20px;
+    text-shadow: 1px 1px #F68D2E;
+}
+
+.weather .current .info
+{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    flex-grow: 2;
+    color: brown;
+}
+
+.weather .current .info .city,
+.weather .current .info .wind
+{
+    font-size: 1.1em !important;
+}
+
+.weather .current .info .temp
+{
+    font-size: 1.3em !important;
+}
+
+.weather .current .icon
+{
+    text-align: right;
+    font-size: 64px;
+    flex-grow: 1;
+}
+
+.weather .future
+{
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.weather .future .day
+{
+    flex-grow: 1;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid burlywood;
+}
+
+.weather .future .day:hover, .moment-actif
+{
+    color: #fff;
+    background-color: #F68D2E;
+}
+
+.weather .future .day h3
+{
+    text-transform: uppercase;
+}
+
+.weather .future .day p
+{
+    font-size: 28px;
+}

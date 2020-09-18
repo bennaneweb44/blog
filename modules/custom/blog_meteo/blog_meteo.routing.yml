@@ -1,8 +1,8 @@
 blog_meteo.hello:
-  path: '/hello'
+  path: '/services/meteo'
   defaults:
     _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::hello'
-    _title: 'Route Hello'
+    _title: 'Prévisions météo'
   requirements:
     #_permission: 'access content'
     _custom_access: '\Drupal\blog_meteo\Controller\BlogMeteoController::access'
@@ -31,7 +31,7 @@ blog_meteo.square:
     _permission: 'access content'
 
 blog_meteo.form:
-  path: '/services/meteo'
+  path: '/form/meteo'
   defaults:
     _form: '\Drupal\blog_meteo\Form\BlogMeteoForm'
   requirements:

@@ -8,7 +8,12 @@ function blog_meteo_theme($existing, $type, $theme, $path) {
   return [
     'meteo_theme' => [
       'variables' => [
-        'test_var' => 'Météo france ! <br> Made in BW...'
+        'city' => NULL,
+        'icon' => NULL,
+        'message' => NULL,
+        'descriptif' => NULL,
+        'temperature' => NULL,
+        'vent' => NULL
       ],
     ],
   ];
