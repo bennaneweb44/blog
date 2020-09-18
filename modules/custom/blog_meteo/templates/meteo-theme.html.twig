@@ -1,9 +1,14 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">            
+        <div class="col-md-4 col-md-offset-4">
+            
             <div class="weather">             
-                <div class="bg-warning text-center villeTitre">
-                    <span>Sainte-luce-sur-loire</span>   
+                <input type="text" placeholder="Nom d'une ville" style="height: 30px" />
+            </div>
+
+            <div class="weather">             
+                <div class="bg-warning text-center day villeTitre">
+                    <span>{{ city }}</span>   
                 </div>                
                 <div class="current">
                     <div class="info">
@@ -41,3 +46,9 @@
         </div>
     </div>
 </div>
+
+<style>
+    .moment-actif {
+        background-color: #F68D2E;
+    }
+</style>

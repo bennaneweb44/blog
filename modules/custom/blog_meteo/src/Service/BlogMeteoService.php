@@ -85,7 +85,8 @@ class BlogMeteoService {
     'overcast clouds' => 'couvert nuageux'
   ];
 
-  public function getWeatherByCity($city, $country) {
+  public function getWeatherByCity($city, $country) 
+  {
 
     // Objet de retour
     $return = new stdClass();

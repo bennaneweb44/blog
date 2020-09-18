@@ -26,7 +26,7 @@
 {
     display: flex;
     flex-flow: row wrap;
-    background-image: url("/Content/images/shared/misc/london-view.png");
+    /*background-image: url("/Content/images/shared/misc/london-view.png");*/
     background-repeat: repeat-x;
     color: white;
     padding: 20px;
@@ -74,10 +74,10 @@
     border: 1px solid burlywood;
 }
 
-.weather .future .day:hover, .moment-actif
+.weather .future .day:hover
 {
     color: #fff;
-    background-color: #F68D2E;
+    background-color: #F68D2E !important;
 }
 
 .weather .future .day h3
