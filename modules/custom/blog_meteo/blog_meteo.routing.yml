@@ -8,6 +8,8 @@ blog_meteo.index:
     _title: 'Prévisions météo'
   requirements:
     _custom_access: '\Drupal\blog_meteo\Controller\BlogMeteoController::access'
+  options:
+    no_cache: 'TRUE'
 
 ############################### Autocomplete #####################################
 blog_meteo.autocomplete:
