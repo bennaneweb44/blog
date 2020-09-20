@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            
-            <div class="weather">             
-                <input type="text" placeholder="Nom d'une ville" style="height: 30px" />
+            <div class="weather"> 
+                {{ form_aturocomplete_villes }}  
             </div>
+            <div class="weather">     
 
-            <div class="weather">             
                 <div class="bg-warning text-center day villeTitre">
                     <span>{{ city }}</span>   
-                </div>                
+                </div> 
+                               
                 <div class="current">
                     <div class="info">
                         <div>&nbsp;</div>              
@@ -43,6 +43,10 @@
                     </div>
                 </div>
             </div>
+
+
+            
+
         </div>
     </div>
 </div>

@@ -3,8 +3,7 @@
 blog_meteo.index:
   path: '/services/meteo'
   defaults:
-    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::index'
-    _form:  '\Drupal\blog_meteo\Form\MeteoAutocompleteForm'
+    _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::index'    
     _title: 'Prévisions météo'
   requirements:
     _custom_access: '\Drupal\blog_meteo\Controller\BlogMeteoController::access'
@@ -13,9 +12,17 @@ blog_meteo.index:
 
 ############################### Autocomplete #####################################
 blog_meteo.autocomplete:
-  path: '/autocomplete/articles'
+  path: '/autocomplete/villes'
   defaults:
     _controller: '\Drupal\blog_meteo\Controller\JsonApiVillesController::handleAutocomplete'
     _format: json
+  requirements:
+    _permission: 'access content'
+
+blog_meteo.form_autocomplete:
+  path: '/autocomplete-form'
+  defaults:
+    _form:  '\Drupal\blog_meteo\Form\MyAutocompleteForm'
+    _title: 'Autocomplete Form'
   requirements:
     _permission: 'access content'

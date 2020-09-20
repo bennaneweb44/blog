@@ -10,7 +10,7 @@ use Drupal\Core\Entity\Element\EntityAutocomplete;
  * Class MyAutocompleteForm
  * @package Drupal\blog_meteo\Form
  */
-class MeteoAutocompleteForm extends FormBase
+class MyAutocompleteForm extends FormBase
 {
 
   /**
@@ -28,14 +28,14 @@ class MeteoAutocompleteForm extends FormBase
   {
     $form['article'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Autocomplete Articles'),
+      '#placeholder' => 'Nom d\'une ville',
+      '#attributes' => [
+        'style' => 'background-color: burlywood;'
+      ],
       '#autocomplete_route_name' => 'blog_meteo.autocomplete',
     ];
     $form['actions'] = ['#type' => 'actions'];
-    $form['actions']['submit'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Save'),
-    ];
+    
     return $form;
   }
 

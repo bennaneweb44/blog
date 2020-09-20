@@ -13,8 +13,10 @@ function blog_meteo_theme($existing, $type, $theme, $path) {
         'message' => NULL,
         'descriptif' => NULL,
         'temperature' => NULL,
-        'vent' => NULL
+        'vent' => NULL,
+
+        'form_aturocomplete_villes' => NULL,
       ],
-    ],
+    ]
   ];
 }

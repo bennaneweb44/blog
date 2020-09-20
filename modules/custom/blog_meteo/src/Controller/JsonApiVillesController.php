@@ -27,13 +27,8 @@ class JsonApiVillesController
     $input = Xss::filter($input);
 
     $results[] = [
-        'value' => 'A',
-        'label' => 'A',
-    ];
-
-    $results[] = [
-        'value' => 'B',
-        'label' => 'B',
+        'value' => $input,
+        'label' => $input,
     ];
 
     return new JsonResponse($results);
