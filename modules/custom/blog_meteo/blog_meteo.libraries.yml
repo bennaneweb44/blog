@@ -1,10 +1,10 @@
-super-lib:
+blog-meteo-css:
   version: 1.x
   css:
     theme:
       css/blog-meteo.css: {}
 
-blog-meteo:
+blog-meteo-js:
   version: 1.x
   js:
     js/blog-meteo.js: {}

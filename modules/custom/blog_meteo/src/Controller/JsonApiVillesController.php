@@ -17,21 +17,49 @@ class JsonApiVillesController
   /**
    * @return JsonResponse
    */
-  public function handleAutocomplete(Request $request)
+  public function handleAutocomplete(Request $request, $departement, $term)
   {
     $results = [];
-    $input = $request->query->get('q');
-    if (!$input) {
+
+    if (!$term || !$departement) {
       return new JsonResponse($results);
     }
-    $input = Xss::filter($input);
 
-    $results[] = [
-        'value' => $input,
-        'label' => $input,
-    ];
+    $term = Xss::filter($term);
+    $departement = Xss::filter($departement);
+
+    // Request
+    $con = \Drupal\Core\Database\Database::getConnection();
+    $query = $con->select('villes_france_free', 'vff')
+        ->fields('vff', ['ville_nom']);
+    $query->condition('ville_nom', $query->escapeLike($term) . "%", 'LIKE');
+    $query->condition('ville_departement', $departement);
+    $objects = $query->execute()->fetchAll();
+
+    foreach($objects as $obj) {
+      $results[] = $obj->ville_nom;
+    }
 
     return new JsonResponse($results);
+  }
+
+  /**
+   * @return JsonResponse
+   */
+  public function updateWeatherVille($ville)
+  {
+    $results = [];
+
+    if (!$ville) {
+      return new JsonResponse($results);
+    }
+
+    $term = Xss::filter($ville);
+
+    // Request
+    $meteo =  \Drupal::service('blog_meteo.BlogMeteoService')->getWeatherByCity($term, 'fr');
+
+    return new JsonResponse($meteo);
   }
 
 }

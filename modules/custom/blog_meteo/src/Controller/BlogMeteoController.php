@@ -25,6 +25,7 @@ class BlogMeteoController extends ControllerBase {
   public function index() 
   {
     $meteo =  \Drupal::service('blog_meteo.BlogMeteoService')->getWeatherByCity('Nantes', 'fr');
+    
     $form_aturocomplete_villes =  \Drupal::formBuilder()->getForm('Drupal\blog_meteo\Form\MyAutocompleteForm');
 
     return [
@@ -41,7 +42,8 @@ class BlogMeteoController extends ControllerBase {
 
         '#attached' => [
             'library' => [
-                'blog_meteo/super-lib',
+                'blog_meteo/blog-meteo-css',
+                'blog_meteo/blog-meteo-js'
             ],
         ],
     ];

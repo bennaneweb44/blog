@@ -133,6 +133,8 @@ class BlogMeteoService {
 
         if (in_array($descriptif, $descriptifs_francais)) {
           $return->descriptif = ucfirst(self::DESCRIPTION_EN_FR[$descriptif]);
+        } elseif (in_array(ucfirst($descriptif), $descriptifs_francais)) {
+          $return->descriptif = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($descriptif)]);
         } else {
           $return->descriptif = ucfirst($descriptif);
         }

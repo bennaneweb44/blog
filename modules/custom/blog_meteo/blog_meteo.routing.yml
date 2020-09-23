@@ -1,5 +1,5 @@
 
-################################## Meteo ########################################
+######################## Meteo d'une ville : au chargement #######################
 blog_meteo.index:
   path: '/services/meteo'
   defaults:
@@ -10,14 +10,23 @@ blog_meteo.index:
   options:
     no_cache: 'TRUE'
 
+########################### Meteo d'une ville : Ajax #############################
+blog_meteo.updateWeatherVille:
+  path: '/services/meteo/update/{ville}'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\JsonApiVillesController::updateWeatherVille'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
 ############################### Autocomplete #####################################
 blog_meteo.autocomplete:
-  path: '/autocomplete/villes'
+  path: '/autocomplete/villes/{departement}/term/{term}'
   defaults:
     _controller: '\Drupal\blog_meteo\Controller\JsonApiVillesController::handleAutocomplete'
     _format: json
   requirements:
-    _permission: 'access content'
+    _access: 'TRUE'
 
 blog_meteo.form_autocomplete:
   path: '/autocomplete-form'
