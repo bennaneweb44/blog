@@ -18,12 +18,10 @@
 
           if (term.trim() != '') {
 
-            let host = drupalSettings.path.baseUrl;
-
             $.ajax({
               dataType: "JSON",
               type: "GET",          
-              url: host + "/autocomplete/villes/"+departement+"/term/"+term,          
+              url: drupalSettings.path.baseUrl + "autocomplete/villes/"+departement+"/term/"+term,          
               success: function (data) {
                 
                 let content = '<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" >';
@@ -44,7 +42,7 @@
                   $.ajax({
                     dataType: "JSON",
                     type: "GET",          
-                    url: drupalSettings.path.baseUrl + "/services/meteo/update/" + ville,          
+                    url: drupalSettings.path.baseUrl + "services/meteo/update/" + ville,          
                     success: function (data) {
                       
                       $('.villeTitre').empty();

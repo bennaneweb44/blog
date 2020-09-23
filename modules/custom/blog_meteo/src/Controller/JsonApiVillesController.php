@@ -2,7 +2,6 @@
 
 namespace Drupal\blog_meteo\Controller;
 
-use Drupal\Core\Entity\Element\EntityAutocomplete;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Component\Utility\Xss;
