@@ -21,7 +21,6 @@
               type: 'GET',
               url: drupalSettings.path.baseUrl + "autocomplete/villes/" + departement + "/term/" + term,
               dataType: "json",
-              //data: {input_recherche_recette : $('#input_recherche_recette').val()},
               success: function(data) {
                   response(data);
               }
@@ -38,21 +37,8 @@
               type: "GET",          
               url: drupalSettings.path.baseUrl + "services/meteo/update/" + ville,          
               success: function (data) {
-                
-                $('.villeTitre').empty();
-                $('.villeTitre').html('<span>'+data.city+'</span>');
-                
-                $('.city').empty();
-                $('.city').html(data.descriptif);
 
-                $('.temp').empty();
-                $('.temp').html(data.temperature + '° C');
-
-                $('.wind').empty();
-                $('.wind').html(data.vent + ' km/h');     
-                                      
-                $('.wi-day-sunny').empty();
-                $('.wi-day-sunny').html('<img src="'+data.icon+'" height="110" />');
+                refreshDataWeatherCity(data);
 
                 $('#product-search-result').empty(); 
                 $('#inputVille').val('');
@@ -66,6 +52,49 @@
         $('#inputDepartement').change(function(e) {
           $('#inputVille').val('');
         });
+
+
+        /*########### Période de la journée (Matin, après-midi et soir ############*/
+        $('#div-periodes > div').click(function() {            
+          let periode = $(this).attr('data-periode');
+          let ville = $('.villeTitre > span').html();
+          let div = $(this);
+          
+          $.ajax({
+            dataType: "JSON",
+            type: "GET",          
+            url: drupalSettings.path.baseUrl + "/services/meteo/update/" + ville + "/periode/" + periode,
+            success: function (data) {
+
+              refreshDataWeatherCity(data);
+
+              $( "#div-periodes > div" ).each(function( index ) {
+                $(this).removeClass('moment-actif');
+              });
+
+              div.addClass('moment-actif');
+            }
+          }); 
+        });
+
+        function refreshDataWeatherCity(data)
+        {
+          $('.villeTitre').empty();
+          $('.villeTitre').html('<span>'+data.city+'</span>');
+          
+          $('.city').empty();
+          $('.city').html(data.descriptif);
+
+          $('.temp').empty();
+          $('.temp').html(data.temperature + '° C');
+
+          $('.wind').empty();
+          $('.wind').html(data.vent + ' km/h');     
+                                
+          $('.wi-day-sunny').empty();
+          $('.wi-day-sunny').html('<img src="'+data.icon+'" height="110" />');
+        }
+          
 
       }      
     }

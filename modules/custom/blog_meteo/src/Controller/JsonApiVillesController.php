@@ -61,4 +61,23 @@ class JsonApiVillesController
     return new JsonResponse($meteo);
   }
 
+  /**
+   * @return JsonResponse
+   */
+  public function updateWeatherVillePeriode($ville, $periode)
+  {
+    $results = [];
+
+    if (!$ville || !$periode) {
+      return new JsonResponse($results);
+    }
+
+    $term = Xss::filter($ville);
+
+    // Request
+    $meteo =  \Drupal::service('blog_meteo.BlogMeteoService')->getWeatherByCityPeriode($term, 'fr', $periode);
+
+    return new JsonResponse($meteo);
+  }
+
 }

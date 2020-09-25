@@ -24,24 +24,38 @@
                         </span>
                     </div>
                 </div>
-                <div class="future">
-                    <div class="day bg-warning moment-actif">
-                        <h3>Actuelle</h3>
-                        <p><span class="wi-day-cloudy"></span></p>
+                {% if boutonsAfficher |length > 0 %}
+                    <div class="future" id="div-periodes">
+                        
+                        {% if 'actuelle' in boutonsAfficher %}
+                            <div class="day bg-warning moment-actif" data-periode="actuelle">
+                                <h3>Actuelle</h3>
+                                <p><span class="wi-day-cloudy"></span></p>
+                            </div>
+                        {% endif %}
+
+                        {% if 'matin' in boutonsAfficher %}
+                            <div class="day bg-warning" data-periode="matin">
+                                <h3>Matin</h3>
+                                <p><span class="wi-day-cloudy"></span></p>
+                            </div>
+                        {% endif %}
+
+                        {% if 'apres-midi' in boutonsAfficher %}
+                            <div class="day bg-warning" data-periode="apres-midi">
+                                <h3>Après-midi</h3>
+                                <p><span class="wi-showers"></span></p>
+                            </div>
+                        {% endif %}
+
+                        {% if 'soir' in boutonsAfficher %}
+                            <div class="day bg-warning" data-periode="soir">
+                                <h3>Soir</h3>
+                                <p><span class="wi-rain"></span></p>
+                            </div>
+                        {% endif %}
                     </div>
-                    <div class="day bg-warning">
-                        <h3>Matin</h3>
-                        <p><span class="wi-day-cloudy"></span></p>
-                    </div>
-                    <div class="day bg-warning">
-                        <h3>Après-midi</h3>
-                        <p><span class="wi-showers"></span></p>
-                    </div>
-                    <div class="day bg-warning">
-                        <h3>Soir</h3>
-                        <p><span class="wi-rain"></span></p>
-                    </div>
-                </div>
+                {% endif %}
             </div>
 
 

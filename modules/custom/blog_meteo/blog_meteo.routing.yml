@@ -19,6 +19,14 @@ blog_meteo.updateWeatherVille:
   requirements:
     _access: 'TRUE'
 
+blog_meteo.updateWeatherVillePeriode:
+  path: '/services/meteo/update/{ville}/periode/{periode}'
+  defaults:
+    _controller: '\Drupal\blog_meteo\Controller\JsonApiVillesController::updateWeatherVillePeriode'
+    _format: json
+  requirements:
+    _access: 'TRUE'
+
 ############################### Autocomplete #####################################
 blog_meteo.autocomplete:
   path: '/autocomplete/villes/{departement}/term/{term}'
