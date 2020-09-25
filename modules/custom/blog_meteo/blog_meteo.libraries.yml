@@ -12,3 +12,5 @@ blog-meteo-js:
     - core/jquery
     - core/drupal # general Drupal JS lib
     - core/jquery.once
+    - core/jquery.ui
+    - core/drupal.autocomplete

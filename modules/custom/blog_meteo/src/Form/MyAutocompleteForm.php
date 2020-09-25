@@ -140,7 +140,7 @@ class MyAutocompleteForm extends FormBase
       '#id' => 'inputDepartement',
       '#options' => $this->departements,     
       '#attributes' => [
-        'style' => 'width: 100%;'
+        'style' => 'width: 100%; padding: 2px; background-color: burlywood'
       ],
       '#default_value' => 44,
       '#ajax' => [
@@ -160,7 +160,7 @@ class MyAutocompleteForm extends FormBase
       '#id' => 'inputVille',
       '#placeholder' => 'Nom d\'une ville',
       '#attributes' => [
-        'style' => 'background-color: burlywood;'
+        'style' => 'background-color: burlywood; margin-bottom: 1em; max-height: 24px !important;'
       ]
     ];
 
@@ -170,7 +170,8 @@ class MyAutocompleteForm extends FormBase
       '#type' => 'item',
       '#markup' => "",
       '#attributes' => [
-        'style' => 'background-color: #e3e3e3; font-weight: bold'        
+        'style' => 'background-color: #e3e3e3; font-weight: bold',
+        'class' => 'box-for-input'        
       ]
     );
     

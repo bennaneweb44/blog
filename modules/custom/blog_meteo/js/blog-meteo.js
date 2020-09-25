@@ -7,72 +7,61 @@
       if (!initialized) {
         initialized = true;
 
-        // Ajax Request
-        $('#inputVille').keyup(function(e) {
+        $("#inputVille").autocomplete({        
+          source: function(request, response) {
 
-          e.preventDefault();
-          e.stopPropagation();
-        
-          var term = $('#inputVille').val();
-          var departement = $('#inputDepartement').val();
+            var departement = $('#inputDepartement').val();            
+            var term = $('#inputVille').val();
 
-          if (term.trim() != '') {
+            if (term.trim() == '') {
+              term = 'xxxxxxxxxxxxx';
+            }
+
+            $.ajax({
+              type: 'GET',
+              url: drupalSettings.path.baseUrl + "autocomplete/villes/" + departement + "/term/" + term,
+              dataType: "json",
+              //data: {input_recherche_recette : $('#input_recherche_recette').val()},
+              success: function(data) {
+                  response(data);
+              }
+            });
+              
+          },
+          min_length: 3,
+          delay: 10,
+          select: function(e, ui) {    
+            ville = ui.item.value;
 
             $.ajax({
               dataType: "JSON",
               type: "GET",          
-              url: drupalSettings.path.baseUrl + "autocomplete/villes/"+departement+"/term/"+term,          
+              url: drupalSettings.path.baseUrl + "services/meteo/update/" + ville,          
               success: function (data) {
                 
-                let content = '<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" >';
-                let i = 0;
-                for ( ; data[i]; ) {                
-                  content += '<li class="ui-menu-item reloadCityWeather" style="cursor: pointer; list-style-type: none;" data-city="'+ data[i] +'">' + data[i] + '</li>';
-                  i++;
-                }
-                content += '</ul>';
+                $('.villeTitre').empty();
+                $('.villeTitre').html('<span>'+data.city+'</span>');
                 
-                $('#product-search-result').html(content);  
+                $('.city').empty();
+                $('.city').html(data.descriptif);
 
-                $('.reloadCityWeather').click(function(e) {
-                  e.preventDefault();
-                  
-                  let ville = $(this).attr('data-city');
+                $('.temp').empty();
+                $('.temp').html(data.temperature + '° C');
 
-                  $.ajax({
-                    dataType: "JSON",
-                    type: "GET",          
-                    url: drupalSettings.path.baseUrl + "services/meteo/update/" + ville,          
-                    success: function (data) {
-                      
-                      $('.villeTitre').empty();
-                      $('.villeTitre').html('<span>'+data.city+'</span>');
-                      
-                      $('.city').empty();
-                      $('.city').html(data.descriptif);
+                $('.wind').empty();
+                $('.wind').html(data.vent + ' km/h');     
+                                      
+                $('.wi-day-sunny').empty();
+                $('.wi-day-sunny').html('<img src="'+data.icon+'" height="110" />');
 
-                      $('.temp').empty();
-                      $('.temp').html(data.temperature + '° C');
-
-                      $('.wind').empty();
-                      $('.wind').html(data.vent + ' km/h');     
-                                            
-                      $('.wi-day-sunny').empty();
-                      $('.wi-day-sunny').html('<img src="'+data.icon+'" height="110" />');
-
-                      $('#product-search-result').empty(); 
-                      $('#inputVille').val('');
-                    }
-                  }); 
-
-                });
+                $('#product-search-result').empty(); 
+                $('#inputVille').val('');
               }
             }); 
 
           }
-            
         });
-
+        
         
         $('#inputDepartement').change(function(e) {
           $('#inputVille').val('');

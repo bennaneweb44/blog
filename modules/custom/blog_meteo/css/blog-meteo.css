@@ -89,3 +89,8 @@
 {
     font-size: 28px;
 }
+
+/*###################### Autocomplete ######################*/
+input#inputVille:focus {
+    outline-width: 0;
+}
