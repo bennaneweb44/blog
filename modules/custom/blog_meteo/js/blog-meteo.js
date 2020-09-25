@@ -63,7 +63,7 @@
           $.ajax({
             dataType: "JSON",
             type: "GET",          
-            url: drupalSettings.path.baseUrl + "/services/meteo/update/" + ville + "/periode/" + periode,
+            url: drupalSettings.path.baseUrl + "services/meteo/update/" + ville + "/periode/" + periode,
             success: function (data) {
 
               refreshDataWeatherCity(data);
