@@ -110,7 +110,6 @@ class BlogMeteoService {
       // Get data
       $data_array = json_decode($api->response, true);
       
-
       $api5days = $curl->get('https://api.openweathermap.org/data/2.5/forecast?q=' . $city . ',' . $country . '&APPID=' . $this->key);
 
       // Prochaines période
@@ -119,13 +118,12 @@ class BlogMeteoService {
         $data_5days_array = json_decode($api5days->response, true);
 
         if ($data_5days_array['list'] && count($data_5days_array['list'])) {
-          $timestamp_matin = strtotime(date('Y-m-d 09:00:00'));
-          $timestamp_apres_midi = strtotime(date('Y-m-d 14:00:00'));
-          $timestamp_soir = strtotime(date('Y-m-d 20:00:00'));
+          $timestamp_matin = strtotime(date('Y-m-d 10:00:00'));
+          $timestamp_apres_midi = strtotime(date('Y-m-d 15:00:00'));
+          $timestamp_soir = strtotime(date('Y-m-d 21:00:00'));
   
           $timestamp_now = strtotime(date('Y-m-d H:i:s'));
           
-          $first_date = $data_5days_array['list'][0]['dt'];
           if ($timestamp_now < $timestamp_soir) {
             $boutonsAfficher[] = 'actuelle';
             $boutonsAfficher[] = 'soir';
@@ -216,28 +214,23 @@ class BlogMeteoService {
       } else {
 
         $donnee = null;
+        
         foreach($data_array['list'] as $elem) {
-          
-          switch ($periode) {
-            case 'actuelle' :
-              $api5days = $curl->get('https://api.openweathermap.org/data/2.5/weather?q=' . $city . ',' . $country . '&APPID=' . $this->key);
-              $data_array = json_decode($api5days->response, true);
-              break;
-            case 'matin' :
-              if ($elem['dt'] === strtotime(date('Y-m-d'). '08:00:00')) {
-                $donnee = $elem;              
-              }              
-              break;
-            case 'apres-midi' :
-              if ($elem['dt'] === strtotime(date('Y-m-d'). '14:00:00')) {
-                $donnee = $elem;              
-              }  
-              break;
-            case 'soir' :
-              if ($elem['dt'] === strtotime(date('Y-m-d'). '20:00:00')) {
-                $donnee = $elem;              
-              }  
-              break;
+
+          if ($periode == 'actuelle') {
+            $api5days = $curl->get('https://api.openweathermap.org/data/2.5/weather?q=' . $city . ',' . $country . '&APPID=' . $this->key);
+            $data_array = json_decode($api5days->response, true);
+          } else {
+            if ($periode == 'matin' && $elem['dt'] >= strtotime(date('Y-m-d'). '09:00:00') && $elem['dt'] < strtotime(date('Y-m-d'). '12:00:00')) {
+              $donnee = $elem;
+              break;  
+            } elseif ($periode == 'apres-midi' && $elem['dt'] > strtotime(date('Y-m-d'). '12:00:00') && $elem['dt'] <= strtotime(date('Y-m-d'). '16:00:00')) {
+              $donnee = $elem;
+              break;  
+            } elseif ($periode == 'soir' && $elem['dt'] > strtotime(date('Y-m-d'). '20:00:00')) {
+              $donnee = $elem;
+              break;  
+            }
           }
         }
        

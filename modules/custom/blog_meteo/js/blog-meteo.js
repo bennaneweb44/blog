@@ -42,6 +42,13 @@
 
                 $('#product-search-result').empty(); 
                 $('#inputVille').val('');
+                
+                $( "#div-periodes > div" ).each(function( index ) {
+                  $(this).removeClass('moment-actif');
+                  if ($(this).attr('data-periode') == 'actuelle') {
+                    $(this).addClass('moment-actif');
+                  }                   
+                });
               }
             }); 
 
