@@ -94,3 +94,17 @@
 input#inputVille:focus {
     outline-width: 0;
 }
+
+/*###################### Meteo 4 jours ######################*/
+
+@media (min-width: 1024px) {
+    .meteo_4_jours {
+        height: 50em;
+    }
+}
+  
+@media (max-width: 1023px){
+    .meteo_4_jours {
+        height: 135em !important;
+    }        
+}
