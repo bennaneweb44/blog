@@ -158,11 +158,10 @@ class BlogMeteoService {
 
         // Description
         $descriptif = $weather[0]['description'];
-        $descriptifs_francais = array_keys(self::DESCRIPTION_EN_FR);
 
-        if (in_array($descriptif, $descriptifs_francais)) {
+        if (in_array($descriptif, array_keys(self::DESCRIPTION_EN_FR))) {
           $return->descriptif = ucfirst(self::DESCRIPTION_EN_FR[$descriptif]);
-        } elseif (in_array(ucfirst($descriptif), $descriptifs_francais)) {
+        } elseif (in_array(ucfirst($descriptif), array_keys(self::DESCRIPTION_EN_FR))) {
           $return->descriptif = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($descriptif)]);
         } else {
           $return->descriptif = ucfirst($descriptif);
@@ -177,6 +176,10 @@ class BlogMeteoService {
         $wind = $data_array['wind'];
         $return->vent = floatval($wind['speed']) * 3.273;
         $return->vent = round($return->vent);
+
+        /*####################### Weather of 4 days ###########################*/
+        $return->weather4days = $this->getWeather4days($data_5days_array);
+        
       }
     }
     
@@ -285,6 +288,309 @@ class BlogMeteoService {
     }
     
     return $return;
+  }
+
+  private function getWeather4days($array_data_5_days)
+  {    
+    $retour = [
+      0 => [],
+      1 => [],
+      2 => [],
+      3 => []
+    ];
+
+    foreach($array_data_5_days['list'] as $item) {
+      switch ($item['dt_txt']) {
+
+        /*########### J + 1 ###########*/
+        case date('Y-m-d H:i:s', strtotime(' +1 day'. ' 12:00:00'));
+        
+          $retour[0]['date'] = $this->dateJourAnglaisToFrancais(date('D, d/m', strtotime($item['dt_txt'])));    
+          
+          // Icon     
+          $retour[0]['matin']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[0]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[0]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[0]['matin']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[0]['matin']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[0]['matin']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+        case date('Y-m-d H:i:s', strtotime(' +1 day' . ' 18:00:00'));      
+
+          // Icon     
+          $retour[0]['apres-midi']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[0]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[0]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[0]['apres-midi']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[0]['apres-midi']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[0]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          break;
+
+        case date('Y-m-d H:i:s', strtotime(' +2 day' . ' 00:00:00')):       
+
+          // Icon     
+          $retour[0]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[0]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[0]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[0]['soir']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[0]['soir']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[0]['soir']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          break;
+
+        /*########### J + 2 ###########*/
+        case date('Y-m-d H:i:s', strtotime(' +2 day' . ' 12:00:00'));
+          $retour[1]['date'] = $this->dateJourAnglaisToFrancais(date('D, d/m', strtotime($item['dt_txt'])));          
+
+          // Icon     
+          $retour[1]['matin']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[1]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[1]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[1]['matin']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[1]['matin']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[1]['matin']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+        case date('Y-m-d H:i:s', strtotime(' +2 day' . ' 18:00:00'));         
+
+          // Icon     
+          $retour[1]['apres-midi']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[1]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[1]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[1]['apres-midi']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[1]['apres-midi']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[1]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+        case date('Y-m-d H:i:s', strtotime(' +3 day' . ' 00:00:00')):         
+
+          // Icon     
+          $retour[1]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[1]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[1]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[1]['soir']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[1]['soir']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[1]['soir']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+
+        /*########### J + 3 ###########*/
+        case date('Y-m-d H:i:s', strtotime(' +3 day' . ' 12:00:00'));
+          $retour[2]['date'] = $this->dateJourAnglaisToFrancais(date('D, d/m', strtotime($item['dt_txt'])));          
+
+          // Icon     
+          $retour[2]['matin']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[2]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[2]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[2]['matin']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[2]['matin']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[2]['matin']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+        case date('Y-m-d H:i:s', strtotime(' +3 day' . ' 18:00:00'));        
+
+          // Icon     
+          $retour[2]['apres-midi']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[2]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[2]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[2]['apres-midi']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[2]['apres-midi']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[2]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+        case date('Y-m-d H:i:s', strtotime(' +4 day' . ' 00:00:00')):
+          // Icon     
+          $retour[2]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[2]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[2]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[2]['soir']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[2]['soir']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[2]['soir']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+          
+
+        /*########### J + 4 ###########*/
+        case date('Y-m-d H:i:s', strtotime(' +4 day' . ' 12:00:00'));
+          $retour[3]['date'] = $this->dateJourAnglaisToFrancais(date('D, d/m', strtotime($item['dt_txt'])));          
+
+          // Icon     
+          $retour[3]['matin']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[3]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[3]['matin']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[3]['matin']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[3]['matin']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[3]['matin']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+        case date('Y-m-d H:i:s', strtotime(' +4 day' . ' 18:00:00'));         
+
+          // Icon     
+          $retour[3]['apres-midi']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[3]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[3]['apres-midi']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[3]['apres-midi']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[3]['apres-midi']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[3]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+        case date('Y-m-d H:i:s', strtotime(' +5 day' . ' 00:00:00')):        
+
+          // Icon     
+          $retour[3]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
+          
+          // descriptif
+          if (in_array($item['weather'][0]['description'], array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[3]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[$item['weather'][0]['description']]);
+          } elseif (in_array(ucfirst($item['weather'][0]['description']), array_keys(self::DESCRIPTION_EN_FR))) {
+            $retour[3]['soir']['descriptif']  = ucfirst(self::DESCRIPTION_EN_FR[ucfirst($item['weather'][0]['description'])]);
+          } else {
+            $retour[3]['soir']['descriptif']  = ucfirst($item['weather'][0]['description']);
+          }
+
+          // température
+          $retour[3]['soir']['temperature'] = round(floatval($item['main']['temp']) - 273.15);   
+
+          // Vent
+          $retour[3]['soir']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
+          
+          break;
+      }
+    }
+    
+    return $retour;
+  }
+
+  private function dateJourAnglaisToFrancais($date_anglaise)
+  {    
+    $jours_anglais_francais = [
+      'Mon' => 'Lun',
+      'Tue' => 'Mar',
+      'Wed' => 'Mer',
+      'Thu' => 'Jeu',
+      'Fri' => 'Ven',
+      'Sat' => 'Sam',
+      'Sun' => 'Dim'
+    ];
+
+    foreach($jours_anglais_francais as $cle => $val) {
+      if (strpos($date_anglaise, $cle) !== FALSE) {        
+        $date_anglaise = str_replace($cle, $val, $date_anglaise);
+        break;  
+      }
+    }
+
+    return $date_anglaise;
   }
 
 }

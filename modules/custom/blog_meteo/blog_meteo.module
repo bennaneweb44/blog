@@ -15,6 +15,7 @@ function blog_meteo_theme($existing, $type, $theme, $path) {
         'temperature' => NULL,
         'vent' => NULL,
         'boutonsAfficher' => NULL,
+        'weather4days' => NULL,
 
         'form_aturocomplete_villes' => NULL,
       ],

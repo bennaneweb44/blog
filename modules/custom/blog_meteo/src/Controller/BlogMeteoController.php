@@ -40,6 +40,7 @@ class BlogMeteoController extends ControllerBase {
         '#temperature' => $meteo->temperature,
         '#vent' => $meteo->vent,
         '#boutonsAfficher' => $meteo->boutonsAfficher,
+        '#weather4days' => $meteo->weather4days,
 
         '#attached' => [
             'library' => [

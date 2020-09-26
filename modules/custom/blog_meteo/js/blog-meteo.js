@@ -86,22 +86,21 @@
 
         function refreshDataWeatherCity(data)
         {
-          $('.villeTitre').empty();
-          $('.villeTitre').html('<span>'+data.city+'</span>');
+          $('#villeTitre').empty();
+          $('#villeTitre').html('<span>'+data.city+'</span>');
           
-          $('.city').empty();
-          $('.city').html(data.descriptif);
+          $('#villeDescriptif').empty();
+          $('#villeDescriptif').html(data.descriptif);
 
-          $('.temp').empty();
-          $('.temp').html(data.temperature + '° C');
+          $('#villeTemperature').empty();
+          $('#villeTemperature').html(data.temperature + '° C');
 
-          $('.wind').empty();
-          $('.wind').html(data.vent + ' km/h');     
+          $('#villeVent').empty();
+          $('#villeVent').html(data.vent + ' km/h');     
                                 
-          $('.wi-day-sunny').empty();
-          $('.wi-day-sunny').html('<img src="'+data.icon+'" height="110" />');
-        }
-          
+          $('#villeIcone').empty();
+          $('#villeIcone').html('<img src="'+data.icon+'" height="110" />');
+        }          
 
       }      
     }
