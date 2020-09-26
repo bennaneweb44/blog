@@ -39,6 +39,7 @@
               success: function (data) {
 
                 refreshDataWeatherCity(data);
+                refreshDataWeather4days(data);
 
                 $('#product-search-result').empty(); 
                 $('#inputVille').val('');
@@ -100,7 +101,43 @@
                                 
           $('#villeIcone').empty();
           $('#villeIcone').html('<img src="'+data.icon+'" height="110" />');
-        }          
+        }        
+        
+        function refreshDataWeather4days(data)
+        {          
+          $.each( data.weather4days, function( key, value ) {
+
+              /*################# Matin ##################*/            
+              $('#matin_descriptif_'+key).empty();
+              $('#matin_descriptif_'+key).html(value['matin']['descriptif']);
+
+              $('#matin_temp_vent_'+key).empty();              
+              $('#matin_temp_vent_'+key).html(value['matin']['temperature'] + '° C, ' + value['matin']['vent'] + ' km/h');
+              
+              $('#matin_icone_'+key).attr('src', '');
+              $('#matin_icone_'+key).attr('src', value['matin']['icone']);
+
+              /*################# Après-midi ##################*/
+              $('#aprem_descriptif_'+key).empty();
+              $('#aprem_descriptif_'+key).html(value['apres-midi']['descriptif']);
+
+              $('#aprem_temp_vent_'+key).empty();
+              $('#aprem_temp_vent_'+key).html(value['apres-midi']['temperature'] + '° C, ' + value['apres-midi']['vent'] + ' km/h')
+              
+              $('#aprem_icone_'+key).attr('src', '');
+              $('#aprem_icone_'+key).attr('src', value['apres-midi']['icone']);  
+
+              /*################# Soir ##################*/
+              $('#soir_descriptif_'+key).empty();
+              $('#soir_descriptif_'+key).html(value['soir']['descriptif']);
+
+              $('#soir_temp_vent_'+key).empty();
+              $('#soir_temp_vent_'+key).html(value['soir']['temperature'] + '° C, ' + value['soir']['vent'] + ' km/h')
+              
+              $('#soir_icone_'+key).attr('src', '');
+              $('#soir_icone_'+key).attr('src', value['soir']['icone']);        
+          });
+        }
 
       }      
     }

@@ -178,8 +178,7 @@ class BlogMeteoService {
         $return->vent = round($return->vent);
 
         /*####################### Weather of 4 days ###########################*/
-        $return->weather4days = $this->getWeather4days($data_5days_array);
-        
+        $return->weather4days = $this->getWeather4days($data_5days_array);        
       }
     }
     
@@ -300,6 +299,27 @@ class BlogMeteoService {
     ];
 
     foreach($array_data_5_days['list'] as $item) {
+
+      /*dump(date('Y-m-d H:i:s', strtotime(' +1 day'. ' 06:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +1 day'. ' 12:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +1 day'. ' 18:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +1 day'. ' 23:00:00')));
+
+      dump(date('Y-m-d H:i:s', strtotime(' +2 day'. ' 06:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +2 day'. ' 12:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +2 day'. ' 18:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +2 day'. ' 23:00:00')));
+
+      dump(date('Y-m-d H:i:s', strtotime(' +3 day'. ' 06:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +3 day'. ' 12:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +3 day'. ' 18:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +3 day'. ' 23:00:00')));
+
+      dump(date('Y-m-d H:i:s', strtotime(' +4 day'. ' 06:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +4 day'. ' 12:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +4 day'. ' 18:00:00')));
+      dump(date('Y-m-d H:i:s', strtotime(' +4 day'. ' 23:00:00')));*/
+
       switch ($item['dt_txt']) {
 
         /*########### J + 1 ###########*/
@@ -347,7 +367,7 @@ class BlogMeteoService {
           $retour[0]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
           break;
 
-        case date('Y-m-d H:i:s', strtotime(' +2 day' . ' 00:00:00')):       
+        case date('Y-m-d H:i:s', strtotime(' +1 day' . ' 21:00:00')):       
 
           // Icon     
           $retour[0]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
@@ -412,7 +432,7 @@ class BlogMeteoService {
           $retour[1]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
           
           break;
-        case date('Y-m-d H:i:s', strtotime(' +3 day' . ' 00:00:00')):         
+        case date('Y-m-d H:i:s', strtotime(' +2 day' . ' 21:00:00')):         
 
           // Icon     
           $retour[1]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
@@ -478,7 +498,7 @@ class BlogMeteoService {
           $retour[2]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
           
           break;
-        case date('Y-m-d H:i:s', strtotime(' +4 day' . ' 00:00:00')):
+        case date('Y-m-d H:i:s', strtotime(' +3 day' . ' 21:00:00')):
           // Icon     
           $retour[2]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          
           
@@ -544,7 +564,7 @@ class BlogMeteoService {
           $retour[3]['apres-midi']['vent'] = round(floatval($item['wind']['speed']) * 3.273);
           
           break;
-        case date('Y-m-d H:i:s', strtotime(' +5 day' . ' 00:00:00')):        
+        case date('Y-m-d H:i:s', strtotime(' +4 day' . ' 21:00:00')):        
 
           // Icon     
           $retour[3]['soir']['icone'] = 'https://openweathermap.org/img/wn/'.$item['weather'][0]['icon'].'@4x.png';          

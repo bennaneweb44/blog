@@ -66,7 +66,7 @@
         <div class="col-md-12">
 
             {% if weather4days is defined and weather4days |length %}
-                
+                {% set ind = 0 %}
                 {% for wheather in weather4days %}
 
                     <div class="col-md-3 col-xs-12" style="background-color: burlywood; border: 2px solid burlywood; border-left: 2px solid #F9F4D7; border-right: 2px solid #F9F4D7;">
@@ -82,29 +82,29 @@
                                 <div class="col-md-7 col-sm-7 col-xs-7 float-left">
                                     <div>&nbsp;</div>              
                                     <strong>Matin</strong>  
-                                    <div class="city">{{ wheather['matin']['descriptif'] }}</div>          
-                                    <div class="temp">{{ wheather['matin']['temperature'] }}&deg; <small>C</small> , {{ wheather['matin']['vent'] }} km/h</div>                        
+                                    <div id="matin_descriptif_{{ind}}" class="city">{{ wheather['matin']['descriptif'] }}</div>          
+                                    <div id="matin_temp_vent_{{ind}}" class="temp">{{ wheather['matin']['temperature'] }}&deg; <small>C</small> , {{ wheather['matin']['vent'] }} km/h</div>                        
                                     <div>&nbsp;</div>
                                 </div>
 
                                 <div class="col-md-5 col-sm-5 col-xs-5 float-right">
-                                    <img src="{{ wheather['matin']['icone'] }}" height="90" />
+                                    <img id="matin_icone_{{ind}}" src="{{ wheather['matin']['icone'] }}" height="90" />
                                 </div>
                             </div>
                         </div>
 
                         <div class="row bg-warning" style="height: 9.2em; background-color: burlywood; border-bottom: 2px solid #F9F4D7">
                             <div class="col-md-12">
-                                <div class="col-md-7 col-sm-7 col-xs-7 float-left">
+                                <div class="col-md-7villeTitre col-sm-7 col-xs-7 float-left">
                                     <div>&nbsp;</div>              
                                     <strong>Après-midi</strong>  
-                                    <div class="city">{{ wheather['apres-midi']['descriptif'] }}</div>          
-                                    <div class="temp">{{ wheather['apres-midi']['temperature'] }}&deg; <small>C</small> , {{ wheather['matin']['vent'] }} km/h</div>                        
+                                    <div id="aprem_descriptif_{{ind}}" class="city">{{ wheather['apres-midi']['descriptif'] }}</div>          
+                                    <div id="aprem_temp_vent_{{ind}}" class="temp">{{ wheather['apres-midi']['temperature'] }}&deg; <small>C</small> , {{ wheather['matin']['vent'] }} km/h</div>                        
                                     <div>&nbsp;</div>
                                 </div>
 
                                 <div class="col-md-5 col-sm-5 col-xs-5 float-right">
-                                    <img src="{{ wheather['apres-midi']['icone'] }}" height="90" />
+                                    <img id="aprem_icone_{{ind}}" src="{{ wheather['apres-midi']['icone'] }}" height="90" />
                                 </div>
                             </div>
                         </div>
@@ -114,19 +114,20 @@
                                 <div class="col-md-7 col-sm-7 col-xs-7 float-left">
                                     <div>&nbsp;</div>              
                                     <strong>Soir</strong>  
-                                    <div class="city">{{ wheather['soir']['descriptif'] }}</div>          
-                                    <div class="temp">{{ wheather['soir']['temperature'] }}&deg; <small>C</small> , {{ wheather['matin']['vent'] }} km/h</div>                        
+                                    <div id="soir_descriptif_{{ind}}" class="city">{{ wheather['soir']['descriptif'] }}</div>          
+                                    <div id="soir_temp_vent_{{ind}}" class="temp">{{ wheather['soir']['temperature'] }}&deg; <small>C</small> , {{ wheather['matin']['vent'] }} km/h</div>                        
                                     <div>&nbsp;</div>
                                 </div>
 
                                 <div class="col-md-5 col-sm-5 col-xs-5 float-right">
-                                    <img src="{{ wheather['soir']['icone'] }}" height="90" />
+                                    <img id="soir_icone_{{ind}}" src="{{ wheather['soir']['icone'] }}" height="90" />
                                 </div>
                             </div>
                         </div>
                         
                     </div>
 
+                    {% set ind = ind + 1 %}
                 {% endfor %}
 
             {% endif %}
