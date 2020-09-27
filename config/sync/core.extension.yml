@@ -4,6 +4,7 @@ module:
   big_pipe: 0
   block: 0
   block_content: 0
+  blog_meteo: 0
   blog_outils: 0
   blog_vues: 0
   breakpoint: 0
