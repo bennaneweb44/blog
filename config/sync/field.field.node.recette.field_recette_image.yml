@@ -13,7 +13,7 @@ entity_type: node
 bundle: recette
 label: 'Recette image'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -28,11 +28,11 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: ''
+    uuid: 30735f66-66e3-4ad0-ab13-909fe3be306e
     alt: ''
     title: ''
-    width: null
-    height: null
+    width: 1280
+    height: 1092
   handler: 'default:file'
   handler_settings: {  }
 field_type: image
