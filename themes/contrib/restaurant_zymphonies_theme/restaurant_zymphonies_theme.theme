@@ -5,13 +5,12 @@
  * Contains theme override functions and preprocess functions
  */
 
-use Drupal\block_content\BlockContentInterface;
 use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\blog_outils\Libraries\Outils;
 use Drupal\views\ViewExecutable;
-use Drupal\responsive_image\Entity\ResponsiveImageStyle;
+use Drupal\file\Plugin\Field\FieldType\FileFieldItemList;
 
 /**
  * Implements hook_preprocess_page() for block templates.
@@ -100,6 +99,89 @@ function restaurant_zymphonies_theme_preprocess_page(&$variables) {
     }
   }
 
+  /*################################### RECETTES : contenu #####################################*/
+  if (isset($variables['node']) 
+      && $variables['node'] instanceof Node 
+      && $variables['node']->type->target_id == 'recette') 
+  {
+    $node = $variables['node'];
+    $recetteView = new stdClass();
+
+    $variables['node_recette'] = TRUE;
+
+    // champs de la vue de contenu : recette
+    $fields = $node->getFields();
+
+    // image
+    $field_recette_image = $fields['field_recette_image'];
+    if ($field_recette_image instanceof FileFieldItemList) {
+      $value = $field_recette_image->getValue();
+      if (count($value) && $value[0]['target_id']) {
+        $fid = $value[0]['target_id'];
+        $file = File::load($fid);
+        
+        $recetteView->image = $file->url();
+      }
+    }
+
+    // Ingrédients
+    $field_ingredients = $fields['field_ingredients'];    
+    if ($field_ingredients instanceof Drupal\Core\Field\FieldItemList) {
+      $value = $field_ingredients->getValue();
+      
+      $recetteView->ingredients = '';
+      if (count($value) && $value[0]['value'] != '') {        
+        $recetteView->ingredients = $value[0]['value'];
+      }
+    }
+
+    // Préparation
+    $field_descriptif = $fields['field_descriptif'];    
+    if ($field_descriptif instanceof Drupal\Core\Field\FieldItemList) {
+      $value = $field_descriptif->getValue();
+      
+      $recetteView->preparation = '';
+      if (count($value) && $value[0]['value'] != '') {        
+        $recetteView->preparation = $value[0]['value'];
+      }
+    }
+
+    // Temps de préparation
+    $field_temps_de_preparation = $fields['field_temps_de_preparation'];
+    if ($field_temps_de_preparation instanceof Drupal\Core\Field\FieldItemList) {
+      $value = $field_temps_de_preparation->getValue();
+      
+      $recetteView->temps_preparation = '';
+      if (count($value) && $value[0]['value'] != '') {        
+        $recetteView->temps_preparation = $value[0]['value'];
+      }
+    }
+
+    // Niveau de difficulté
+    $field_niveau_de_difficulte = $fields['field_niveau_de_difficulte'];
+    if ($field_niveau_de_difficulte instanceof Drupal\Core\Field\FieldItemList) {
+      $value = $field_niveau_de_difficulte->getValue();
+      
+      $recetteView->niveau_de_difficulte = '';
+      if (count($value) && $value[0]['value'] != '') {        
+        $recetteView->niveau_de_difficulte = $value[0]['value'];
+      }
+    }
+    
+
+    // Conseils
+    $field_conseils = $fields['field_conseils'];
+    if ($field_conseils instanceof Drupal\Core\Field\FieldItemList) {
+      $value = $field_conseils->getValue();
+      
+      $recetteView->conseils = '';
+      if (count($value) && $value[0]['value'] != '') {        
+        $recetteView->conseils = $value[0]['value'];
+      }
+    }
+
+    $variables['recetteView'] = $recetteView;
+  }
 }
 
 /**

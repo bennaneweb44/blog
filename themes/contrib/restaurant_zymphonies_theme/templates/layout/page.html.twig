@@ -299,9 +299,60 @@
 
             <div class="content_layout">
 
-              <div class={{contentlayout}}>
+              <div class={{contentlayout}} style="margin-top: 1.3em;">
 
-                {{page.content}}
+                {% if node_recette is defined and node_recette == TRUE and recetteView is defined %}                
+
+                    <div class="row" style="margin-bottom: 10em">
+
+                      <div class="col-md-offset-4 col-md-4 col-xs-offset-2 col-xs-8 col-sm-offset-2 col-sm-8" style="z-index: 0" ><!-- padding: 0; -->
+                        <img src="{{recetteView.image}}" height="100%" width="100%"
+                           style="border-radius: 8px; border: 4px solid #BA3E2F; " /><!--  #d32931 -->
+                      </div>
+
+                      <div class="col-md-offset-2 col-md-8 bg-danger   col-sm-offset-1 col-sm-10   col-xs-offset-1 col-xs-10" 
+                           style="border-radius: 8px; border: 4px dotted #BA3E2F; z-index: -1; margin-top: -2em; padding: 3.5em 2em">
+                        <p>
+                          <strong>Ingrédients : </strong>
+                            {{ recetteView.ingredients |raw }}
+                        </p>  
+                        <p>
+                          <strong>Descriptif : </strong>
+                          {{ recetteView.preparation |raw }}
+                        </p>
+                        <p>
+                          <strong>Temps de préparation : </strong>
+                          <p style="padding-left: 0.5em">
+                            <span class="badge badge-success" style="background-color: #BA3E2F">
+                              {{ recetteView.temps_preparation }} min
+                            </span>
+                          </p>
+                        </p>
+                        <p>
+                          <strong>Niveau de difficulté : </strong>
+                          <p style="padding-left: 0.5em;">
+                            <i class="fa fa-cutlery" style="margin-right: 4px; color: {{ recetteView.niveau_de_difficulte >= 1 ? '#BA3E2F' : 'gray' }} !important"></i>
+                            <i class="fa fa-cutlery" style="margin-right: 4px; color: {{ recetteView.niveau_de_difficulte >= 2 ? '#BA3E2F' : 'gray' }} !important"></i>
+                            <i class="fa fa-cutlery" style="margin-right: 4px; color: {{ recetteView.niveau_de_difficulte >= 3 ? '#BA3E2F' : 'gray' }} !important"></i>
+                            <i class="fa fa-cutlery" style="margin-right: 4px; color: {{ recetteView.niveau_de_difficulte >= 4 ? '#BA3E2F' : 'gray' }} !important"></i>
+                            <i class="fa fa-cutlery" style="margin-right: 4px; color: {{ recetteView.niveau_de_difficulte == 5 ? '#BA3E2F' : 'gray' }} !important"></i>
+                          </p>
+                        </p> 
+                        {% if recetteView.conseils != '' %}
+                          <p>
+                            <strong>Conseils : </strong>
+                            <ul>
+                              <li>{{ recetteView.conseils |raw }}</li>
+                            </ul>
+                          </p>                           
+                        {% endif %}
+                      </div>
+
+                    </div>
+
+                {% else %}
+                  {{page.content}}
+                {% endif %}
 
               </div>
 
