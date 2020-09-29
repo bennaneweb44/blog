@@ -9,6 +9,10 @@ use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\blog_outils\Libraries\Outils;
+use Drupal\Component\FileSystem\FileSystem;
+use Drupal\Core\Entity\EntityManager;
+use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\File\FileSystem as FileFileSystem;
 use Drupal\views\ViewExecutable;
 use Drupal\file\Plugin\Field\FieldType\FileFieldItemList;
 
@@ -121,6 +125,13 @@ function restaurant_zymphonies_theme_preprocess_page(&$variables) {
         $file = File::load($fid);
         
         $recetteView->image = $file->url();
+      } 
+      // default image
+      else {
+
+        $uuid = $field_recette_image->getSettings()['default_image'];
+        $image = Drupal::service('entity.repository')->loadEntityByUuid('file', $uuid);
+        $recetteView->default_image = $image->url();
       }
     }
 
