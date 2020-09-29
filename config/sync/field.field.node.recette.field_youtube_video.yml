@@ -1,0 +1,21 @@
+uuid: 8a83ff82-06ab-49b0-a75e-512bf3ab52fb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_youtube_video
+    - node.type.recette
+  module:
+    - youtube
+id: node.recette.field_youtube_video
+field_name: field_youtube_video
+entity_type: node
+bundle: recette
+label: 'Youtube vidéo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: youtube

@@ -240,7 +240,7 @@ display:
           row_class: col-md-3
           default_row_class: true
           uses_fields: true
-      title: 'Autres actualités'
+      title: 'Bienvenue sur le Blog de BennaneWeb'
       header: {  }
       footer: {  }
       relationships: {  }

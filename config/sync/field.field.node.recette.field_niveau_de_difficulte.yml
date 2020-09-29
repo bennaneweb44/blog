@@ -1,0 +1,25 @@
+uuid: 6b398c05-d5a5-4255-a108-e951f580f0fc
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_niveau_de_difficulte
+    - node.type.recette
+id: node.recette.field_niveau_de_difficulte
+field_name: field_niveau_de_difficulte
+entity_type: node
+bundle: recette
+label: 'Niveau de difficulté'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: 5
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,18 @@
+uuid: eee8f7c3-1c0f-4347-a8cf-14e22a4f21e6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.recette
+id: node.recette.title
+field_name: title
+entity_type: node
+bundle: recette
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

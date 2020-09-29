@@ -1,0 +1,22 @@
+uuid: b62dbd3b-1e10-460d-a172-3df51af61ca7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.recette
+id: node.recette.promote
+field_name: promote
+entity_type: node
+bundle: recette
+label: 'Promu en page d''accueil'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

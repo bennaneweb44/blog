@@ -1,0 +1,21 @@
+uuid: d7104bc5-ac9d-4ef8-bdcd-ebe8421d4c58
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_de_bien_etre
+    - field.storage.block_content.field_label_type_de_bien_etre
+  module:
+    - text
+id: block_content.types_de_bien_etre.field_label_type_de_bien_etre
+field_name: field_label_type_de_bien_etre
+entity_type: block_content
+bundle: types_de_bien_etre
+label: 'Label type de bien-être'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

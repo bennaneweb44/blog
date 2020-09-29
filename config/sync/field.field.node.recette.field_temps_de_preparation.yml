@@ -1,0 +1,23 @@
+uuid: 882e0ba0-ee89-4b2e-95ab-a24a65fcb60c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_temps_de_preparation
+    - node.type.recette
+id: node.recette.field_temps_de_preparation
+field_name: field_temps_de_preparation
+entity_type: node
+bundle: recette
+label: 'Temps de préparation (minutes)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: minutes
+field_type: integer

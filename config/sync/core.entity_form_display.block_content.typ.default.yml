@@ -1,0 +1,52 @@
+uuid: f21a5648-59cf-4552-b179-66d3ebe54941
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.typ
+    - field.field.block_content.typ.field_image_type_de_recette
+    - field.field.block_content.typ.field_label_type_de_recette
+    - field.field.block_content.typ.field_lien_type_de_recette
+    - image.style.thumbnail
+  module:
+    - image
+    - text
+id: block_content.typ.default
+targetEntityType: block_content
+bundle: typ
+mode: default
+content:
+  field_image_type_de_recette:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_label_type_de_recette:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_lien_type_de_recette:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  info:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -1,0 +1,29 @@
+uuid: e5ed42cc-7de8-45f4-aa21-c08323c49b1c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_recette
+    - node.type.recette
+    - taxonomy.vocabulary.type_de_recette
+id: node.recette.field_type_recette
+field_name: field_type_recette
+entity_type: node
+bundle: recette
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      type_de_recette: type_de_recette
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

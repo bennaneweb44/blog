@@ -1,0 +1,37 @@
+uuid: 30adc56a-cac0-4668-986a-ebdcfcd02a50
+langcode: fr
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.recette.field_conseils
+    - field.field.node.recette.field_descriptif
+    - field.field.node.recette.field_ingredients
+    - field.field.node.recette.field_niveau_de_difficulte
+    - field.field.node.recette.field_recette_image
+    - field.field.node.recette.field_temps_de_preparation
+    - field.field.node.recette.field_type_recette
+    - field.field.node.recette.field_youtube_video
+    - node.type.recette
+  module:
+    - user
+id: node.recette.teaser
+targetEntityType: node
+bundle: recette
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_conseils: true
+  field_descriptif: true
+  field_ingredients: true
+  field_niveau_de_difficulte: true
+  field_recette_image: true
+  field_temps_de_preparation: true
+  field_type_recette: true
+  field_youtube_video: true
+  langcode: true

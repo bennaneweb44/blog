@@ -1,0 +1,8 @@
+uuid: 5a8448d4-e613-4955-ae8d-da23c24c55a0
+langcode: fr
+status: true
+dependencies: {  }
+id: types_de_bien_etre
+label: 'Types de bien-être'
+revision: 0
+description: 'Santé, recettes, fitness etc...'

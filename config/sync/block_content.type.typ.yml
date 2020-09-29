@@ -1,0 +1,8 @@
+uuid: 0cbd7b8e-47c2-4717-bb09-cdc5ef388ac7
+langcode: fr
+status: true
+dependencies: {  }
+id: typ
+label: 'Type de recette'
+revision: 0
+description: 'Affiche les type de recette sous forme de miniatures'

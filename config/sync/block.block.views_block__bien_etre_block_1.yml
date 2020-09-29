@@ -1,30 +1,30 @@
-uuid: bfa9ca29-df98-47a8-ac63-6e36e4aa9983
+uuid: e9aa0b3a-dc1b-4af1-acf2-02a2b23f2515
 langcode: fr
 status: true
 dependencies:
   config:
-    - views.view.actualites
+    - views.view.bien_etre
   module:
     - system
     - views
   theme:
     - restaurant_zymphonies_theme
-id: views_block_actualites_generales_block_1
+id: views_block__bien_etre_block_1
 theme: restaurant_zymphonies_theme
 region: content
-weight: -6
+weight: -2
 provider: null
-plugin: 'views_block:actualites-block_1'
+plugin: 'views_block:bien_etre-block_1'
 settings:
-  id: 'views_block:actualites-block_1'
+  id: 'views_block:bien_etre-block_1'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
   items_per_page: none
 visibility:
   request_path:
     id: request_path
-    pages: /actualites
+    pages: /bien-etre
     negate: false
     context_mapping: {  }

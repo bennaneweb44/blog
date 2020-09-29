@@ -1,0 +1,21 @@
+uuid: 9eea8f46-b65c-42e2-b30f-839cac1f7d71
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_conseils
+    - node.type.recette
+  module:
+    - text
+id: node.recette.field_conseils
+field_name: field_conseils
+entity_type: node
+bundle: recette
+label: Conseils
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

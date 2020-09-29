@@ -1,0 +1,19 @@
+uuid: b5bfd180-92dd-4e8c-a4d8-428ba87ccc19
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.typ
+    - field.storage.block_content.field_lien_type_de_recette
+id: block_content.typ.field_lien_type_de_recette
+field_name: field_lien_type_de_recette
+entity_type: block_content
+bundle: typ
+label: 'Lien type de recette'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

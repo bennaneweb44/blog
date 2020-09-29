@@ -1,0 +1,21 @@
+uuid: 64818512-a3fa-4197-9fd4-0f32ccad7508
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.typ
+    - field.storage.block_content.field_label_type_de_recette
+  module:
+    - text
+id: block_content.typ.field_label_type_de_recette
+field_name: field_label_type_de_recette
+entity_type: block_content
+bundle: typ
+label: 'Label type de recette'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

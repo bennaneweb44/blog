@@ -1,0 +1,43 @@
+uuid: 00e98ed5-4806-461e-bb99-93dc984324ed
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_de_bien_etre
+    - field.field.block_content.types_de_bien_etre.field_image_type_de_bien_etre
+    - field.field.block_content.types_de_bien_etre.field_label_type_de_bien_etre
+    - field.field.block_content.types_de_bien_etre.field_lien_type_de_bien_etre
+  module:
+    - image
+    - text
+id: block_content.types_de_bien_etre.default
+targetEntityType: block_content
+bundle: types_de_bien_etre
+mode: default
+content:
+  field_image_type_de_bien_etre:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_label_type_de_bien_etre:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_lien_type_de_bien_etre:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true

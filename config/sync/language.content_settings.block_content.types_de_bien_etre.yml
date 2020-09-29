@@ -1,0 +1,11 @@
+uuid: 2d8ecb38-60e1-4b82-9dc8-160aaae0896d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_de_bien_etre
+id: block_content.types_de_bien_etre
+target_entity_type_id: block_content
+target_bundle: types_de_bien_etre
+default_langcode: site_default
+language_alterable: false

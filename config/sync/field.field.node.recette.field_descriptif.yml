@@ -1,0 +1,21 @@
+uuid: 9f25e7bf-60e6-4ccc-861c-f54c9d94a512
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_descriptif
+    - node.type.recette
+  module:
+    - text
+id: node.recette.field_descriptif
+field_name: field_descriptif
+entity_type: node
+bundle: recette
+label: Descriptif
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

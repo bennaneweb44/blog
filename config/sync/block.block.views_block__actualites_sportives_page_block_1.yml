@@ -12,7 +12,7 @@ dependencies:
 id: views_block__actualites_sportives_page_block_1
 theme: restaurant_zymphonies_theme
 region: content
-weight: -3
+weight: -4
 provider: null
 plugin: 'views_block:actualites_sportives-block_1'
 settings:

@@ -1,0 +1,19 @@
+uuid: df48e2da-5f2d-4d99-b394-19dca7447e87
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.types_de_bien_etre
+    - field.storage.block_content.field_lien_type_de_bien_etre
+id: block_content.types_de_bien_etre.field_lien_type_de_bien_etre
+field_name: field_lien_type_de_bien_etre
+entity_type: block_content
+bundle: types_de_bien_etre
+label: 'Lien type de bien-être'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

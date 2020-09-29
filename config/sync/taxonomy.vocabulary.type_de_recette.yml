@@ -1,0 +1,8 @@
+uuid: 9045058d-47a4-4a59-83f6-087cae5b52aa
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Type de recette'
+vid: type_de_recette
+description: 'Entrée, plat ou dessert'
+weight: 0
