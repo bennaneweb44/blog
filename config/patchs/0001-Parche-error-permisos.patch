@@ -1,0 +1,34 @@
+From 975eab699ee20f1b1dff465b000f4575db42d04c Mon Sep 17 00:00:00 2001
+From: "Jorge E. Trujillo F" <joertru@gmail.com>
+Date: Thu, 3 May 2018 11:31:58 -0500
+Subject: [PATCH] Parche error permisos
+
+---
+ core/modules/user/src/Form/UserPermissionsForm.php | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/core/modules/user/src/Form/UserPermissionsForm.php b/core/modules/user/src/Form/UserPermissionsForm.php
+index 7d3adaa..0234e9b 100755
+--- a/core/modules/user/src/Form/UserPermissionsForm.php
++++ b/core/modules/user/src/Form/UserPermissionsForm.php
+@@ -158,11 +158,16 @@ public function buildForm(array $form, FormStateInterface $form_state) {
+       ];
+       foreach ($permissions as $perm => $perm_item) {
+         // Fill in default values for the permission.
+-        $perm_item += [
++        /*$perm_item += [
+           'description' => '',
+           'restrict access' => FALSE,
+           'warning' => !empty($perm_item['restrict access']) ? $this->t('Warning: Give to trusted roles only; this permission has security implications.') : '',
+-        ];
++        ];*/
++        $perm_item = array_merge( $perm_item, [
++              'description' => '',
++              'restrict access' => FALSE,
++              'warning' => !empty($perm_item['restrict access']) ? $this->t('Warning: Give to trusted roles only; this permission has security implications.') : '',
++        ]);
+         $form['permissions'][$perm]['description'] = [
+           '#type' => 'inline_template',
+           '#template' => '<div class="permission"><span class="title">{{ title }}</span>{% if description or warning %}<div class="description">{% if warning %}<em class="permission-warning">{{ warning }}</em> {% endif %}{{ description }}</div>{% endif %}</div>',
+-- 
+2.7.4
