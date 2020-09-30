@@ -5,10 +5,10 @@ blog_meteo.index:
   defaults:
     _controller: '\Drupal\blog_meteo\Controller\BlogMeteoController::index'    
     _title: 'Prévisions météo'
-  requirements:
-    _custom_access: '\Drupal\blog_meteo\Controller\BlogMeteoController::access'
   options:
     no_cache: 'TRUE'
+  requirements:
+    _access: 'TRUE'
 
 ########################### Meteo d'une ville : Ajax #############################
 blog_meteo.updateWeatherVille:
@@ -42,4 +42,4 @@ blog_meteo.form_autocomplete:
     _form:  '\Drupal\blog_meteo\Form\MyAutocompleteForm'
     _title: 'Autocomplete Form'
   requirements:
-    _permission: 'access content'
+    _access: 'TRUE'
