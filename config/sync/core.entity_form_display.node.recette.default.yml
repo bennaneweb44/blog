@@ -3,6 +3,7 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - field.field.node.recette.field_commentaire_recette
     - field.field.node.recette.field_conseils
     - field.field.node.recette.field_descriptif
     - field.field.node.recette.field_ingredients
@@ -14,6 +15,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.recette
   module:
+    - comment
     - image
     - path
     - text
@@ -29,6 +31,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_commentaire_recette:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_conseils:
     weight: 4
     settings:

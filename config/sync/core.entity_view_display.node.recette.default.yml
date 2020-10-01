@@ -3,6 +3,8 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.recette.field_commentaire_recette
     - field.field.node.recette.field_conseils
     - field.field.node.recette.field_descriptif
     - field.field.node.recette.field_ingredients
@@ -11,83 +13,32 @@ dependencies:
     - field.field.node.recette.field_temps_de_preparation
     - field.field.node.recette.field_type_recette
     - field.field.node.recette.field_youtube_video
-    - image.style.large
     - node.type.recette
   module:
-    - image
-    - text
+    - comment
     - user
-    - youtube
 id: node.recette.default
 targetEntityType: node
 bundle: recette
 mode: default
 content:
-  field_conseils:
-    weight: 4
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_descriptif:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_ingredients:
-    weight: 1
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_niveau_de_difficulte:
-    weight: 6
-    label: hidden
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_recette_image:
+  field_commentaire_recette:
+    type: comment_default
     weight: 0
-    label: hidden
-    settings:
-      image_style: large
-      image_link: ''
-    third_party_settings: {  }
-    type: image
     region: content
-  field_temps_de_preparation:
-    weight: 3
     label: above
     settings:
-      thousand_separator: ''
-      prefix_suffix: true
+      view_mode: default
+      pager_id: 0
     third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_youtube_video:
-    weight: 5
-    label: hidden
-    settings:
-      youtube_size: 450x315
-      youtube_width: ''
-      youtube_height: ''
-      youtube_autoplay: false
-      youtube_mute: false
-      youtube_loop: false
-      youtube_controls: false
-      youtube_autohide: false
-      youtube_iv_load_policy: false
-    third_party_settings: {  }
-    type: youtube_video
-    region: content
 hidden:
+  field_conseils: true
+  field_descriptif: true
+  field_ingredients: true
+  field_niveau_de_difficulte: true
+  field_recette_image: true
+  field_temps_de_preparation: true
   field_type_recette: true
+  field_youtube_video: true
   langcode: true
   links: true

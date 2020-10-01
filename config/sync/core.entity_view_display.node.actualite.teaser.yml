@@ -3,6 +3,7 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
     - core.entity_view_mode.node.teaser
     - field.field.node.actualite.field_chapeau
     - field.field.node.actualite.field_commentaires
@@ -19,20 +20,29 @@ dependencies:
     - field.field.node.actualite.field_ville_actualite
     - node.type.actualite
   module:
+    - comment
     - user
 id: node.actualite.teaser
 targetEntityType: node
 bundle: actualite
 mode: teaser
 content:
+  field_commentaires:
+    type: comment_default
+    weight: 1
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_chapeau: true
-  field_commentaires: true
   field_contenu: true
   field_date_actualite: true
   field_image_contenu: true

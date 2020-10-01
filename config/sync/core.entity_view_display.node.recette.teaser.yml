@@ -1,9 +1,11 @@
 uuid: 30adc56a-cac0-4668-986a-ebdcfcd02a50
 langcode: fr
-status: false
+status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment.default
     - core.entity_view_mode.node.teaser
+    - field.field.node.recette.field_commentaire_recette
     - field.field.node.recette.field_conseils
     - field.field.node.recette.field_descriptif
     - field.field.node.recette.field_ingredients
@@ -14,17 +16,22 @@ dependencies:
     - field.field.node.recette.field_youtube_video
     - node.type.recette
   module:
+    - comment
     - user
 id: node.recette.teaser
 targetEntityType: node
 bundle: recette
 mode: teaser
 content:
-  links:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
+  field_commentaire_recette:
+    type: comment_default
+    weight: 0
     region: content
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
 hidden:
   field_conseils: true
   field_descriptif: true
@@ -35,3 +42,4 @@ hidden:
   field_type_recette: true
   field_youtube_video: true
   langcode: true
+  links: true

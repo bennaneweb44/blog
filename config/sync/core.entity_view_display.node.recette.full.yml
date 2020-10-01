@@ -1,9 +1,10 @@
 uuid: 46f4c5bf-c4dc-4724-9f8f-7155379eee9c
 langcode: fr
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.full
+    - field.field.node.recette.field_commentaire_recette
     - field.field.node.recette.field_conseils
     - field.field.node.recette.field_descriptif
     - field.field.node.recette.field_ingredients
@@ -79,6 +80,7 @@ content:
     type: youtube_video
     region: content
 hidden:
+  field_commentaire_recette: true
   field_niveau_de_difficulte: true
   field_type_recette: true
   langcode: true
