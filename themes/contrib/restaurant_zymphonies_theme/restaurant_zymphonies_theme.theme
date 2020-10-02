@@ -187,6 +187,17 @@ function restaurant_zymphonies_theme_preprocess_page(&$variables) {
       }
     }
 
+    // Source
+    $field_source_recette = $fields['field_source_recette'];
+    if ($field_source_recette instanceof Drupal\Core\Field\FieldItemList) {
+      $value = $field_source_recette->getValue();
+      
+      $recetteView->field_source_recette = '';
+      if (count($value) && $value[0]['value'] != '') {        
+        $recetteView->field_source_recette = $value[0]['value'];
+      }
+    }
+
     $variables['recetteView'] = $recetteView;
   }
 }

@@ -313,7 +313,7 @@
                       </div>
 
                       <div class="col-md-offset-2 col-md-8 bg-danger   col-sm-offset-1 col-sm-10   col-xs-offset-1 col-xs-10" 
-                           style="border-radius: 8px; border: 4px dotted #BA3E2F; z-index: -1; margin-top: 0.5em; padding: 2em">
+                           style="border-radius: 8px; border: 4px dotted #BA3E2F; z-index: 0; margin-top: 0.5em; padding: 2em">
                         
                         <p>
                           <strong>Niveau de difficulté : </strong>
@@ -350,6 +350,15 @@
                             <strong>Conseils : </strong>
                             <ul>
                               <li>{{ recetteView.conseils |raw }}</li>
+                            </ul>
+                          </p>                           
+                        {% endif %}
+
+                        {% if recetteView.field_source_recette != '' %}
+                          <p>
+                            <strong>Source : </strong>
+                            <ul>
+                              <li><a href="{{ recetteView.field_source_recette }}" target="_blank">{{ recetteView.field_source_recette }}</a></li>
                             </ul>
                           </p>                           
                         {% endif %}
