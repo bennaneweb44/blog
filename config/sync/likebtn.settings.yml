@@ -1,0 +1,67 @@
+general:
+  likebtn_plan: 9
+  likebtn_user_logged_in: logged_in
+  likebtn_sync_inerval: 60
+  likebtn_weight: 10
+settings:
+  likebtn_alignment: left
+  likebtn_settings:
+    theme: white
+    lang: en
+    show_like_label: true
+    show_dislike_label: false
+    popup_dislike: false
+    like_enabled: true
+    icon_like_show: true
+    icon_dislike_show: true
+    lazy_load: false
+    dislike_enabled: true
+    voting_enabled: true
+    unlike_allowed: true
+    voting_both: false
+    white_label: false
+    rich_snippet: false
+    popup_content_order: 'popup_share,popup_donate,popup_html'
+    popup_disabled: false
+    popup_position: true
+    popup_style: true
+    popup_hide_on_outside_click: true
+    event_handler: null
+    info_message: true
+    counter_type: number
+    counter_clickable: false
+    counter_show: true
+    counter_padding: null
+    counter_zero_show: false
+    share_enabled: true
+    addthis_pubid: null
+    addthis_service_codes: null
+    loader_show: false
+    loader_image: null
+    tooltip_enabled: true
+    vert: false
+    counter_count: false
+    rtl: false
+    share_size: medium
+    popup_width: 176
+    tooltip_like_show_always: false
+    tooltip_dislike_show_always: false
+    popup_on_load: false
+    i18n_like: null
+    i18n_dislike: null
+    i18n_after_like: null
+    i18n_after_dislike: null
+    i18n_like_tooltip: null
+    i18n_dislike_tooltip: null
+    i18n_unlike_tooltip: null
+    i18n_undislike_tooltip: null
+    i18n_share_text: null
+    i18n_popup_close: null
+    i18n_popup_text: null
+  sync:
+    likebtn_last_sync_time: 0
+    likebtn_last_successfull_sync_time: 0
+    likebtn_sync_inerval: 60
+_core:
+  default_config_hash: NYT3-pfqsVh6JTLDMRZUtlbvzzLGirvaljBhQ-clWWQ
+langcode: fr

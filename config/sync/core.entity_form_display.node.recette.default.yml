@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.recette.field_conseils
     - field.field.node.recette.field_descriptif
     - field.field.node.recette.field_ingredients
+    - field.field.node.recette.field_likes_recette
     - field.field.node.recette.field_niveau_de_difficulte
     - field.field.node.recette.field_recette_image
     - field.field.node.recette.field_temps_de_preparation
@@ -17,6 +18,7 @@ dependencies:
   module:
     - comment
     - image
+    - likebtn
     - path
     - text
     - youtube
@@ -60,6 +62,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_likes_recette:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: likebtn_widget
     region: content
   field_niveau_de_difficulte:
     weight: 7

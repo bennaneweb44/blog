@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.recette.field_conseils
     - field.field.node.recette.field_descriptif
     - field.field.node.recette.field_ingredients
+    - field.field.node.recette.field_likes_recette
     - field.field.node.recette.field_niveau_de_difficulte
     - field.field.node.recette.field_recette_image
     - field.field.node.recette.field_temps_de_preparation
@@ -81,6 +82,7 @@ content:
     region: content
 hidden:
   field_commentaire_recette: true
+  field_likes_recette: true
   field_niveau_de_difficulte: true
   field_type_recette: true
   langcode: true

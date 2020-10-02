@@ -141,7 +141,7 @@ display:
           alter:
             alter_text: false
             text: "{{ field_image_miniature }}\r\n"
-            make_link: true
+            make_link: false
             path: ''
             absolute: false
             external: false
@@ -204,7 +204,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"titreActu\">\r\n    {{ title }}\r\n</div>"
+            text: "<div class=\"titreActu\">\r\n   {{ title }}\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -244,7 +244,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true

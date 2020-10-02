@@ -1,0 +1,19 @@
+uuid: 137e7b67-3a74-4483-b576-7e1ac1b354ed
+langcode: fr
+status: true
+dependencies:
+  module:
+    - likebtn
+    - node
+id: node.field_likes_recette
+field_name: field_likes_recette
+entity_type: node
+type: likebtn_field
+settings: {  }
+module: likebtn
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

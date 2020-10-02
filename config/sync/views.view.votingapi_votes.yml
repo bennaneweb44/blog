@@ -1,19 +1,20 @@
-uuid: b8720dd0-2e22-4cbb-b805-27fccda74f66
+uuid: db96918d-d835-4068-95ff-8557cbeb6b5e
 langcode: fr
 status: true
 dependencies:
   module:
-    - comment
+    - node
     - user
+    - votingapi
 _core:
-  default_config_hash: fsBo_zgUeLyYZdghaw4PkOHA-HqFxu7wmQLilF35XYg
-id: comment
-label: Commentaires
-module: comment
-description: 'Trouver et gérer les commentaires.'
-tag: default
-base_table: comment_field_data
-base_field: cid
+  default_config_hash: cJfIbRAZkh1uJbH4mfTrpr0HtcVFQT43MbTtj-t2CDw
+id: votingapi_votes
+label: 'Votingapi Votes'
+module: views
+description: 'Lists of all votes and votes per entity. '
+tag: ''
+base_table: votingapi_vote
+base_field: id
 display:
   default:
     display_plugin: default
@@ -24,7 +25,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'administer comments'
+          perm: 'administer voting api'
       cache:
         type: tag
         options: {  }
@@ -40,7 +41,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -54,10 +55,10 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: "‹\_précédent"
-            next: "suivant\_›"
-            first: "«\_premier"
-            last: "dernier\_»"
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -74,31 +75,28 @@ display:
           row_class: ''
           default_row_class: true
           override: true
-          sticky: true
+          sticky: false
           caption: ''
           summary: ''
           description: ''
           columns:
-            comment_bulk_form: comment_bulk_form
-            subject: subject
-            uid: uid
+            id: id
+            type: type
             entity_id: entity_id
-            changed: changed
-            operations: operations
+            entity_type: entity_type
+            value: value
+            vote_source: vote_source
+            user_id: user_id
+            timestamp: timestamp
           info:
-            comment_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            subject:
+            id:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            uid:
+            type:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -106,94 +104,65 @@ display:
               empty_column: false
               responsive: ''
             entity_id:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            changed:
+            entity_type:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            value:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            vote_source:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            user_id:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            timestamp:
               sortable: true
               default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
-            operations:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
               responsive: ''
-          default: changed
-          empty_table: true
+          default: timestamp
+          empty_table: false
       row:
         type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
       fields:
-        comment_bulk_form:
-          id: comment_bulk_form
-          table: comment
-          field: comment_bulk_form
+        id:
+          id: id
+          table: votingapi_vote
+          field: id
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Action
-          include_exclude: include
-          selected_actions:
-            - comment_delete_action
-            - comment_unpublish_action
-          plugin_id: comment_bulk_form
-          entity_type: comment
-        subject:
-          id: subject
-          table: comment_field_data
-          field: subject
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Objet
+          label: ID
           exclude: false
           alter:
             alter_text: false
@@ -235,9 +204,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: comment_permalink
+          type: number_integer
           settings:
-            link_to_entity: true
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -248,146 +218,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: comment
-          entity_field: subject
+          entity_type: vote
+          entity_field: id
           plugin_id: field
-        uid:
-          id: uid
-          table: comment_field_data
-          field: uid
+        type:
+          id: type
+          table: votingapi_vote
+          field: type
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: comment
-          entity_field: uid
-          plugin_id: field
-        name:
-          id: name
-          table: comment_field_data
-          field: name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Author
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '{{ uid }}'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: comment_username
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: comment
-          entity_field: name
-          plugin_id: field
-        entity_id:
-          id: entity_id
-          table: comment_field_data
-          field: entity_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Posté sur'
+          label: 'Type de vote'
           exclude: false
           alter:
             alter_text: false
@@ -442,17 +283,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: comment
-          entity_field: entity_id
-          plugin_id: commented_entity
-        changed:
-          id: changed
-          table: comment_field_data
-          field: changed
+          entity_type: vote
+          entity_field: type
+          plugin_id: field
+        value:
+          id: value
+          table: votingapi_vote
+          field: value
           relationship: none
           group_type: group
           admin_label: ''
-          label: Updated
+          label: Value
           exclude: false
           alter:
             alter_text: false
@@ -494,11 +335,12 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: timestamp
+          type: number_decimal
           settings:
-            date_format: short
-            custom_date_format: ''
-            timezone: ''
+            thousand_separator: ''
+            prefix_suffix: true
+            decimal_separator: .
+            scale: 2
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -509,644 +351,17 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: comment
-          entity_field: changed
+          entity_type: vote
+          entity_field: value
           plugin_id: field
-        operations:
-          id: operations
-          table: comment
-          field: operations
+        vote_source:
+          id: vote_source
+          table: votingapi_vote
+          field: vote_source
           relationship: none
           group_type: group
           admin_label: ''
-          label: Operations
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          destination: true
-          entity_type: comment
-          plugin_id: entity_operations
-        name_1:
-          id: name_1
-          table: users_field_data
-          field: name
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: user
-          entity_field: name
-          plugin_id: field
-      filters:
-        status:
-          id: status
-          table: comment_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: comment
-          entity_field: status
-          plugin_id: boolean
-        subject:
-          id: subject
-          table: comment_field_data
-          field: subject
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: subject_op
-            label: Objet
-            description: ''
-            use_operator: false
-            operator: subject_op
-            identifier: subject
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: comment
-          entity_field: subject
-          plugin_id: string
-        combine:
-          id: combine
-          table: views
-          field: combine
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: combine_op
-            label: 'Nom de l''auteur'
-            description: ''
-            use_operator: false
-            operator: combine_op
-            identifier: author_name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          fields:
-            name: name
-            name_1: name_1
-          plugin_id: combine
-        langcode:
-          id: langcode
-          table: comment_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: langcode_op
-            label: Language
-            description: ''
-            use_operator: false
-            operator: langcode_op
-            identifier: langcode
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: comment
-          entity_field: langcode
-          plugin_id: language
-      sorts:
-        changed:
-          id: changed
-          table: comment_field_data
-          field: changed
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-          entity_type: comment
-          entity_field: changed
-          plugin_id: date
-      title: Commentaires
-      header: {  }
-      footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'Aucun commentaire disponible.'
-          plugin_id: text_custom
-      arguments: {  }
-      display_extenders: {  }
-      use_more: false
-      use_more_always: true
-      use_more_text: plus
-      use_ajax: false
-      hide_attachment_summary: false
-      show_admin_links: true
-      group_by: false
-      css_class: ''
-      relationships:
-        uid:
-          id: uid
-          table: comment_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: author
-          required: false
-          entity_type: comment
-          entity_field: uid
-          plugin_id: standard
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-    cache_metadata:
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
-      cacheable: false
-      max-age: 0
-      tags: {  }
-  page_published:
-    display_plugin: page
-    id: page_published
-    display_title: 'Commentaires publiés'
-    position: 1
-    display_options:
-      path: admin/content/comment
-      menu:
-        type: tab
-        title: Commentaires
-        description: 'Commentaires publiés'
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: admin
-      display_description: 'La liste des commentaires approuvés.'
-      display_extenders: {  }
-      exposed_block: false
-      display_comment: ''
-    cache_metadata:
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - user.permissions
-      cacheable: false
-      max-age: 0
-      tags: {  }
-  page_unapproved:
-    display_plugin: page
-    id: page_unapproved
-    display_title: 'Commentaires non aprouvés'
-    position: 2
-    display_options:
-      path: admin/content/comment/approval
-      menu:
-        type: tab
-        title: 'Commentaires non aprouvés'
-        description: 'Commentaires non-approuvés'
-        parent: ''
-        weight: 1
-        context: '0'
-        menu_name: admin
-      display_description: 'La liste des commentaires non-approuvés.'
-      filters:
-        status:
-          id: status
-          table: comment_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '0'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: comment
-          entity_field: status
-          plugin_id: boolean
-        subject:
-          id: subject
-          table: comment_field_data
-          field: subject
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: subject_op
-            label: Objet
-            description: ''
-            use_operator: false
-            operator: subject_op
-            identifier: subject
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: comment
-          entity_field: subject
-          plugin_id: string
-        combine:
-          id: combine
-          table: views
-          field: combine
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: combine_op
-            label: 'Nom de l''auteur'
-            description: ''
-            use_operator: false
-            operator: combine_op
-            identifier: author_name
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          fields:
-            name: name
-            name_1: name_1
-          plugin_id: combine
-        langcode:
-          id: langcode
-          table: comment_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: langcode_op
-            label: Language
-            description: ''
-            use_operator: false
-            operator: langcode_op
-            identifier: langcode
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: comment
-          entity_field: langcode
-          plugin_id: language
-      defaults:
-        filters: false
-        filter_groups: false
-        fields: false
-      display_extenders: {  }
-      fields:
-        comment_bulk_form:
-          id: comment_bulk_form
-          table: comment
-          field: comment_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Action
-          include_exclude: include
-          selected_actions:
-            - comment_delete_action
-            - comment_publish_action
-          plugin_id: comment_bulk_form
-          entity_type: comment
-        subject:
-          id: subject
-          table: comment_field_data
-          field: subject
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Objet
+          label: 'Vote Source'
           exclude: false
           alter:
             alter_text: false
@@ -1188,384 +403,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: comment_permalink
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: comment
-          entity_field: subject
-          plugin_id: field
-        uid:
-          id: uid
-          table: comment_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: comment
-          entity_field: uid
-          plugin_id: field
-        name:
-          id: name
-          table: comment_field_data
-          field: name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Author
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: '{{ uid }}'
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: comment_username
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: comment
-          entity_field: name
-          plugin_id: field
-        entity_id:
-          id: entity_id
-          table: comment_field_data
-          field: entity_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Posté sur'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: comment
-          entity_field: entity_id
-          plugin_id: commented_entity
-        changed:
-          id: changed
-          table: comment_field_data
-          field: changed
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Updated
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: timestamp
-          settings:
-            date_format: short
-            custom_date_format: ''
-            timezone: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: comment
-          entity_field: changed
-          plugin_id: field
-        operations:
-          id: operations
-          table: comment
-          field: operations
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Operations
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          destination: true
-          entity_type: comment
-          plugin_id: entity_operations
-        name_1:
-          id: name_1
-          table: users_field_data
-          field: name
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
+          type: string
           settings:
             link_to_entity: false
           group_column: value
@@ -1578,20 +416,1044 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: vote
+          entity_field: vote_source
+          plugin_id: field
+        user_id:
+          id: user_id
+          table: votingapi_vote
+          field: user_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Voted by'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: user_id
+          plugin_id: field
+        timestamp:
+          id: timestamp
+          table: votingapi_vote
+          field: timestamp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Voted on'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: timestamp
+          plugin_id: field
+      filters:
+        type:
+          id: type
+          table: votingapi_vote
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_op
+            label: 'Type de vote'
+            description: ''
+            use_operator: false
+            operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              housemaster: '0'
+              owner: '0'
+              company: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: vote
+          entity_field: type
+          plugin_id: bundle
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: entity_id
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: 'Voted entity'
+            description: ''
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: voted_entity_title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              housemaster: '0'
+              owner: '0'
+              company: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        entity_type:
+          id: entity_type
+          table: votingapi_vote
+          field: entity_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: entity_type_op
+            label: 'Type d''entité'
+            description: ''
+            use_operator: false
+            operator: entity_type_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: entity_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              housemaster: '0'
+              owner: '0'
+              company: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: vote
+          entity_field: entity_type
+          plugin_id: string
+        vote_source:
+          id: vote_source
+          table: votingapi_vote
+          field: vote_source
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: vote_source_op
+            label: 'Vote Source'
+            description: ''
+            use_operator: false
+            operator: vote_source_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: vote_source
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              housemaster: '0'
+              owner: '0'
+              company: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: vote
+          entity_field: vote_source
+          plugin_id: string
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: user_id
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: name_op
+            label: 'Voted by'
+            description: ''
+            use_operator: false
+            operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: voter_name
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              housemaster: '0'
+              owner: '0'
+              company: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: user
           entity_field: name
-          plugin_id: field
+          plugin_id: string
+      sorts: {  }
+      header: {  }
+      footer: {  }
+      empty: {  }
+      relationships:
+        entity_id:
+          id: entity_id
+          table: votingapi_vote
+          field: entity_id
+          relationship: none
+          group_type: group
+          admin_label: 'Voted entity'
+          required: false
+          entity_type: vote
+          entity_field: entity_id
+          plugin_id: standard
+        user_id:
+          id: user_id
+          table: votingapi_vote
+          field: user_id
+          relationship: none
+          group_type: group
+          admin_label: Voter
+          required: false
+          entity_type: vote
+          entity_field: user_id
+          plugin_id: standard
+      arguments: {  }
+      display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
+      title: 'Voting API votes'
     cache_metadata:
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
         - user.permissions
-      cacheable: false
-      max-age: 0
+      tags: {  }
+  admin_page:
+    display_plugin: page
+    id: admin_page
+    display_title: 'All Votes'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      defaults:
+        arguments: true
+        fields: false
+      path: admin/content/vote
+      fields:
+        id:
+          id: id
+          table: votingapi_vote
+          field: id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: id
+          plugin_id: field
+        type:
+          id: type
+          table: votingapi_vote
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Type de vote'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: type
+          plugin_id: field
+        entity_id:
+          id: entity_id
+          table: votingapi_vote
+          field: entity_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Voted entity'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: entity_id
+          plugin_id: field
+        entity_type:
+          id: entity_type
+          table: votingapi_vote
+          field: entity_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Type d''entité'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: entity_type
+          plugin_id: field
+        value:
+          id: value
+          table: votingapi_vote
+          field: value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Value
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_decimal
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+            decimal_separator: .
+            scale: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: value
+          plugin_id: field
+        vote_source:
+          id: vote_source
+          table: votingapi_vote
+          field: vote_source
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Vote Source'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: vote_source
+          plugin_id: field
+        user_id:
+          id: user_id
+          table: votingapi_vote
+          field: user_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Voted by'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: user_id
+          plugin_id: field
+        timestamp:
+          id: timestamp
+          table: votingapi_vote
+          field: timestamp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Voted on'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: timestamp
+          settings:
+            date_format: medium
+            custom_date_format: ''
+            timezone: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: vote
+          entity_field: timestamp
+          plugin_id: field
+      menu:
+        type: tab
+        title: Votes
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
+      tags: {  }
+  node_page:
+    display_plugin: page
+    id: node_page
+    display_title: 'Entity Votes'
+    position: 2
+    display_options:
+      display_extenders: {  }
+      path: node/%node/votes
+      menu:
+        type: tab
+        title: Votes
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
+      display_description: ''
+      arguments:
+        entity_id:
+          id: entity_id
+          table: votingapi_vote
+          field: entity_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: raw
+          default_argument_options:
+            index: 1
+            use_alias: false
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: false
+          entity_type: vote
+          entity_field: entity_id
+          plugin_id: numeric
+      defaults:
+        arguments: false
+        filters: false
+        filter_groups: false
+      filters: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user.permissions
       tags: {  }

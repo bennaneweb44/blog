@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.recette.field_conseils
     - field.field.node.recette.field_descriptif
     - field.field.node.recette.field_ingredients
+    - field.field.node.recette.field_likes_recette
     - field.field.node.recette.field_niveau_de_difficulte
     - field.field.node.recette.field_recette_image
     - field.field.node.recette.field_temps_de_preparation
@@ -16,6 +17,7 @@ dependencies:
     - node.type.recette
   module:
     - comment
+    - likebtn
     - user
 id: node.recette.default
 targetEntityType: node
@@ -24,13 +26,20 @@ mode: default
 content:
   field_commentaire_recette:
     type: comment_default
-    weight: 0
+    weight: 1
     region: content
     label: above
     settings:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
+  field_likes_recette:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: likebtn_formatter
+    region: content
 hidden:
   field_conseils: true
   field_descriptif: true

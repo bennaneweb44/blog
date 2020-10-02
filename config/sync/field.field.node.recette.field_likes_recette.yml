@@ -1,0 +1,93 @@
+uuid: 8cc96ca9-c78e-4a4f-a0ef-40087e6ef9b6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_likes_recette
+    - node.type.recette
+  module:
+    - likebtn
+id: node.recette.field_likes_recette
+field_name: field_likes_recette
+entity_type: node
+bundle: recette
+label: 'Likes recette'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    likebtn_settings_item: ''
+    likebtn_extra_display_options:
+      likebtn_html_before: ''
+      likebtn_html_after: ''
+      likebtn_alignment: center
+    likebtn_settings_style_language:
+      likebtn_settings_theme: nero
+      likebtn_settings_lang: fr
+    likebtn_settings_appearance_behaviour:
+      likebtn_settings_like_enabled: 1
+      likebtn_settings_dislike_enabled: 1
+      likebtn_settings_show_like_label: 1
+      likebtn_settings_show_dislike_label: 0
+      likebtn_settings_icon_like_show: 1
+      likebtn_settings_icon_dislike_show: 1
+      likebtn_settings_vert: 0
+      likebtn_settings_ef_voting: bounce
+      likebtn_settings_white_label: 0
+      likebtn_settings_rich_snippet: 0
+      likebtn_settings_event_handler: ''
+    likebtn_settings_popup:
+      likebtn_settings_popup_disabled: 0
+      likebtn_settings_popup_dislike: 0
+      likebtn_settings_popup_on_load: 0
+      likebtn_settings_popup_position: top
+      likebtn_settings_popup_style: light
+      likebtn_settings_popup_width: '176'
+      likebtn_settings_popup_hide_on_outside_click: 1
+      likebtn_settings_popup_donate: ''
+      likebtn_settings_popup_html: ''
+      likebtn_settings_popup_content_order: 'popup_share,popup_donate,popup_html'
+    likebtn_settings_voting:
+      likebtn_settings_voting_enabled: 1
+      likebtn_settings_unlike_allowed: 1
+      likebtn_settings_voting_both: 0
+      likebtn_settings_voting_frequency: '2500000'
+    likebtn_settings_counter:
+      likebtn_settings_counter_show: 1
+      likebtn_settings_counter_type: number
+      likebtn_settings_counter_frmt: ''
+      likebtn_settings_counter_clickable: 0
+      likebtn_settings_counter_zero_show: 0
+      likebtn_settings_counter_count: 1
+      likebtn_settings_counter_padding: ''
+    likebtn_settings_sharing:
+      likebtn_settings_share_enabled: 0
+      likebtn_settings_share_size: ''
+      likebtn_settings_addthis_service_codes: ''
+      likebtn_settings_addthis_pubid: ''
+    likebtn_settings_tooltips:
+      likebtn_settings_tooltip_enabled: 0
+      likebtn_settings_tooltip_like_show_always: 0
+      likebtn_settings_tooltip_dislike_show_always: 0
+    likebtn_settings_i18n:
+      likebtn_settings_rtl: 0
+      likebtn_translate: ''
+      likebtn_settings_i18n_like: ''
+      likebtn_settings_i18n_dislike: ''
+      likebtn_settings_i18n_after_like: ''
+      likebtn_settings_i18n_after_dislike: ''
+      likebtn_settings_i18n_like_tooltip: 'J''aime ce contenu'
+      likebtn_settings_i18n_dislike_tooltip: 'Je n''aime pas ce contenu'
+      likebtn_settings_i18n_unlike_tooltip: ''
+      likebtn_settings_i18n_undislike_tooltip: ''
+      likebtn_settings_i18n_share_text: ''
+      likebtn_settings_i18n_popup_close: ''
+      likebtn_settings_i18n_popup_text: ''
+      likebtn_settings_i18n_popup_donate: ''
+    likebtn_likes: null
+    likebtn_dislikes: null
+    likebtn_likes_minus_dislikes: null
+default_value_callback: ''
+settings: {  }
+field_type: likebtn_field

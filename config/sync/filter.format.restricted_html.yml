@@ -1,7 +1,10 @@
 uuid: 441b1796-7caf-4d63-a3b4-f0ceda9d6ba2
 langcode: fr
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - likebtn
+    - media
 _core:
   default_config_hash: oz6NyPDAB4HB6N9hgH2LwNVtCd-sXbMG1fbn5KsRIDI
 name: 'HTML restreint'
@@ -30,3 +33,18 @@ filters:
     weight: 0
     settings:
       filter_url_length: 72
+  filter_likebtn:
+    id: filter_likebtn
+    provider: likebtn
+    status: true
+    weight: 0
+    settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: false
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_media_types: {  }
+      allowed_view_modes: {  }
