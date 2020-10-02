@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.recette.field_likes_recette
     - field.field.node.recette.field_niveau_de_difficulte
     - field.field.node.recette.field_recette_image
+    - field.field.node.recette.field_source_recette
     - field.field.node.recette.field_temps_de_preparation
     - field.field.node.recette.field_type_recette
     - field.field.node.recette.field_youtube_video
@@ -40,6 +41,7 @@ hidden:
   field_likes_recette: true
   field_niveau_de_difficulte: true
   field_recette_image: true
+  field_source_recette: true
   field_temps_de_preparation: true
   field_type_recette: true
   field_youtube_video: true

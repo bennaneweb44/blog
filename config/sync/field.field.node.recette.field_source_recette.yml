@@ -1,0 +1,19 @@
+uuid: b203d8d8-16ed-44e2-b8a4-475ebfb5d66c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_recette
+    - node.type.recette
+id: node.recette.field_source_recette
+field_name: field_source_recette
+entity_type: node
+bundle: recette
+label: 'Source recette'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

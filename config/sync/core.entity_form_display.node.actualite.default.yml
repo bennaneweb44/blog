@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.actualite.field_image_miniature
     - field.field.node.actualite.field_image_slider
     - field.field.node.actualite.field_liens_utiles
+    - field.field.node.actualite.field_likes_actualite
     - field.field.node.actualite.field_pays_actualite
     - field.field.node.actualite.field_source
     - field.field.node.actualite.field_type
@@ -22,6 +23,7 @@ dependencies:
     - comment
     - datetime
     - image
+    - likebtn
     - paragraphs
     - path
     - youtube
@@ -99,6 +101,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_likes_actualite:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: likebtn_widget
     region: content
   field_pays_actualite:
     weight: 10

@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.actualite.field_image_miniature
     - field.field.node.actualite.field_image_slider
     - field.field.node.actualite.field_liens_utiles
+    - field.field.node.actualite.field_likes_actualite
     - field.field.node.actualite.field_pays_actualite
     - field.field.node.actualite.field_source
     - field.field.node.actualite.field_type
@@ -21,6 +22,7 @@ dependencies:
   module:
     - comment
     - entity_reference_revisions
+    - likebtn
     - user
     - youtube
 id: node.actualite.default
@@ -37,7 +39,7 @@ content:
     region: content
   field_commentaires:
     type: comment_default
-    weight: 5
+    weight: 6
     region: content
     label: above
     settings:
@@ -60,6 +62,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
+  field_likes_actualite:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: likebtn_formatter
     region: content
   field_source:
     weight: 3

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.recette.field_likes_recette
     - field.field.node.recette.field_niveau_de_difficulte
     - field.field.node.recette.field_recette_image
+    - field.field.node.recette.field_source_recette
     - field.field.node.recette.field_temps_de_preparation
     - field.field.node.recette.field_type_recette
     - field.field.node.recette.field_youtube_video
@@ -83,6 +84,14 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_source_recette:
+    weight: 28
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_temps_de_preparation:
     weight: 6

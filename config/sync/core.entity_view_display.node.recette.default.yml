@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.recette.field_likes_recette
     - field.field.node.recette.field_niveau_de_difficulte
     - field.field.node.recette.field_recette_image
+    - field.field.node.recette.field_source_recette
     - field.field.node.recette.field_temps_de_preparation
     - field.field.node.recette.field_type_recette
     - field.field.node.recette.field_youtube_video
@@ -39,6 +40,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: likebtn_formatter
+    region: content
+  field_source_recette:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
 hidden:
   field_conseils: true
