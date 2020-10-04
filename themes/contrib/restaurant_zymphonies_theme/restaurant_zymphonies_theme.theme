@@ -452,9 +452,10 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
   if ($node && $node instanceof Node && $variables['breadcrumb'] ) {
 
     $type = $node->getType();
+
+    /* ################################ actualites ################################### */
     if ($type == 'actualite') {
 
-      // actualites
       $variables['breadcrumb'][] = array(
         'text' => 'Actualités',
         'url' => '/actualites'
@@ -502,11 +503,55 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
         );
       }
     }
+    /* ################################ recettes ################################### */
+    elseif ($type == 'recette') {
+      
+      $variables['breadcrumb'][] = array(
+        'text' => 'Recettes',
+        'url' => '/recettes'
+      );
+
+      // Type de recette (entrée, plat ou dessert)
+      $field = $node->get('field_type_recette');
+      $value = $field->getValue();
+
+      if (is_array($value) && $value[0] ) {
+        $target_id = $value[0]['target_id'];
+        $term = Term::load($target_id);
+
+        // transform
+        $url = '';
+        $pluriel = $term->getName();
+
+        switch ($term->getName()) {
+          case 'Entrée' :
+            $url = '/recettes/entrees';
+            $pluriel .= 's';
+            break;
+          case 'Plat' :
+            $url = '/recettes/plats';
+            $pluriel .= 's';
+            break;
+          case 'Dessert' :
+            $url = '/recettes/desserts';
+            $pluriel .= 's';
+            break;
+        }
+
+        // add into breadcrumb
+        $variables['breadcrumb'][] = array(
+          'text' => $pluriel,
+          'url' => $url
+        );
+      }
+    } 
 
     $variables['breadcrumb'][] = array(
        'text' => $node->getTitle(),
        'url' => $node->URL()
     );
+  } else {
+    dd('here ');
   }
 }
 
