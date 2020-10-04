@@ -1,7 +1,0 @@
-<?php
-
-function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
-  if (($node = \Drupal::routeMatch()->getParameter('node')) && $variables['breadcrumb']) {
-    $variables['breadcrumb'][] = [ 'text' => $node->getTitle() ];
-  }
-}
