@@ -9,7 +9,7 @@ dependencies:
     - node.type.recette
     - taxonomy.vocabulary.type_de_recette
   content:
-    - 'taxonomy_term:type_de_recette:3c5b3966-b97b-482f-bb99-8d1dd96fbeb7'
+    - 'taxonomy_term:type_de_recette:fabc4627-3a67-4d94-a949-65d87b555496'
   module:
     - image
     - node
@@ -368,7 +368,20 @@ display:
       title: Desserts
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"text-center\">\r\n    <span class=\"c-type-actualite\">Oups ! <br>Aucune recette trouvée.</span>\r\n</div>"
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }

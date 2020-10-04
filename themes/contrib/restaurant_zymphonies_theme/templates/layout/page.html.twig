@@ -358,9 +358,17 @@
                           <p>
                             <strong>Source : </strong>
                             <ul>
-                              <li><a href="{{ recetteView.field_source_recette }}" target="_blank">{{ recetteView.field_source_recette }}</a></li>
+                              <li><a id="sourceLink" href="{{ recetteView.field_source_recette }}" target="_blank">{{ recetteView.field_source_recette }}</a></li>
                             </ul>
-                          </p>                           
+                          </p>         
+                          <style>
+                            #sourceLink {
+                              width: 100px;
+                              margin: auto;
+                              padding: 10px;
+                              word-wrap: break-word; 
+                            }
+                          </style>                  
                         {% endif %}
 
                       </div>
@@ -377,7 +385,7 @@
                           }
                           .author-details {
                             display: none;
-                          }
+                          }                          
                         </style>
 
                       </div>

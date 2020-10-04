@@ -9,7 +9,7 @@ dependencies:
     - node.type.recette
     - taxonomy.vocabulary.type_de_recette
   content:
-    - 'taxonomy_term:type_de_recette:d774249d-7ca7-4f4a-a199-d78a8e977828'
+    - 'taxonomy_term:type_de_recette:fa341611-d1cd-4653-a9d6-72c5ad74029f'
   module:
     - image
     - node
@@ -368,7 +368,20 @@ display:
       title: Plats
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"text-center\">\r\n    <span class=\"c-type-actualite\">Oups ! <br>Aucune recette trouvée.</span>\r\n</div>"
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
