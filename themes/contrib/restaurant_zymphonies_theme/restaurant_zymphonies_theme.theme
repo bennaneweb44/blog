@@ -550,9 +550,7 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
        'text' => $node->getTitle(),
        'url' => $node->URL()
     );
-  } else {
-    dd('here ');
-  }
+  } 
 }
 
 /**
