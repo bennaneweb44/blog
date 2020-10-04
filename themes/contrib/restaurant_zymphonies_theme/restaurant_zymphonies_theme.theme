@@ -448,10 +448,10 @@ function restaurant_zymphonies_theme_form_system_theme_settings_alter(&$form, \D
 function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
 
   $node = Drupal::routeMatch()->getParameter('node');
-  $variables['breadcrumb'] = array();
 
   if ($node && $node instanceof Node && $variables['breadcrumb'] ) {
 
+    $variables['breadcrumb'] = array();
     $type = $node->getType();
 
     /* ################################ actualites ################################### */
