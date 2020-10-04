@@ -451,6 +451,7 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
 
   if ($node && $node instanceof Node && $variables['breadcrumb'] ) {
 
+    $variables['#cache']['contexts'][] = 'url';
     $variables['breadcrumb'] = array();
     $type = $node->getType();
 
