@@ -35,4 +35,10 @@ function blog_vues_node_view(array &$build, NodeInterface $node, $display, $view
     if ($type == 'actualite' || $type == 'recette') {
       $build['#cache']['max-age'] = 0;
     }
-  }
+}
+
+function blog_vues_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
+    if ($route_match && $node = $route_match->getParameter('node')) {
+      $breadcrumb->addCacheableDependency($node);
+    }
+}
