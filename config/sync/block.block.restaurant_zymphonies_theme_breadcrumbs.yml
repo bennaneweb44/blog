@@ -26,6 +26,7 @@ visibility:
     bundles:
       actualite: actualite
       page: page
+      recette: recette
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
