@@ -451,8 +451,7 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
 
   if ($node && $node instanceof Node && $variables['breadcrumb'] ) {
 
-    $variables['#cache']['contexts'][] = 'url';
-    $variables['breadcrumb'] = array();
+    $variables['#cache']['contexts'][] = 'url';    
     $type = $node->getType();
 
     /* ################################ actualites ################################### */
@@ -568,11 +567,5 @@ function restaurant_zymphonies_theme_preprocess_views_view_unformatted__a_lire_a
 
   if ($view instanceof ViewExecutable && count($rows) ) {
     $variables['view_title'] = $view->getTitle();
-  }
-}
-
-function restaurant_zymphonies_theme_system_breadcrumb_alter(\Drupal\Core\Breadcrumb\Breadcrumb &$breadcrumb, \Drupal\Core\Routing\RouteMatchInterface $route_match, array $context) {
-  if ($route_match && $node = $route_match->getParameter('node')) {
-    $breadcrumb->addCacheableDependency($node);
   }
 }
