@@ -507,8 +507,8 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
     elseif ($type == 'recette') {
       
       $variables['breadcrumb'][] = array(
-        'text' => 'Recettes',
-        'url' => '/recettes'
+        'text' => 'Bien être',
+        'url' => '/bien-etre'
       );
 
       // Type de recette (entrée, plat ou dessert)
@@ -525,15 +525,15 @@ function restaurant_zymphonies_theme_preprocess_breadcrumb(&$variables) {
 
         switch ($term->getName()) {
           case 'Entrée' :
-            $url = '/recettes/entrees';
+            $url = '/bien-etre/recettes/entrees';
             $pluriel .= 's';
             break;
           case 'Plat' :
-            $url = '/recettes/plats';
+            $url = '/bien-etre/recettes/plats';
             $pluriel .= 's';
             break;
           case 'Dessert' :
-            $url = '/recettes/desserts';
+            $url = '/bien-etre/recettes/desserts';
             $pluriel .= 's';
             break;
         }
