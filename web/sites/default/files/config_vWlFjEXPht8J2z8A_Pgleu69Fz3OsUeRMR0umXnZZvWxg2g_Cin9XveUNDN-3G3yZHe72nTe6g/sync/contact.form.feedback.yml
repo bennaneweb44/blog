@@ -1,0 +1,14 @@
+uuid: b6398c89-77f2-4ddf-9e21-6de48b67aad4
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Retours utilisateurs sur le site web'
+recipients:
+  - bennaneweb44@gmail.com
+reply: ''
+weight: 0
+message: 'Votre message a été envoyé.'
+redirect: ''
