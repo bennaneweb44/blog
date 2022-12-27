@@ -1,0 +1,33 @@
+_core:
+  default_config_hash: mUJKQSDG3sP9nqK30DYQcTzI17uSvfer8AJE1mMr-VM
+langcode: en
+bannerText: 'Nous utilisons des cookies pour partager des informations sur l''utilisation de notre site avec nos partenaires de médias sociaux, de publicité et d''analyse, qui peuvent combiner celles-ci avec des informations que vous leur avez fournies.'
+privacyPolicy: 'Privacy policy'
+privacyUri: ''
+imprint: Imprint
+imprintUri: ''
+cookieDocs: ''
+cookieDocsUri: ''
+denyAll: Refuser
+alwaysActive: 'Toujours actif'
+settings: Personnaliser
+acceptAll: Accepter
+requiredCookies: 'Required cookies'
+cookieSettings: Personnaliser
+close: Fermer
+readMore: 'Read more'
+allowed: Allowed
+denied: Denied
+settingsAllServices: ''
+saveSettings: Enregistrer
+default_langcode: en
+credit: ''
+disclaimerText: 'All cookie information is subject to change by the service providers. We update this information regularly.'
+disclaimerTextPosition: above
+processorDetailsLabel: 'Processor Company Details'
+processorLabel: Company
+processorWebsiteUrlLabel: 'Company Website'
+processorPrivacyPolicyUrlLabel: 'Company Privacy Policy'
+processorCookiePolicyUrlLabel: 'Company Cookie Policy'
+processorContactLabel: 'Data Protection Contact Details'
+placeholderAcceptAllText: 'Accept All Cookies'

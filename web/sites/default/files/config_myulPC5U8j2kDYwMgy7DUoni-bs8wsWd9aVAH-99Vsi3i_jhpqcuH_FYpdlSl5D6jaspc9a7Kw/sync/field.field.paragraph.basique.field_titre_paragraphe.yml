@@ -1,0 +1,21 @@
+uuid: dfa29a44-f44a-4335-994e-5721f1607948
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_titre_paragraphe
+    - paragraphs.paragraphs_type.basique
+  module:
+    - text
+id: paragraph.basique.field_titre_paragraphe
+field_name: field_titre_paragraphe
+entity_type: paragraph
+bundle: basique
+label: 'Titre paragraphe'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

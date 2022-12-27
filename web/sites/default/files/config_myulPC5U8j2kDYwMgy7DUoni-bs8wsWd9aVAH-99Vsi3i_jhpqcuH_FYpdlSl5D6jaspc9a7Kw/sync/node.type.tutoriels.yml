@@ -1,0 +1,18 @@
+uuid: 44d788e8-5cc0-44a1-9808-d1d3591eabcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Tutoriels
+type: tutoriels
+description: 'Propose des articles techniques classés par technologies (Algorithmique, Base de données, Backend, Frontend, Tests ....etc)'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

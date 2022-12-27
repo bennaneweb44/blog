@@ -1,0 +1,10 @@
+uuid: 05ce2022-bdf1-49b0-acfc-105dbac17770
+langcode: en
+status: true
+dependencies: {  }
+id: basique
+label: Basique
+icon_uuid: null
+icon_default: null
+description: 'Type paragraphe de base'
+behavior_plugins: {  }

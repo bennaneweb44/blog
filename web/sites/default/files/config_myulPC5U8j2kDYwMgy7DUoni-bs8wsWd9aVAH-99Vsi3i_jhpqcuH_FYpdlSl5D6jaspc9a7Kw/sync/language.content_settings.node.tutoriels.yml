@@ -1,0 +1,11 @@
+uuid: 62528e11-8579-42e4-80e1-518f0162c9e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tutoriels
+id: node.tutoriels
+target_entity_type_id: node
+target_bundle: tutoriels
+default_langcode: site_default
+language_alterable: false
