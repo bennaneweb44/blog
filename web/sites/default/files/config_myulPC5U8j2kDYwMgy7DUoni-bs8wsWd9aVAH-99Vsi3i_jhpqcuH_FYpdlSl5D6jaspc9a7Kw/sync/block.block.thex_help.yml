@@ -1,0 +1,22 @@
+uuid: c457ba04-474b-4252-8d08-5b4bb1675bd5
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - thex
+_core:
+  default_config_hash: IyjXwUkC_-wY6ZRMDmUJ00dxs7QLKwCS_2ys6-cfpYE
+id: thex_help
+theme: thex
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }
