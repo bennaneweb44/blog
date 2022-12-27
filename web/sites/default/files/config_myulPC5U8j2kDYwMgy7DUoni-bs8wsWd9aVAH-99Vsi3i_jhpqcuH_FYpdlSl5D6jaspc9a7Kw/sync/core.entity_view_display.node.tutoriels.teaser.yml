@@ -1,0 +1,25 @@
+uuid: 766a4bb1-097c-4852-adda-6ae87c7e3afa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tutoriels.field_categorie
+    - field.field.node.tutoriels.field_contenu
+    - node.type.tutoriels
+  module:
+    - user
+id: node.tutoriels.teaser
+targetEntityType: node
+bundle: tutoriels
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_categorie: true
+  field_contenu: true
+  langcode: true

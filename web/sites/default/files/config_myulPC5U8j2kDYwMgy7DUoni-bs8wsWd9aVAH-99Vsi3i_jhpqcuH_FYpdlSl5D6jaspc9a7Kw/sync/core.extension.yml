@@ -11,12 +11,15 @@ module:
   ckeditor: 0
   comment: 0
   config: 0
+  config_translation: 0
   contact: 0
   contextual: 0
+  cookies: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  entity_reference_revisions: 0
   field: 0
   field_ui: 0
   file: 0
@@ -48,6 +51,7 @@ module:
   user: 0
   views_ui: 0
   views: 10
+  paragraphs: 11
   standard: 1000
 theme:
   olivero: 0

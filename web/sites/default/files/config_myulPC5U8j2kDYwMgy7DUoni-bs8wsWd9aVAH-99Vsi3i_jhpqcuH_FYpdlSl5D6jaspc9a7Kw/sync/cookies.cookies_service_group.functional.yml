@@ -1,0 +1,11 @@
+uuid: 8e0d638f-70b2-4ce0-9500-0e0794cabc78
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: aHm4Q63Ge97tcktTa_qmUqJMir45iyGY2lEvvqPW68g
+id: functional
+label: Functional
+weight: 1
+title: Fonctionnel
+details: 'Les cookies sont de petits fichiers texte qui sont placés par votre navigateur sur votre appareil afin de stocker certaines informations. Grâce aux informations stockées et renvoyées, un site Web peut reconnaître que vous y avez déjà accédé et que vous l''avez visité à l''aide du navigateur de votre terminal. Nous utilisons ces informations pour organiser et afficher le site Web de manière optimale en fonction de vos préférences. Dans ce processus, seul le cookie lui-même est identifié sur votre appareil. Les données personnelles ne sont stockées qu''après votre consentement exprès ou lorsque cela est absolument nécessaire pour permettre l''utilisation du service que nous fournissons et auquel vous accédez.'

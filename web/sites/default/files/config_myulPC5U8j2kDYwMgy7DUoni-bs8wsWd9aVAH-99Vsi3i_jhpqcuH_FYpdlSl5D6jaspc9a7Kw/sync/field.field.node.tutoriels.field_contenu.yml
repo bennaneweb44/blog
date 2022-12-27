@@ -1,0 +1,25 @@
+uuid: 89a38e71-086d-42a8-980f-646228c7ad69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contenu
+    - node.type.tutoriels
+  module:
+    - entity_reference_revisions
+id: node.tutoriels.field_contenu
+field_name: field_contenu
+entity_type: node
+bundle: tutoriels
+label: Contenu
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    negate: 0
+field_type: entity_reference_revisions

@@ -1,0 +1,21 @@
+uuid: 39afe68a-9b6a-4fd4-9142-89b79c756755
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contenu_paragraphe
+    - paragraphs.paragraphs_type.basique
+  module:
+    - text
+id: paragraph.basique.field_contenu_paragraphe
+field_name: field_contenu_paragraphe
+entity_type: paragraph
+bundle: basique
+label: 'Contenu paragraphe'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

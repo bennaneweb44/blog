@@ -33,6 +33,6 @@ font_icon_fontawesome: 0
 font_icon_material: 0
 copyright_text: 1
 scrolltotop_on: 1
-styling: 0
-styling_code: ''
+styling: 1
+styling_code: ".cookiesjsr-settings {\r\n    display: none !important;\r\n}\r\n.cookiesjsr-banner {\r\n    background-color: #0d0f16 !important;\r\n}\r\n.cookiesjsr-btn {\r\n    color: black !important;\r\n}"
 font_icon_fontawesome5: 0

@@ -1,0 +1,29 @@
+uuid: 26d71083-fea0-4ffd-962b-bf04b3644949
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_categorie
+    - node.type.tutoriels
+    - taxonomy.vocabulary.tags
+id: node.tutoriels.field_categorie
+field_name: field_categorie
+entity_type: node
+bundle: tutoriels
+label: Catégorie
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
