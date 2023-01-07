@@ -1,0 +1,20 @@
+uuid: 5aef09d3-ddff-4966-a528-18dc0c622bd8
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - bbw
+id: help
+theme: bbw
+region: content
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

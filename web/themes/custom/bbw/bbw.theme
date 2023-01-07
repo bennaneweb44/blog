@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Add title for all views
+ */
+function bbw_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+
+  if ('nom_technique_vue' !== $view->storage->getOriginalId()) {
+    $variables['title'] = [
+      '#markup' => '<div class="col-12 mb-5 text-center"><h2>'.$view->getTitle().'</h2></div>',
+    ];
+  }
+}

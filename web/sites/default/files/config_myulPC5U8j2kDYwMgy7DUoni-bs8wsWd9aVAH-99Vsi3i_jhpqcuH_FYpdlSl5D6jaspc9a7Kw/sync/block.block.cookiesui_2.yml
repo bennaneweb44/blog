@@ -1,0 +1,20 @@
+uuid: 9ab498a1-b9b1-495d-9f50-e6b02111f37a
+langcode: en
+status: true
+dependencies:
+  module:
+    - cookies
+  theme:
+    - bbw
+id: cookiesui_2
+theme: bbw
+region: footer_bottom
+weight: 0
+provider: null
+plugin: cookies_ui_block
+settings:
+  id: cookies_ui_block
+  label: 'Cookies UI'
+  label_display: '0'
+  provider: cookies
+visibility: {  }
