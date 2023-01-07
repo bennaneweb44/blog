@@ -1,0 +1,25 @@
+uuid: 6658272f-db77-4083-b687-33b743d26fa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - bbw
+id: menuducomptedelutilisateur
+theme: bbw
+region: hidden_blocks
+weight: -4
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'Menu du compte de l''utilisateur'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 5
+  expand_all_items: false
+visibility: {  }
