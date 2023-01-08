@@ -22,7 +22,7 @@ github_url: 'https://github.com/'
 vk_url: ''
 circle_type: circle_border
 slider_show: 1
-slider_code: ''
+slider_code: "<li>\r\n      <h1>The <em>Blog</em> by Bennane Web</h1>\r\n      <p>Voici un blog public contenant des tutoriels et des ateliers pratiques classés par catégories ...</p>\r\n      <a class=\"button-link\" href=\"/categories\">Catégories</a>\r\n    </li>\r\n    <li>\r\n      <h1>Des <em>tutoriels</em> techniques</h1>\r\n      <p>Mon blog met à disposition des développeurs débutants et/ou confirmés des tutos techniques classés par technologie</p>\r\n      <a class=\"button-link\" href=\"\">Tutoriels</a>\r\n    </li>\r\n    <li>\r\n      <h1>Des <em>TP et rélisations</em> par technologie</h1>\r\n      <p>Quelques exemple de cas pratiques réalisés et testés par Bennane Web</p>\r\n      <a class=\"button-link\" href=\"\">Réalisations</a>\r\n    </li>"
 slider_image: {  }
 slider_image_path: ''
 front_sidebar: 1
