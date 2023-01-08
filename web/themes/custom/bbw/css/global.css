@@ -1,3 +1,7 @@
+/*
+  Ancien orange  : #f26c4f
+  Ancien rose : #f4399e
+  */
 .cookiesjsr-settings {
   display: none !important;
 }
@@ -7,3 +11,27 @@
 .cookiesjsr-btn {
   color: black !important;
 }
+body, svg, .main-wrapper {
+  background-color: currentColor;
+}
+#block-breadcrumbs {
+  margin: auto;
+}
+.card {
+  background-color: #7fb097 !important;
+}
+a.btn.btn-primary {
+  background-color:#D0AB64 !important;
+  border-color: #D0AB64 !important;
+  width: 100%;
+}
+em {
+  color: #D0AB64 !important;
+}
+li.breadcrumb-item > a {
+  color: #D0AB64 !important;
+}
+button-link {
+  border-color: #D0AB64 !important;
+}
+
