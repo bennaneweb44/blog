@@ -7,7 +7,7 @@ core_version_requirement: ^8 || ^9
 # Libraries
 libraries:
   - bbw/global-styling
-  #- bbw/bootstrap
+  - bbw/bootstrap
 
 # Regions
 regions:
