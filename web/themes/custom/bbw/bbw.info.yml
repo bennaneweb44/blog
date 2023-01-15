@@ -1,7 +1,7 @@
 name: bbw
 type: theme
 description: 'Sous theme pour BBW'
-base theme: zuvi # possible héritage de theme
+base theme: ruhi # possible héritage de theme
 core_version_requirement: ^8 || ^9
 
 # Libraries
@@ -11,21 +11,26 @@ libraries:
 
 # Regions
 regions:
-  site_branding: 'Site Branding'
+  header_top_left: 'Header Top Left'
+  header_top_right: 'Header Top Right'
+  header: Header
   primary_menu: 'Primary menu'
-  search_box: 'Full Page Search'
+  search_box: 'Search Box'
   page_header: 'Page Header'
   highlighted: Highlighted
   content: Content
   content_top: 'Content Top'
   content_bottom: 'Content Bottom'
-  content_home: 'Homepage Content'
+  content_home_top: 'Homepage Content Top'
+  content_home_bottom: 'Homepage Content Bottom'
   sidebar_first: 'Sidebar Left'
   sidebar_second: 'Sidebar Right'
   footer_top: 'Footer Top'
-  footer_first: 'Footer first'
-  footer_second: 'Footer second'
-  footer_third: 'Footer third'
-  footer_fourth: 'Footer fourth'
-  footer_bottom: 'Footer Bottom'
-  hidden_blocks: 'Hidden Blocks'
+  footer_one: 'Footer First Column'
+  footer_two: 'Footer Second Column'
+  footer_three: 'Footer Third Column'
+  footer_four: 'Footer Fourth Column'
+  footer_bottom_left: 'Footer Bottom Left'
+  footer_bottom_right: 'Footer Bottom Right'
+  footer_bottom_last: 'Footer Bottom Last'
+  hidden: Hidden Blocks
