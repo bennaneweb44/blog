@@ -1,0 +1,20 @@
+uuid: 886ace69-414c-44d0-9b00-f5e016ef9f01
+langcode: en
+status: true
+dependencies:
+  theme:
+    - freelancer_zymphonies_theme
+_core:
+  default_config_hash: BEVB6btOCCWua14O6mKXt6lW02tueEcdr3eYPBUvFEE
+id: freelancer_zymphonies_theme_local_actions
+theme: freelancer_zymphonies_theme
+region: auto_hidden_block
+weight: 20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

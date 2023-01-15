@@ -1,0 +1,22 @@
+uuid: 19fc0801-c54d-49c5-a8a5-9009c7878bfa
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - freelancer_zymphonies_theme
+_core:
+  default_config_hash: U5wZMG7QWPpMQwpYdTtejCyvUpgCn9PDdC8iGvzxu50
+id: freelancer_zymphonies_theme_breadcrumbs
+theme: freelancer_zymphonies_theme
+region: breadcrumb
+weight: -100
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

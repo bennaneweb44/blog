@@ -1,0 +1,22 @@
+uuid: 5d366a3c-14c0-46ef-8b97-de1af2303ed6
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - freelancer_zymphonies_theme
+_core:
+  default_config_hash: luH0H1-nWTzWp7AHJl5ZOCLR8Zka0p49fzVTTsPcOJk
+id: freelancer_zymphonies_theme_powered
+theme: freelancer_zymphonies_theme
+region: auto_hidden_block
+weight: -10
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }
