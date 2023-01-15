@@ -1,0 +1,5 @@
+.button:hover, .scrolltop:hover {
+  background-color: #212736 !important;
+  border: 1px solid #FA8258 !important;
+}
+a:link { text-decoration: none; }
