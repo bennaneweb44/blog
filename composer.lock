@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8dee373222c46371b689c1d12cbfa88d",
+    "content-hash": "f74b8f93deb3b09fdce7c5e03b20bbb9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3376,6 +3376,50 @@
             "homepage": "https://www.drupal.org/project/youtube",
             "support": {
                 "source": "https://git.drupalcode.org/project/youtube"
+            }
+        },
+        {
+            "name": "drupal/zuvi",
+            "version": "10.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/zuvi.git",
+                "reference": "10.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/zuvi-10.1.0.zip",
+                "reference": "10.1.0",
+                "shasum": "87b6f6555493f177cc6f11721d8fe663a08aaaf5"
+            },
+            "require": {
+                "drupal/core": "^9.4 || ^10"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "drupal": {
+                    "version": "10.1.0",
+                    "datestamp": "1671636113",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ravis",
+                    "homepage": "https://www.drupal.org/user/79351"
+                }
+            ],
+            "description": "A light weight, flexible, fully responsive and multi-purpose Drupal 8, 9, 10 theme by <a href=\"https://www.drupar.com\" target=\"_blank\">Drupar.com</a><br /><a href=\"https://www.drupar.com/theme/zuvi\" target=\"_blank\">Theme Page</a> | <a href=\"https://www.drupar.com/zuvi-documentation\" target=\"_blank\">Theme Documentation</a> | <a href=\"https://www.drupar.com/theme/zuvipro\" target=\"_blank\">Zuvi Pro</a>",
+            "homepage": "https://www.drupal.org/project/zuvi",
+            "support": {
+                "source": "https://git.drupalcode.org/project/zuvi"
             }
         },
         {
