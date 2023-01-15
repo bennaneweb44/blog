@@ -1,0 +1,22 @@
+uuid: fc6a7f15-38ef-4d43-9a6e-87dd71dead0d
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bbw
+_core:
+  default_config_hash: ZykEloyzMZEEYtEdhiRaOlIe554pLM_miW1kIFQqTuA
+id: bbw_local_tasks
+theme: bbw
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

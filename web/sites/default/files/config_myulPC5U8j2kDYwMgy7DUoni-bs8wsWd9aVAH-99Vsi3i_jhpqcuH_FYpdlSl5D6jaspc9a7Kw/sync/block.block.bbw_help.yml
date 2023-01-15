@@ -1,0 +1,22 @@
+uuid: f95094e4-1b63-4a4f-a505-524d6d5538d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - bbw
+_core:
+  default_config_hash: shyFiIz1w4vot2_W7PjcxaT2JSAxboxfNBrHfLKtPfE
+id: bbw_help
+theme: bbw
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

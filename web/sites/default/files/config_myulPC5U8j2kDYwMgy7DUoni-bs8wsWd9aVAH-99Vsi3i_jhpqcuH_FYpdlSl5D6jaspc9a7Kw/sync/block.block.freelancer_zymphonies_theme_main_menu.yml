@@ -1,0 +1,27 @@
+uuid: 89b57714-a34e-41cb-8076-cf4110a141c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - freelancer_zymphonies_theme
+_core:
+  default_config_hash: bxR4G_m0PYMmxsXx92hFngvoj61LkA3gZibwb2S_Hp4
+id: freelancer_zymphonies_theme_main_menu
+theme: freelancer_zymphonies_theme
+region: primary_menu
+weight: 10
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: false
+visibility: {  }

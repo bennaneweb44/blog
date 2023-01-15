@@ -21,7 +21,6 @@ denied: Denied
 settingsAllServices: ''
 saveSettings: Enregistrer
 default_langcode: en
-credit: ''
 disclaimerText: 'All cookie information is subject to change by the service providers. We update this information regularly.'
 disclaimerTextPosition: above
 processorDetailsLabel: 'Processor Company Details'

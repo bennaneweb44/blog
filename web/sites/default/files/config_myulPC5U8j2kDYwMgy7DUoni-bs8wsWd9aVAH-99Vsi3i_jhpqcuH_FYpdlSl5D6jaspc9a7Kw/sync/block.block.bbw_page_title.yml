@@ -1,0 +1,20 @@
+uuid: 0e330197-2580-4196-9db9-0d2d9f0dab7c
+langcode: en
+status: false
+dependencies:
+  theme:
+    - bbw
+_core:
+  default_config_hash: 0wp40IlneQ7aL73yYH8uecnISk55xnGbzU3xxLdjPV8
+id: bbw_page_title
+theme: bbw
+region: page_header
+weight: -6
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

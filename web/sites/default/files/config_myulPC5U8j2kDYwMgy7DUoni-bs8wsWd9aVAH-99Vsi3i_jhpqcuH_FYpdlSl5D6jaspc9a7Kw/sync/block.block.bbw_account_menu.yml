@@ -1,0 +1,27 @@
+uuid: 5e8eac60-3667-40c1-a663-a3ca0a03873c
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - bbw
+_core:
+  default_config_hash: I0Gb7i8U3Tw5U97Mc0eb9NISB2udoraGw0SBbfRrOow
+id: bbw_account_menu
+theme: bbw
+region: header_top_left
+weight: -6
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

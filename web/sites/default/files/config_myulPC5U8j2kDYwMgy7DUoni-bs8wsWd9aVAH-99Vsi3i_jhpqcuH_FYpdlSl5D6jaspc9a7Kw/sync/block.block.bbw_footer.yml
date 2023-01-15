@@ -1,0 +1,27 @@
+uuid: 7e8eab20-9f21-408d-b6d3-97485cdd7a4b
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - bbw
+_core:
+  default_config_hash: QQM7Pywl0P7otwsKQhi-04x7tdOTXvvSn6TrO7v2Ayw
+id: bbw_footer
+theme: bbw
+region: header_top_left
+weight: -7
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

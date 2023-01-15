@@ -1,0 +1,22 @@
+uuid: 4a13b780-5ec4-49a3-9df4-5f6b3f57dfee
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - bbw
+_core:
+  default_config_hash: jlpOhP_Tu6SpGCUa8kX68orsno4ywq_x5zFHj6M1QVQ
+id: bbw_powered
+theme: bbw
+region: header_top_left
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

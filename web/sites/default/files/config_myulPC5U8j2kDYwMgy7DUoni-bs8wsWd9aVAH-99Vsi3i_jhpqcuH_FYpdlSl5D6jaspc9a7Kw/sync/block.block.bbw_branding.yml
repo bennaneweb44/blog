@@ -1,0 +1,25 @@
+uuid: 80e3e746-f8d5-4b96-9e5a-019afc8b6385
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bbw
+_core:
+  default_config_hash: 3Axi0P3qQP2BYHA-a_DQfCspgbHNvcT8BlKbO_ufvog
+id: bbw_branding
+theme: bbw
+region: header
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

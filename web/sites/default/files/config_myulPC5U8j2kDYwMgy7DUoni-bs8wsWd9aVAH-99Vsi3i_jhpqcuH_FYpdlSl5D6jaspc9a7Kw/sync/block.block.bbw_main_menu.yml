@@ -1,0 +1,27 @@
+uuid: 3dd0ab4f-bf54-4520-9072-edc3582ba0b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - bbw
+_core:
+  default_config_hash: 7Rz9tcziY4vZ6uDnuSlS6Z9GacV1ocgEymnM-0sY8dQ
+id: bbw_main_menu
+theme: bbw
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 5
+  expand_all_items: false
+visibility: {  }

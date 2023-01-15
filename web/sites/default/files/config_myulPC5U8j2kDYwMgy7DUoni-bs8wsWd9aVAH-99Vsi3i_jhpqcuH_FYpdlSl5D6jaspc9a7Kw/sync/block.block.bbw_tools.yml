@@ -1,0 +1,27 @@
+uuid: 2ae596a7-2718-4d1b-81db-642b598148a6
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - bbw
+_core:
+  default_config_hash: wF_Kav8YdiYzHYj1-kAzBaEMowL4WnpDg8GU7InizaQ
+id: bbw_tools
+theme: bbw
+region: header_top_left
+weight: -4
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

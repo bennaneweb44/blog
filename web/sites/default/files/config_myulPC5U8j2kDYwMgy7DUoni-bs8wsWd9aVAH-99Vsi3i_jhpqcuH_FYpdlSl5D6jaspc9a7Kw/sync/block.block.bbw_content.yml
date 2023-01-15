@@ -1,0 +1,22 @@
+uuid: 24d52619-a1e5-4025-b5a7-496f221d196d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bbw
+_core:
+  default_config_hash: UwY0mRxOiK3osgwS7m6BBZywbn-Cw7xZ969ygYGKhWA
+id: bbw_content
+theme: bbw
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,23 @@
+uuid: 331ad83c-dd2f-47fb-9391-5df12cd910a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - freelancer_zymphonies_theme
+_core:
+  default_config_hash: DQ6KO3AleNg8gf4ZgwddAQdGMY9R6mGV0NZ4b-PrGcc
+id: freelancer_zymphonies_theme_search
+theme: freelancer_zymphonies_theme
+region: search
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  label_display: visible
+  provider: search
+  page_id: ''
+visibility: {  }
