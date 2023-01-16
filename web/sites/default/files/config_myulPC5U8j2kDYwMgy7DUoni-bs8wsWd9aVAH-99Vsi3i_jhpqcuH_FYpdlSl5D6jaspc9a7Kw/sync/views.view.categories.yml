@@ -7,11 +7,12 @@ dependencies:
     - taxonomy.vocabulary.tags
   module:
     - taxonomy
+    - text
     - user
 id: categories
-label: Catégories
+label: Tutoriels
 module: views
-description: 'Catégories des tutoriels'
+description: 'Liste les catégories des tutoriels'
 tag: ''
 base_table: taxonomy_term_field_data
 base_field: tid
@@ -22,7 +23,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Catégories
+      title: 'Tutoriels par catégorie'
       fields:
         name:
           id: name
@@ -90,6 +91,71 @@ display:
           separator: ', '
           field_api_classes: false
           convert_spaces: false
+        description__value:
+          id: description__value
+          table: taxonomy_term_field_data
+          field: description__value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: description
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_trimmed
+          settings:
+            trim_length: 85
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         nothing:
           id: nothing
           table: views
@@ -102,7 +168,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"card mb-4\">\r\n  <div class=\"card-body\">\r\n    <h5 class=\"card-title text-center\">{{ name }}</h5>\r\n    <p class=\"card-text\">With supporting text below as a natural lead-in to additional content.</p>\r\n    <a href=\"#\" class=\"btn btn-primary\">Découvrir</a>\r\n  </div>\r\n</div>"
+            text: "<div class=\"card mb-4\">\r\n  <div class=\"card-body card-border\">\r\n    <h5 class=\"card-title text-center\">{{ name }}</h5>\r\n    <p class=\"card-text\">{{ description__value }}</p>\r\n    <a href=\"#\" class=\"button w-100 text-center\"><i class=\"fa fa-eye\"></i> Découvrir</a>\r\n  </div>\r\n</div>"
             make_link: false
             path: ''
             absolute: false
@@ -162,7 +228,22 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters:
         status:
@@ -194,7 +275,7 @@ display:
         type: default
         options:
           grouping: {  }
-          row_class: 'col-md-3 col-sm-6 col-xs-12 '
+          row_class: 'col-lg-4 col-md-6 col-sm-6 col-xs-12 '
           default_row_class: true
       row:
         type: fields
@@ -230,10 +311,14 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: categories
+      path: tutoriels
       menu:
         type: normal
-        title: Catégories
+        title: Tutoriels
+        description: 'Liste les catégories pour accéder aux derniers tutos classés par date'
+        weight: 2
+        enabled: true
+        expanded: false
         menu_name: main
         parent: ''
     cache_metadata:
