@@ -1,5 +1,28 @@
+/*
+* Buttons + links
+*/
 .button:hover, .scrolltop:hover {
   background-color: #212736 !important;
   border: 1px solid #FA8258 !important;
 }
 a:link { text-decoration: none; }
+
+/*
+* Blocks
+*/
+.search-box-content {
+  height: 17em;
+}
+#search-block-form {
+  margin-top: 2em;
+}
+.form-search {
+  margin-bottom: 3em !important;
+}
+
+/*
+* Vues
+*/
+.card-border {
+  border: 1px solid #212736 !important;
+}
