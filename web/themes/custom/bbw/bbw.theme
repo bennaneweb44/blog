@@ -31,4 +31,3 @@ function bbw_preprocess_page(&$variables) {
 		$variables['slider_image_path'] = \Drupal::service('file_url_generator')->generateAbsoluteString($imageuri);
 	};
 }
-
