@@ -12,3 +12,22 @@ function bbw_preprocess_views_view(&$variables) {
     ];
   }
 }
+
+function bbw_preprocess_page(&$variables) {
+	$variables['slider_show'] = theme_get_setting('slider_show', 'bbw');
+  $variables['slider_code'] = theme_get_setting('slider_code', 'bbw');
+  $variables['slider_speed'] = theme_get_setting('slider_speed', 'bbw');
+  $variables['slider_image'] = theme_get_setting('slider_image', 'bbw');
+	$slider_image_id = theme_get_setting('slider_image', 'bbw');
+	if(!empty($slider_image_id)) {
+		$slider_image_file = File::load($slider_image_id[0]);
+		$slider_image_file->setPermanent();
+		$slider_image_file->save();
+		$slider_image_file_usage = \Drupal::service('file.usage');
+		$slider_image_file_usage->add($slider_image_file, 'bbw', 'theme', $slider_image_id[0]);
+	};
+	if(!empty($slider_image_file)) {
+    $imageuri = $slider_image_file->getFileUri();
+		$variables['slider_image_path'] = \Drupal::service('file_url_generator')->generateAbsoluteString($imageuri);
+	};
+}
