@@ -14,7 +14,7 @@ header_width: header_width_contained
 main_width: main_width_contained
 footer_width: footer_width_contained
 slider_show: 1
-slider_code: ''
+slider_code: '966'
 slider_image: {  }
 slider_image_path: ''
 slider_speed: '5000'
