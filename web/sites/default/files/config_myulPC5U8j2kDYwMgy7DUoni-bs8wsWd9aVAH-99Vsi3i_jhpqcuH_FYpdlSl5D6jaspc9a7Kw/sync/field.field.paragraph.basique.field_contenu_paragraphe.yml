@@ -15,7 +15,10 @@ label: 'Contenu paragraphe'
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: "<p>.</p>\r\n"
+    format: full_html
 default_value_callback: ''
 settings: {  }
 field_type: text_long

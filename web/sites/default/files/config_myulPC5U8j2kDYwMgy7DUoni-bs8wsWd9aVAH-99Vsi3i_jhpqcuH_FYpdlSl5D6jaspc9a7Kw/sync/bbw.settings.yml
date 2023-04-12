@@ -14,7 +14,7 @@ footer_width: footer_width_contained
 slider_show: 1
 slider_speed: '3'
 slider_image: {  }
-slider_code: "<li>\r\n        <h1>ZZZZZZZ, <em>Modern</em> and Expertly Crafted</h1>\r\n        <p>Ruhi is packed full of all the amazing features and options for you to create an amazing edication website.</p>\r\n  \t<a class=\"button\" href=\"#\">Get Started</a>\r\n</li>\r\n<li>\r\n\t<h1>AAAAA Weight and <em>Fast</em> to boost Performance</h1>\r\n\t<p>We are committed to your digital performance. With awesome features its amazing fast.</p>\r\n\t<a class=\"button\" href=\"#\">Get Started</a>\r\n</li>\r\n<li>\r\n\t<h1>AAAAA customer is the best business strategy</h1>\r\n\t<p>We have high academic programs and fully qualified faculties with over 12 years of teaching experience.</p>\r\n\t<a class=\"button\" href=\"#\">Get Started</a>\r\n</li>"
+slider_code: "<li>\r\n        <h1>Un apprentissage en mode <em>step by step</em></h1>\r\n        <p>De l'algorithmique aux tests, en passant par le développement backend et frontend, ainsi que l'administration de la base de données ..</p>\r\n  \t<a class=\"button\" href=\"/tutoriels\"><i class=\"fa-solid fa-book-open-reader\"></i> Tutoriels</a>\r\n</li>\r\n<li>\r\n\t<h1>De la <em>pratique</em>, c'est important aussi !</h1>\r\n\t<p>Un petit projet d'exemple, ou une petite mise en situation, tout est disponible selon la catégorie ..</p>\r\n\t<a class=\"button\" href=\"/projets\"><i class=\"fas fa-project-diagram\"></i> Découvrir</a>\r\n</li>"
 header_style: null
 header_main_default: 0
 header_main_padding_top: ''
