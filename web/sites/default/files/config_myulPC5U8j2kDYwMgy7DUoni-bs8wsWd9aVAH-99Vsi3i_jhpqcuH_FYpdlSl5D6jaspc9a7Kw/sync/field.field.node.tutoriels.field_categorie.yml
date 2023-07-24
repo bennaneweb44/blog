@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_categorie
     - node.type.tutoriels
-    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.categories
 id: node.tutoriels.field_categorie
 field_name: field_categorie
 entity_type: node
@@ -20,10 +20,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      tags: tags
+      categories: categories
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: categories
 field_type: entity_reference
