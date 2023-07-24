@@ -141,3 +141,22 @@ MORE INFORMATION
  * For information about the wide range of available support options, visit
    https://www.drupal.org and click on Community and Support in the top or
    bottom navigation.
+
+ERREURS FREQUENTES
+------------------
+
+chmod 555 sites/default
+chmod 444 site/default/settings.php
+
+mkdir sites/default/files
+mkdir sites/default/files/translations
+
+cp sites/default/default.settings.php sites/default/settings.php
+
+chmod 775 sites/default
+chmod 775 sites/default/settings.php
+
+CONFIG IMPORT
+-------------
+> ./drush config:set system.site uuid <uuid-from-config> -y
+> supprimer raccourcis dans admin [admin/config/user-interface/shortcut]
